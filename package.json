@@ -3,10 +3,10 @@
   "version": "1.0.0",
   "description": "",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "parcel index.html"
   },
-  "author": "",
-  "license": "ISC",
+  "author": "Alan. Zhufeng Xu",
+  "license": "MIT",
   "dependencies": {
     "d3": "^5.7.0"
   },
