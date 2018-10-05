@@ -9,11 +9,16 @@
 - bar chart with average line (TODO)
 - bar chart with customized reference line (TODO)
 - bar chart with timeline (TODO)
+- side-by-side barchart (TODO)
 
 ### Line Chart
+- simple lien chart (TODO)
 
 ### Pie Chart
+- simple pie chart (TODO)
 
 ### Scatter Plot
+- simple scatter plot (TODO)
 
 ### Map
+- simple map (TODO)
