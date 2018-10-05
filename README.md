@@ -3,7 +3,7 @@
 
 ### Bar Chart
 - simple bar chart
-- horizontal bar chart (TODO)
+- horizontal bar chart
 - stacked bar chart (TODO)
 - bar chart with label and interaction (TODO)
 - bar chart with average line (TODO)

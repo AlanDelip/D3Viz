@@ -1,4 +1,4 @@
-let d3 = require('d3');
+const d3 = require('d3');
 import {cate_cont} from '../data/xy-data'
 
 // clean/analyze/convert the data
@@ -15,8 +15,8 @@ let height = svg.attr("height"), width = svg.attr("width");
 // mapping function
 // for a xy-coordinate, we should have x() and y() mapping functions. Each contains a domain and a mapping range.
 let x = d3.scaleBand()
-	// scaleBand() used for building up bands with averaged width and padding
-	// in this case, we are mapping ordinal domains to a continuous range
+// scaleBand() used for building up bands with averaged width and padding
+// in this case, we are mapping ordinal domains to a continuous range
 	.domain(data.map(d => d.name))
 	.range([margin.left, width - margin.right])
 	.padding(0.1);
@@ -27,7 +27,7 @@ let y = d3.scaleLinear()
 
 // configurations of axis
 let xAxis = g => g
-	// small tweaks because of margin
+// small tweaks because of margin
 	.attr("transform", `translate(0,${height - margin.bottom})`)
 	// Invokes the specified function exactly once, passing in this selection along with any optional arguments.
 	// Returns this selection. This is equivalent to invoking the function by hand but facilitates method chaining.
@@ -49,10 +49,19 @@ svg.append("g")
 svg.append("g")
 	.attr("fill", "#4285f4")
 	.selectAll("rect").data(data).enter().append("rect")
-	// map x using x() from category/value to coordinates
+// map x using x() from category/value to coordinates
 	.attr("x", d => x(d.name))
 	.attr("y", d => y(d.value))
 	// mapping of y: the top of the rect is the start of y.
 	.attr("height", d => y(0) - y(d.value))
 	// calculated bandwidth
 	.attr("width", x.bandwidth());
+
+let format = d3.format(".3f");
+svg.append("g")
+	.attr("fill", "black")
+	.style("font", "12px sans-serif")
+	.selectAll("text").data(data).enter().append("text")
+	.attr("x", d => x(d.name))
+	.attr("y", d => y(d.value) - 2)
+	.text(d => format(d.value));
