@@ -3,9 +3,33 @@
 <head>
     <meta charset="UTF-8">
     <title>D3_Viz</title>
+    <style>
+        .text-center {
+            text-align: center;
+        }
+
+        .chart-container {
+            padding: 10px;
+            border-bottom: 2px solid grey;
+        }
+
+        .title{
+            font-size: 1.5em;
+            font-weight: bold;
+        }
+    </style>
 </head>
 <body>
-<svg width="960" height="500"></svg>
+<div class="text-center">
+    <div class="chart-container">
+        <div class="title">Simple Bar Chart</div>
+        <svg id="simple-barchart" width="960" height="500"></svg>
+    </div>
+    <div class="chart-container">
+        <div class="title">Horizontal Bar Chart</div>
+        <svg id="horizontal-barchart" width="960" height="500"></svg>
+    </div>
+</div>
 <script src="barcharts/simple-barchart.js"></script>
 </body>
 </html>
