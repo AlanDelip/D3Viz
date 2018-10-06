@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Map</title>
+    <style>
+        .text-center {
+            text-align: center;
+        }
+
+        .chart-container {
+            padding: 10px;
+            border-bottom: 2px solid grey;
+        }
+
+        .title {
+            font-size: 1.5em;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+<div class="text-center">
+    <div class="chart-container">
+        <div class="title">Simple Map</div>
+        <svg id="simple-map" width="960" height="600" stroke-linejoin="round" stroke-linecap="round">
+            <defs>
+                <filter id="blur">
+                    <feGaussianBlur stdDeviation="5"></feGaussianBlur>
+                </filter>
+            </defs>
+        </svg>
+    </div>
+</div>
+<script src="simple-map.js"></script>
+</body>
+</html>

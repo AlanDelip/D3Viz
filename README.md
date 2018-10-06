@@ -21,4 +21,7 @@
 - simple scatter plot (TODO)
 
 ### Map
-- simple map (TODO)
+- simple map
+- zoomable map (TODO)
+- map with customized dots (TODO)
+- map within certain ranges (TODO)
