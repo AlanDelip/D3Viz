@@ -3,6 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <title>Map</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.4/dist/leaflet.css"
+          integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA=="
+          crossorigin=""/>
     <style>
         .text-center {
             text-align: center;
@@ -21,17 +24,16 @@
 </head>
 <body>
 <div class="text-center">
+    <!--<div class="chart-container">-->
+        <!--<div class="title">Simple Map</div>-->
+        <!--<svg id="simple-map" width="960" height="600" fill="none" stroke="#000" stroke-linejoin="round" stroke-linecap="round"></svg>-->
+    <!--</div>-->
     <div class="chart-container">
-        <div class="title">Simple Map</div>
-        <svg id="simple-map" width="960" height="600" stroke-linejoin="round" stroke-linecap="round">
-            <defs>
-                <filter id="blur">
-                    <feGaussianBlur stdDeviation="5"></feGaussianBlur>
-                </filter>
-            </defs>
-        </svg>
+        <div class="title">Leaflet Map</div>
+        <div id="leaflet-map" style="height: 900px; width: 900px;"></div>
     </div>
 </div>
-<script src="simple-map.js"></script>
+<!--<script src="simple-map.js"></script>-->
+<script src="leaflet-map.js"></script>
 </body>
 </html>

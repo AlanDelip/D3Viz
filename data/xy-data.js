@@ -28,13 +28,13 @@ export const cate_cont = [
 ];
 
 export const cont_cont = [
-	{star: 1, count: 23},
+	{star: 1, count: 39},
 	{star: 1.5, count: 45},
-	{star: 2, count: 78},
-	{star: 2.5, count: 120},
-	{star: 3, count: 280},
-	{star: 3.5, count: 577},
-	{star: 4, count: 1208},
-	{star: 4.5, count: 1128},
-	{star: 5, count: 899}
+	{star: 2, count: 73},
+	{star: 2.5, count: 92},
+	{star: 3, count: 94},
+	{star: 3.5, count: 91},
+	{star: 4, count: 82},
+	{star: 4.5, count: 54},
+	{star: 5, count: 59}
 ];
