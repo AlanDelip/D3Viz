@@ -6,8 +6,8 @@
 - horizontal bar chart
 - stacked bar chart (TODO)
 - bar chart with label and interaction (TODO)
-- bar chart with average line (TODO)
-- bar chart with customized reference line (TODO)
+- bar chart with average line
+- bar chart with customized reference line
 - bar chart with timeline (TODO)
 - side-by-side barchart (TODO)
 
