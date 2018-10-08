@@ -4,7 +4,7 @@
 ### Bar Chart
 - simple bar chart
 - horizontal bar chart
-- stacked bar chart (TODO)
+- stacked bar chart
 - bar chart with label and interaction (TODO)
 - bar chart with average line
 - bar chart with customized reference line
@@ -12,7 +12,7 @@
 - side-by-side barchart (TODO)
 
 ### Line Chart
-- simple lien chart (TODO)
+- simple line chart (TODO)
 
 ### Pie Chart
 - simple pie chart (TODO)
@@ -22,6 +22,6 @@
 
 ### Map
 - simple map
-- zoomable map (TODO)
-- map with customized dots (TODO)
-- map within certain ranges (TODO)
+- zoomable map
+- map with customized dots
+- map within certain ranges
