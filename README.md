@@ -22,6 +22,11 @@
 
 ### Map
 - simple map
+![Simple Map](maps/simple-map/simple-map.png)
 - zoomable map
 - map with customized dots
 - map within certain ranges
+![Leaflet Map](maps/leaflet-map/leaflet-map.png)
+
+### Music Viz
+![Music Viz](music_viz/music_viz.png)

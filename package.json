@@ -4,7 +4,8 @@
   "description": "",
   "scripts": {
     "barchart": "parcel barcharts/index.html",
-    "map": "parcel maps/index.html"
+    "map": "parcel maps/index.html",
+    "music": "parcel music_viz/index.html"
   },
   "author": "Alan. Zhufeng Xu",
   "license": "MIT",
