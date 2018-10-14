@@ -3,7 +3,7 @@ let sound, fft, spinner,
 	height = 900;
 
 function preload() {
-	sound = loadSound('feels.mp3');
+	sound = loadSound('sample.mp3');
 }
 
 function setup() {
