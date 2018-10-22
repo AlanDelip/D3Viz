@@ -1,6 +1,53 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <style>
+        body {
+            margin: 0;
+            overflow: hidden;
+        }
+
+        .leaflet-path-draggable {
+            fill: transparent;
+        }
+
+        .select-btn {
+            position: absolute;
+            z-index: 1000;
+            height: 30px;
+            padding: 0 5px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            background: white;
+            border: 2px solid #ccc;
+            border-radius: 2px;
+        }
+
+        .select-detail {
+            display: none;
+        }
+
+        .select-btn:hover .select-detail {
+            display: inline;
+        }
+
+        .side-panel {
+            background: rgba(0, 0, 0, 0.5);
+            position: absolute;
+            right: 0;
+            top: 0;
+            width: 40%;
+            height: 100vh;
+            z-index: 1000;
+            transition: transform ease-in-out .5s;
+        }
+
+        .hidden {
+            transform: translate(100%, 0)
+        }
+    </style>
     <meta charset="UTF-8">
     <title>Map</title>
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.4/dist/leaflet.css"
@@ -8,7 +55,19 @@
           crossorigin=""/>
 </head>
 <body>
-<div id="leaflet-map" style="height: 900px; width: 100%;"></div>
+<div id="leaflet-map" style="height: 100vh; width: 100%;"></div>
+<div id="side-panel" class="side-panel hidden">
+    <div id="analysis-bar-chart" style="width: 100%;height: 300px;"></div>
+</div>
+<div class="select-btn" style="top: 100px;left: 10px;" onclick="G.startRect()">
+    <img style="width: 20px;height: 20px;"
+         src="data:image/svg+xml;utf8;base64,PD94bWwgdmVyc2lvbj0iMS4wIj8+CjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiBoZWlnaHQ9IjE2cHgiIHZpZXdCb3g9IjAgMCA1MTIgNTEyIiB3aWR0aD0iMTZweCI+PHBhdGggZD0ibTUxMiA4Mi4zNjMyODF2LTgyLjM2MzI4MWgtODIuMTk5MjE5djI2LjE3MTg3NWgtMTMyLjE5NTMxMnYtMjYuMTcxODc1aC04Mi4xOTkyMTl2MjYuMTcxODc1aC0xMzMuMjA3MDMxdi0yNi4xNzE4NzVoLTgyLjE5OTIxOXY4Mi4zNjMyODFoMjcuMTM2NzE5djEzMi40NTcwMzFoLTI2LjEyMTA5NHY4Mi4zNjMyODJoMjYuMTE3MTg3djEzMi40NTcwMzFoLTI2LjEyMTA5M3Y4Mi4zNTkzNzVoODIuMTk5MjE5di0yNi4xNzE4NzVoMTMyLjE5NTMxMnYyNi4xNzE4NzVoODIuMTk5MjE5di0yNi4xNzE4NzVoMTMyLjE5OTIxOXYyNi4xNzE4NzVoODIuMTk1MzEydi04Mi4zNjMyODFoLTI1LjgyMDMxMnYtMTMyLjQ1NzAzMWgyNS44MTY0MDZ2LTgyLjM1OTM3NmgtMjUuODE2NDA2di0xMzIuNDU3MDMxem0tNTIuMjM0Mzc1LTUyLjM0Mzc1aDIyLjI3MzQzN3YyMi4zMjAzMTNoLTIyLjI3MzQzN3ptLTIxNC4zOTg0MzcgMGgyMi4yNzczNDN2MjIuMzIwMzEzaC0yMi4yNzczNDN6bS0yMTUuNDA2MjUgMGgyMi4yNzM0Mzd2MjIuMzIwMzEzaC0yMi4yNzM0Mzd6bTIzLjI4NTE1NiA0NTEuOTYwOTM4aC0yMi4yNzM0Mzh2LTIyLjMyMDMxM2gyMi4yNzczNDR2MjIuMzIwMzEzem0uMDA3ODEyLTIxNC44MjAzMTNoLTIyLjI3NzM0NHYtMjIuMzIwMzEyaDIyLjI3NzM0NHptMjE0LjM5MDYyNSAyMTQuODIwMzEzaC0yMi4yNzczNDN2LTIyLjMyMDMxM2gyMi4yNzczNDN6bTIxNC4zOTQ1MzEgMGgtMjIuMjczNDM3di0yMi4zMjAzMTNoMjIuMjczNDM3em0tLjAwMzkwNi0yMzcuMTQwNjI1djIyLjMyMDMxMmgtMjIuMjczNDM3di0yMi4zMjAzMTJ6bS0yNS44NTU0NjgtMzAuMDE5NTMyaC0yNi4zNzg5MDd2ODIuMzU5Mzc2aDI2LjM3ODkwN3YxMzIuNDU3MDMxaC0yNi4zNzV2MjYuMTcxODc1aC0xMzIuMTk5MjE5di0yNi4xNzE4NzVoLTgyLjE5OTIxOXYyNi4xNzE4NzVoLTEzMi4xOTUzMTJ2LTI2LjE3MTg3NWgtMjYuMTEzMjgydi0xMzIuNDU3MDMxaDI2LjExNzE4OHYtODIuMzU5Mzc2aC0yNi4xMTcxODh2LTEzMi40NTcwMzFoMjUuMTAxNTYzdi0yNi4xNzE4NzVoMTMzLjIwNzAzMXYyNi4xNzE4NzVoODIuMTk5MjE5di0yNi4xNzE4NzVoMTMyLjE5OTIxOXYyNi4xNzE4NzVoMjYuMzc1em0wIDAiIGZpbGw9IiMwMDAwMDAiLz48cGF0aCBkPSJtMTg0LjIzMDQ2OSAzMzAuNzQ2MDk0IDM2Ljc2OTUzMSA3OS41NTQ2ODcgOTIuODE2NDA2LTIxNy45NzY1NjItMjExLjE3MTg3NSAxMDYuNzM4Mjgxem0zNS42NDg0MzcgNS42ODc1LTEzLjU0Mjk2OC0yOS4zMDA3ODItMzAuMDQ2ODc2LTExLjY2Nzk2OCA3Ny43NzM0MzgtMzkuMzEyNXptMCAwIiBmaWxsPSIjMDAwMDAwIi8+PC9zdmc+Cg=="/>
+    <span class="select-detail" style="margin-left: 3px">Explore Area</span>
+</div>
+<span class="select-btn" style="top: 132px;left: 10px;" onclick="G.reset()">
+    <span style="width: 20px;height: 20px;text-align: center">✖</span>
+    <span class="select-detail">Clear Area</span>
+</span>
 <script src="leaflet-map.js"></script>
 </body>
 </html>

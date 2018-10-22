@@ -4,7 +4,7 @@
   "description": "",
   "scripts": {
     "barchart": "parcel barcharts/index.html",
-    "map": "parcel maps/index.html",
+    "map": "parcel maps/index.html --global G",
     "music": "parcel music_viz/index.html"
   },
   "author": "Alan. Zhufeng Xu",
@@ -17,6 +17,7 @@
     "d3-scale-chromatic": "^1.3.3",
     "d3-tip": "^0.9.1",
     "leaflet": "^1.3.4",
+    "leaflet-shades": "^0.1.2",
     "topojson-client": "^3.0.0"
   },
   "devDependencies": {
