@@ -27,6 +27,8 @@
 - map with customized dots
 - map within certain ranges
 ![Leaflet Map](maps/leaflet-map/leaflet-map.png)
+- map with selected area analysis
+![Leaflet Map](maps/leaflet-map/area-select-analysis.png)
 
 ### Music Viz
 ![Music Viz](music_viz/music_viz.png)

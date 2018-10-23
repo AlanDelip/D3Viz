@@ -7,7 +7,7 @@ import chroma from 'chroma-js';
 let data = [];
 
 // init position in the airport of Las Vegas
-let map = L.map('leaflet-map', {editable: true}).setView([36.085273, -115.148976], 14);
+let map = L.map('leaflet-map', {editable: true}).setView([36.161778, -115.173107], 12);
 
 // connect to mapbox data
 L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}', {
@@ -18,9 +18,10 @@ L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={
 }).addTo(map);
 
 // init map and d3
-let svg = d3.select(map.getPanes().overlayPane).append("svg").attr("width", map.getSize().x).attr("height", 900);
+let svg = d3.select(map.getPanes().overlayPane).append("svg").attr("width", document.getElementById("leaflet-map").offsetWidth).attr("height", document.getElementById("leaflet-map").offsetHeight);
 let g = svg.append("g").attr("class", "leaflet-zoom-hide");
-let analysisG = d3.select("#analysis-bar-chart").append("svg").attr("height", 300).append("g");
+let analysisSvg = d3.select("#analysis-bar-chart").append("svg").attr("width", document.getElementById("analysis-bar-chart").offsetWidth).attr("height", document.getElementById("analysis-bar-chart").offsetHeight);
+let overallSvg = d3.select("#overall-bar-chart").append("svg").attr("width", document.getElementById("overall-bar-chart").offsetWidth).attr("height", document.getElementById("overall-bar-chart").offsetHeight);
 let count_size;
 let points;
 let selectedPoints;
@@ -32,7 +33,8 @@ let star_color_selected = chroma.scale(['#fff5eb', '#fee6ce', '#fdd0a2', '#fdae6
 	.domain([1, 1.5, 2, 2.5, 3, 3.5, 4, 4.5, 5]);
 
 // load and process data
-d3.json("las_vegas_airport.json").then(res => {
+// https://raw.githubusercontent.com/AlanDelip/D3Viz/master/data/las_vegas_airport.json
+d3.json("https://raw.githubusercontent.com/AlanDelip/D3Viz/master/data/las_vegas.json").then(res => {
 	Object.keys(res).forEach(k => {
 		let restaurant = res[k];
 		data.push({
@@ -45,30 +47,87 @@ d3.json("las_vegas_airport.json").then(res => {
 		});
 	});
 
+	initData();
+
+	map.on("zoomend", e => {
+		update(points, e.target.getZoom());
+		update(selectedPoints, e.target.getZoom());
+	});
+
+	renderOverallAnalysis();
+});
+
+function initData() {
 	// map sizes
 	count_size = d3.scaleLinear()
 		.domain([0, d3.max(data, d => d.review_count)])
-		.range([4, 10]);
+		.range([3, 10]);
 
 	points = g.selectAll("circle")
 		.data(data)
 		.enter().append("circle")
-		.style("opacity", .85)
 		.style("fill", d => star_color(d.stars))
 		.attr("r", d => 0);
-
-	points.transition()
-		.delay((d, i) => i)
-		.attr("r", d => count_size(d.review_count));
 
 	// init points position
 	update(points, map.getZoom());
 
-	map.on("zoom", e => {
-		update(points, e.target.getZoom());
-		update(selectedPoints, e.target.getZoom());
-	});
-});
+	// add color legend
+	let legendData = [{star: 1}, {star: 1.5}, {star: 2}, {star: 2.5}, {star: 3}, {star: 3.5}, {star: 4}, {star: 4.5}, {star: 5}];
+	for (let legend of legendData) {
+		legend.color = star_color(legend.star);
+	}
+	let legendSvg = d3.select("#legend").append("svg");
+	let legend = legendSvg.append("g")
+		.selectAll("g")
+		.data(legendData)
+		.enter().append("g")
+		.attr("transform", (d, i) => `translate(${i * 16},0)`);
+
+	legend.append("rect")
+		.attr("width", 15)
+		.attr("height", 15)
+		.attr("fill", d => d.color);
+
+	legend.append("text")
+		.style("font-size", ".85em")
+		.attr("x", 3)
+		.attr("y", 30)
+		.text(d => {
+			if (d.star in [1, 2, 3, 4, 5, 6]) {
+				return d.star;
+			} else {
+				return "";
+			}
+		});
+
+	// add size legend
+	let sizeData = [];
+	let min = d3.min(data, d => d.review_count), max = d3.max(data, d => d.review_count);
+	sizeData.push(
+		{count: min, size: count_size(min)},
+		{count: (max + min) / 2, size: count_size((max + min) / 2)},
+		{count: max, size: count_size(max)});
+	let sizeLegendSvg = d3.select("#size-legend").append("svg");
+	let sizeLegend = sizeLegendSvg.append("g")
+		.selectAll("g")
+		.data(sizeData)
+		.enter().append("g")
+		.attr("transform", (d, i) => `translate(${i * 45 + 10},10)`);
+
+	sizeLegend.append("circle")
+		.attr("r", d => d.size)
+		.attr("fill", "#6baed6");
+
+	sizeLegend.append("text")
+		.style("font-size", ".85em")
+		.attr("x", 0)
+		.attr("y", 30)
+		.attr("text-anchor", "middle")
+		.text(d => d.count);
+
+	document.getElementById("loading-mask").classList.add("transparent");
+}
 
 function update(points, level) {
 	if (points != null) {
@@ -88,12 +147,274 @@ function filterData(topLeft, bottomRight) {
 	selectedPane.selectAll("circle").remove();
 	selectedPoints = selectedPane.selectAll("circle").data(filteredData)
 		.enter().append("circle")
-		.style("opacity", .85)
 		.style("fill", d => star_color_selected(d.stars))
-		.attr("r", d => count_size(d.review_count));
+		.attr("r", 0);
 
 	update(selectedPoints, map.getZoom());
+	renderSelectedAnalysis(filteredData);
 	document.getElementById("side-panel").classList.remove("hidden");
+}
+
+function renderOverallAnalysis() {
+	overallSvg.selectAll("g").remove();
+	overallSvg.selectAll("line").remove();
+	overallSvg.selectAll("text").remove();
+
+	let margin = ({top: 20, right: 20, bottom: 30, left: 40});
+	let width = overallSvg.attr("width");
+	let height = overallSvg.attr("height");
+
+	let starData = [
+		{star: 1, count: 0},
+		{star: 1.5, count: 0},
+		{star: 2, count: 0},
+		{star: 2.5, count: 0},
+		{star: 3, count: 0},
+		{star: 3.5, count: 0},
+		{star: 4, count: 0},
+		{star: 4.5, count: 0},
+		{star: 5, count: 0}
+	];
+
+	data.forEach(data => {
+		for (let singleData of starData) {
+			if (singleData.star === data.stars) {
+				singleData.count++;
+			}
+		}
+	});
+
+	let x = d3.scaleBand()
+		.domain(starData.map(d => d.star))
+		.range([margin.left, width - margin.right])
+		.padding(0.1);
+
+	let x_linear = d3.scaleLinear()
+		.domain([0, d3.max(starData, d => d.star)])
+		.range([margin.left, width - margin.right]);
+
+	let y = d3.scaleLinear()
+		.domain([0, d3.max(starData, d => d.count)])
+		.range([height - margin.bottom, margin.top + 15]);
+
+	let xAxis = g => g
+		.attr("class", "axisWhite")
+		.attr("transform", `translate(0,${height - margin.bottom})`)
+		.call(d3.axisBottom(x).tickSizeOuter(0));
+
+	let yAxis = g => g
+		.attr("class", "axisWhite")
+		.attr("transform", `translate(${margin.left},0)`)
+		.call(d3.axisLeft(y).tickSize(10).tickSizeOuter(0))
+		.call(g => g.select(".domain").remove());
+
+	overallSvg.append("g")
+		.call(xAxis);
+
+	overallSvg.append("g")
+		.call(yAxis);
+
+	let bars =
+		overallSvg.append("g")
+			.attr("fill", "#6baed6")
+			.selectAll("rect").data(starData).enter()
+			.append("rect")
+			.attr("x", d => x(d.star) + x.bandwidth() / 4)
+			.attr("y", d => y(d.count))
+			.attr("height", 0)
+			.attr("width", x.bandwidth() / 2);
+
+	bars.transition()
+		.delay((d, i) => i * 50)
+		.attr("height", d => y(0) - y(d.count));
+
+	let texts =
+		overallSvg.append("g")
+			.attr("fill", "white")
+			.attr("text-anchor", "middle")
+			.selectAll("text").data(starData).enter()
+			.append("text")
+			.attr("x", d => x(d.star) + x.bandwidth() / 2)
+			.attr("y", 0)
+			.text(d => d.count);
+
+	texts.transition()
+		.delay((d, i) => i * 50)
+		.attr("y", d => y(d.count) - 5);
+
+	let star_sum = 0;
+	let star_count = 0;
+	starData.forEach(d => {
+		star_sum += d.count * d.star;
+		star_count += d.count;
+	});
+	let ave_city_data = parseFloat(d3.format(".3f")(star_sum / star_count));
+
+	let ave_line =
+		overallSvg.append("line")
+			.attr("stroke", "white")
+			.attr("stroke-width", 3)
+			.attr("stroke-dasharray", 10)
+			.attr("x1", x_linear(ave_city_data))
+			.attr("x2", x_linear(ave_city_data))
+			.attr("y1", margin.top)
+			.attr("y2", margin.top);
+
+	ave_line.transition()
+		.duration(1000)
+		.attr("y2", height - margin.bottom);
+
+	overallSvg.append("text")
+		.attr("fill", "white")
+		.attr("text-anchor", "middle")
+		.style("font", "12px sans-serif")
+		.attr("x", x_linear(ave_city_data))
+		.attr("y", margin.top - 10)
+		.text(`average: ${ave_city_data}`);
+
+	overallSvg.append("text")
+		.attr("fill", "white")
+		.attr("y", margin.top - 5)
+		.attr("x", 0)
+		.text("Count of Stars");
+
+	overallSvg.append("text")
+		.attr("text-anchor", "end")
+		.attr("fill", "white")
+		.attr("y", height - margin.bottom + 15)
+		.attr("x", width)
+		.text("Stars");
+}
+
+function renderSelectedAnalysis(filteredData) {
+	analysisSvg.selectAll("g").remove();
+	analysisSvg.selectAll("line").remove();
+	analysisSvg.selectAll("text").remove();
+
+	let margin = ({top: 20, right: 20, bottom: 30, left: 40});
+	let width = analysisSvg.attr("width");
+	let height = analysisSvg.attr("height");
+
+	let starData = [
+		{star: 1, count: 0},
+		{star: 1.5, count: 0},
+		{star: 2, count: 0},
+		{star: 2.5, count: 0},
+		{star: 3, count: 0},
+		{star: 3.5, count: 0},
+		{star: 4, count: 0},
+		{star: 4.5, count: 0},
+		{star: 5, count: 0}
+	];
+
+	filteredData.forEach(data => {
+		for (let singleData of starData) {
+			if (singleData.star === data.stars) {
+				singleData.count++;
+			}
+		}
+	});
+
+	let x = d3.scaleBand()
+		.domain(starData.map(d => d.star))
+		.range([margin.left, width - margin.right])
+		.padding(0.1);
+
+	let x_linear = d3.scaleLinear()
+		.domain([0, d3.max(starData, d => d.star)])
+		.range([margin.left, width - margin.right]);
+
+	let y = d3.scaleLinear()
+		.domain([0, d3.max(starData, d => d.count)])
+		.range([height - margin.bottom, margin.top + 15]);
+
+	let xAxis = g => g
+		.attr("class", "axisWhite")
+		.attr("transform", `translate(0,${height - margin.bottom})`)
+		.call(d3.axisBottom(x).tickSizeOuter(0));
+
+	let yAxis = g => g
+		.attr("class", "axisWhite")
+		.attr("transform", `translate(${margin.left},0)`)
+		.call(d3.axisLeft(y).tickSize(10).tickSizeOuter(0))
+		.call(g => g.select(".domain").remove());
+
+	analysisSvg.append("g")
+		.call(xAxis);
+
+	analysisSvg.append("g")
+		.call(yAxis);
+
+	let bars =
+		analysisSvg.append("g")
+			.attr("fill", "#fd8d3c")
+			.selectAll("rect").data(starData).enter()
+			.append("rect")
+			.attr("x", d => x(d.star) + x.bandwidth() / 4)
+			.attr("y", d => y(d.count))
+			.attr("height", 0)
+			.attr("width", x.bandwidth() / 2);
+
+	bars.transition()
+		.delay((d, i) => i * 50)
+		.attr("height", d => y(0) - y(d.count));
+
+	let texts =
+		analysisSvg.append("g")
+			.attr("fill", "white")
+			.attr("text-anchor", "middle")
+			.selectAll("text").data(starData).enter()
+			.append("text")
+			.attr("x", d => x(d.star) + x.bandwidth() / 2)
+			.attr("y", 0)
+			.text(d => d.count);
+
+	texts.transition()
+		.delay((d, i) => i * 50)
+		.attr("y", d => y(d.count) - 5);
+
+	let star_sum = 0;
+	let star_count = 0;
+	starData.forEach(d => {
+		star_sum += d.count * d.star;
+		star_count += d.count;
+	});
+	let ave_city_data = parseFloat(d3.format(".3f")(star_sum / star_count));
+
+	let ave_line =
+		analysisSvg.append("line")
+			.attr("stroke", "white")
+			.attr("stroke-width", 3)
+			.attr("stroke-dasharray", 10)
+			.attr("x1", x_linear(ave_city_data))
+			.attr("x2", x_linear(ave_city_data))
+			.attr("y1", margin.top)
+			.attr("y2", margin.top);
+
+	ave_line.transition()
+		.duration(1000)
+		.attr("y2", height - margin.bottom);
+
+	analysisSvg.append("text")
+		.attr("fill", "white")
+		.attr("text-anchor", "middle")
+		.style("font", "12px sans-serif")
+		.attr("x", x_linear(ave_city_data))
+		.attr("y", margin.top - 10)
+		.text(`average: ${ave_city_data}`);
+
+	analysisSvg.append("text")
+		.attr("fill", "white")
+		.attr("y", margin.top - 5)
+		.attr("x", 0)
+		.text("Count of Stars");
+
+	analysisSvg.append("text")
+		.attr("text-anchor", "end")
+		.attr("fill", "white")
+		.attr("y", height - margin.bottom + 15)
+		.attr("x", width)
+		.text("Stars");
 }
 
 export function startRect() {
@@ -121,7 +442,7 @@ export function reset() {
 	}
 
 	if (selectedPoints != null) {
-		selectedPoints.transition().delay((d, i) => i).remove();
+		selectedPoints.transition().delay((d, i) => i / 2).remove();
 	}
 	document.getElementById("side-panel").classList.add("hidden");
 }
