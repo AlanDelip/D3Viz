@@ -6,174 +6,115 @@
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.4/dist/leaflet.css"
           integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA=="
           crossorigin=""/>
-    <style>
-        body {
-            margin: 0;
-            overflow: hidden;
-        }
-
-        .leaflet-path-draggable {
-            fill: transparent;
-        }
-
-        #loading-mask {
-            width: 100vw;
-            height: 100vh;
-            background: rgba(0, 0, 0, 0.5);
-            position: fixed;
-            top: 0;
-            left: 0;
-            z-index: 400;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-
-        .load {
-            width: 100px;
-            animation: loading 3s linear infinite;
-        }
-
-        .loading-inner {
-            animation: loading-circle 2s linear infinite;
-            stroke: #66a4da;
-            stroke-width: 5px;
-            fill: transparent;
-            stroke-dashoffset: 0;
-            stroke-dasharray: 300;
-            stroke-miterlimit: 10;
-            stroke-linecap: round;
-        }
-
-        @keyframes loading {
-            0% {
-                transform: rotate(0);
-            }
-            100% {
-                transform: rotate(360deg);
-            }
-        }
-
-        @keyframes loading-circle {
-            0% {
-                stroke-dashoffset: 0;
-            }
-            100% {
-                stroke-dashoffset: -600;
-            }
-        }
-
-        .transparent {
-            opacity: 0;
-            display: none;
-        }
-
-        .select-btn {
-            position: absolute;
-            z-index: 1000;
-            height: 30px;
-            padding: 0 5px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            background: white;
-            border: 2px solid #ccc;
-            border-radius: 2px;
-        }
-
-        .select-detail {
-            display: none;
-        }
-
-        .select-btn:hover .select-detail {
-            display: inline;
-        }
-
-        .side-panel {
-            background: rgba(0, 0, 0, 0.5);
-            position: absolute;
-            right: 0;
-            top: 0;
-            width: 45%;
-            height: 100vh;
-            z-index: 1000;
-            transition: transform ease-in-out .5s;
-            padding: 0 20px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .hidden {
-            transform: translate(100%, 0)
-        }
-
-        .side-title {
-            font-size: 1.5em;
-            font-weight: bold;
-            color: white;
-        }
-
-        .axisWhite line {
-            stroke: white;
-        }
-
-        .axisWhite path {
-            stroke: white;
-        }
-
-        .axisWhite text {
-            fill: white;
-        }
-
-        #legend-container {
-            position: absolute;
-            background: rgba(255, 255, 255, 0.65);
-            bottom: 0;
-            left: 0;
-            height: 60px;
-            padding: 5px 10px;
-            z-index: 1000;
-            display: flex;
-        }
-    </style>
+    <link href="https://fonts.googleapis.com/css?family=Rosario" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/intro.js/2.9.3/introjs.min.css" rel="stylesheet">
+    <link type="text/css" rel="stylesheet" href="leaflet-map.less">
 </head>
 <body>
-<div id="loading-mask">
-    <svg class="load" x="0px" y="0px" viewBox="0 0 150 150">
-        <circle class="loading-inner" cx="75" cy="75" r="60"></circle>
-    </svg>
-</div>
-<div id="leaflet-map" style="height: 100vh; width: 100%;"></div>
-
-<div id="side-panel" class="side-panel hidden">
-    <div class="side-title">Star Analysis in Selected Area</div>
-    <div id="analysis-bar-chart" style="width: 100%;height: 350px;margin-top: 15px"></div>
-
-    <div class="side-title" style="margin-top: 15px">Overall Star Analysis</div>
-    <div id="overall-bar-chart" style="width: 100%;height: 350px;margin-top: 15px"></div>
-</div>
-
-<div class="select-btn" style="top: 100px;left: 10px;" onclick="G.startRect()">
-    <img style="width: 20px;height: 20px;"
-         src="data:image/svg+xml;utf8;base64,PD94bWwgdmVyc2lvbj0iMS4wIj8+CjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiBoZWlnaHQ9IjE2cHgiIHZpZXdCb3g9IjAgMCA1MTIgNTEyIiB3aWR0aD0iMTZweCI+PHBhdGggZD0ibTUxMiA4Mi4zNjMyODF2LTgyLjM2MzI4MWgtODIuMTk5MjE5djI2LjE3MTg3NWgtMTMyLjE5NTMxMnYtMjYuMTcxODc1aC04Mi4xOTkyMTl2MjYuMTcxODc1aC0xMzMuMjA3MDMxdi0yNi4xNzE4NzVoLTgyLjE5OTIxOXY4Mi4zNjMyODFoMjcuMTM2NzE5djEzMi40NTcwMzFoLTI2LjEyMTA5NHY4Mi4zNjMyODJoMjYuMTE3MTg3djEzMi40NTcwMzFoLTI2LjEyMTA5M3Y4Mi4zNTkzNzVoODIuMTk5MjE5di0yNi4xNzE4NzVoMTMyLjE5NTMxMnYyNi4xNzE4NzVoODIuMTk5MjE5di0yNi4xNzE4NzVoMTMyLjE5OTIxOXYyNi4xNzE4NzVoODIuMTk1MzEydi04Mi4zNjMyODFoLTI1LjgyMDMxMnYtMTMyLjQ1NzAzMWgyNS44MTY0MDZ2LTgyLjM1OTM3NmgtMjUuODE2NDA2di0xMzIuNDU3MDMxem0tNTIuMjM0Mzc1LTUyLjM0Mzc1aDIyLjI3MzQzN3YyMi4zMjAzMTNoLTIyLjI3MzQzN3ptLTIxNC4zOTg0MzcgMGgyMi4yNzczNDN2MjIuMzIwMzEzaC0yMi4yNzczNDN6bS0yMTUuNDA2MjUgMGgyMi4yNzM0Mzd2MjIuMzIwMzEzaC0yMi4yNzM0Mzd6bTIzLjI4NTE1NiA0NTEuOTYwOTM4aC0yMi4yNzM0Mzh2LTIyLjMyMDMxM2gyMi4yNzczNDR2MjIuMzIwMzEzem0uMDA3ODEyLTIxNC44MjAzMTNoLTIyLjI3NzM0NHYtMjIuMzIwMzEyaDIyLjI3NzM0NHptMjE0LjM5MDYyNSAyMTQuODIwMzEzaC0yMi4yNzczNDN2LTIyLjMyMDMxM2gyMi4yNzczNDN6bTIxNC4zOTQ1MzEgMGgtMjIuMjczNDM3di0yMi4zMjAzMTNoMjIuMjczNDM3em0tLjAwMzkwNi0yMzcuMTQwNjI1djIyLjMyMDMxMmgtMjIuMjczNDM3di0yMi4zMjAzMTJ6bS0yNS44NTU0NjgtMzAuMDE5NTMyaC0yNi4zNzg5MDd2ODIuMzU5Mzc2aDI2LjM3ODkwN3YxMzIuNDU3MDMxaC0yNi4zNzV2MjYuMTcxODc1aC0xMzIuMTk5MjE5di0yNi4xNzE4NzVoLTgyLjE5OTIxOXYyNi4xNzE4NzVoLTEzMi4xOTUzMTJ2LTI2LjE3MTg3NWgtMjYuMTEzMjgydi0xMzIuNDU3MDMxaDI2LjExNzE4OHYtODIuMzU5Mzc2aC0yNi4xMTcxODh2LTEzMi40NTcwMzFoMjUuMTAxNTYzdi0yNi4xNzE4NzVoMTMzLjIwNzAzMXYyNi4xNzE4NzVoODIuMTk5MjE5di0yNi4xNzE4NzVoMTMyLjE5OTIxOXYyNi4xNzE4NzVoMjYuMzc1em0wIDAiIGZpbGw9IiMwMDAwMDAiLz48cGF0aCBkPSJtMTg0LjIzMDQ2OSAzMzAuNzQ2MDk0IDM2Ljc2OTUzMSA3OS41NTQ2ODcgOTIuODE2NDA2LTIxNy45NzY1NjItMjExLjE3MTg3NSAxMDYuNzM4Mjgxem0zNS42NDg0MzcgNS42ODc1LTEzLjU0Mjk2OC0yOS4zMDA3ODItMzAuMDQ2ODc2LTExLjY2Nzk2OCA3Ny43NzM0MzgtMzkuMzEyNXptMCAwIiBmaWxsPSIjMDAwMDAwIi8+PC9zdmc+Cg=="/>
-    <span class="select-detail" style="margin-left: 3px">Explore Area</span>
-</div>
-<div class="select-btn" style="top: 132px;left: 10px;" onclick="G.reset()">
-    <span style="width: 20px;height: 20px;text-align: center">✖</span>
-    <span class="select-detail">Clear Area</span>
-</div>
-
-<div id="legend-container">
-    <div style="width: 170px;">
-        <div>Stars</div>
-        <div id="legend"></div>
+<div id="landing-page" class="full-page">
+    <div class="logo">
+        <img class="earth"
+             src="data:image/svg+xml;utf8;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iaXNvLTg4NTktMSI/Pgo8IS0tIEdlbmVyYXRvcjogQWRvYmUgSWxsdXN0cmF0b3IgMTkuMC4wLCBTVkcgRXhwb3J0IFBsdWctSW4gLiBTVkcgVmVyc2lvbjogNi4wMCBCdWlsZCAwKSAgLS0+CjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgdmVyc2lvbj0iMS4xIiBpZD0iQ2FwYV8xIiB4PSIwcHgiIHk9IjBweCIgdmlld0JveD0iMCAwIDUxMiA1MTIiIHN0eWxlPSJlbmFibGUtYmFja2dyb3VuZDpuZXcgMCAwIDUxMiA1MTI7IiB4bWw6c3BhY2U9InByZXNlcnZlIiB3aWR0aD0iNTEycHgiIGhlaWdodD0iNTEycHgiPgo8cGF0aCBzdHlsZT0iZmlsbDojNzhEMkZBOyIgZD0iTTM3OS4wMTUsNDY5LjAzNmMtMTE3LjYzLDY3LjkxNC0yNjguMDQyLDI3LjYxMS0zMzUuOTU2LTkwLjAxOVMxNS40NDcsMTEwLjk3MywxMzMuMDc4LDQzLjA2ICBTNDAxLjEyLDE1LjQ1LDQ2OS4wMzQsMTMzLjA3OVM0OTYuNjQ1LDQwMS4xMjIsMzc5LjAxNSw0NjkuMDM2eiIvPgo8Zz4KCTxwYXRoIHN0eWxlPSJmaWxsOiNBNURDNjk7IiBkPSJNMjczLjQwNCwxODIuNDUxYy0xLjc3LDAuNDE1LTUuMiwxLjI4Ni02LjY4MywyLjQ3NmMtMS44NTIsMS40ODUsMS4wNDIsMy40MTYtMC4wMTUsNC4yNjIgICBjLTEuODI1LDEuNDYtMy4xNDgsNC4xMDgtNy4wNTUsMy44NThjLTguMTYyLTAuNTIxLTIwLjcwNi0xMS4wNzktMjguMTY1LTE1LjA3YzEyLjAyNC0xMi4zNzQtNi45OTktMTQuMjI4LTE0LjQxMy0xMy42MDggICBjLTkuNjAxLDAuODAzLTI2LjIxNi0wLjA2My0zNC44ODksNC44MmMtNi4wMTksMy4zODktMTQuMTA5LDE3LjQ1NS0xOC45NTgsMjMuMDQyYy02Ljc1LDcuNzc2LTEzLjU0MiwxNC41MjctMTcuOTQsMjMuODM3ICAgYy0xNi4xMzUsMzQuMTUzLDguNjk5LDczLjM2Miw0Ny43MjksNjguNzc2YzEwLjgzNi0xLjI3MywyMi4yMDMtOC4wODYsMzEuODA3LDAuOTA0YzcuMDc3LDYuNjI1LDMuMzMyLDEyLjg2LDUuMjA4LDIwLjU4NiAgIGMxLjYyNCw2LjY4Niw5LjAyNywxMC43OTksMTEuNTg5LDE2LjkzOWM0LjkxMywxMS43NywxLjgwMiwxOS4xMzEtMS43MDUsMjkuOTg3Yy00LjYwMiwxNC4yNDUsNy4yOTksMzEuMTU4LDExLjkzMSw0NC45MDUgICBjMi4zMzIsNi45MjIsOS4xMjksMjYuMzA2LDE1LjgwMiwyOS4zMzljMTAuNDkyLDQuNzcsMjYuOTM3LTkuNTM1LDMzLjIwMi0xNy4yMjljNC44OTgtNi4wMTUsMy4yOTktMTIuMTI1LDYuNTg5LTE3Ljc1NyAgIGMzLjU2MS02LjA5NSw4LjA2Ny03LjkyNSwxMC41NjItMTUuNzgzYzIuNjg5LTguNDcsNS40ODMtMTAuNTc3LDExLjE2Mi0xNi43NThjOS4xNDMtOS45NDgsNy43MjMtMTUuNzY1LDQuMDY4LTI3LjU2MSAgIGMtNy41OTUtMjQuNTA2LDE5Ljk5Mi0zNS45NjIsMzIuNDE4LTUzLjk1MWMxMi45NzYtMTguNzg1LTEyLjEwNi0xMi41MjMtMjEuOTM2LTE4Ljk0OGMtMTAuMTA3LTYuNjA2LTE0LjUyNC0xOS4xNjEtMTkuMzk0LTI5LjU2OSAgIGMtNC44NzItMTAuNDA5LTguOTAzLTI2LjA1MS0xNi45Ny0zNC42MDFDMzAxLjEzMywxODguNzY0LDI4Mi4yMjksMTg1LjcxLDI3My40MDQsMTgyLjQ1MXoiLz4KCTxwYXRoIHN0eWxlPSJmaWxsOiNBNURDNjk7IiBkPSJNNDAwLjM1NiwzNDYuODQ0Yy0zLjkyMSwxMy4yMTQtNy44NDEsMjYuNDI4LTExLjc2MiwzOS42NDIgICBjLTIuNzQxLDkuMjM4LTEyLjQzMiwzOS40NTgtMjYuMDI4LDIwLjEwMWMtNS4xNjgtNy4zNTYtMC45NjUtMTYuOTk1LDEuOTE4LTIzLjc2NGMzLjYzNy04LjU0LTEuMjc4LTEyLjg0LDEuMjU4LTIwLjkyNSAgIGMyLjkwOC05LjI2NywxNC44NzItOS41ODQsMjAuNTMzLTE2LjEwMmMzLjk0OC00LjU0NCw2LjM4My0xMS43NjksOS4yNjgtMTcuMDg5QzM5Ny4xNDksMzM0Ljc1NCwzOTguNzUzLDM0MC43OTgsNDAwLjM1NiwzNDYuODQ0eiAgICIvPgoJPHBhdGggc3R5bGU9ImZpbGw6I0E1REM2OTsiIGQ9Ik00NjkuMDM0LDEzMy4wNzlDNDI2LjY3NCw1OS43MSwzNTIuMjE4LDE2LjQyOSwyNzMuNjQxLDEwLjcyMWwtMzIuMTYyLDQwLjM0NGwtNjguOTMxLDI0LjE2NiAgIGwtMTguNDkyLDQ0LjgyOGwyOC41MjUsMzkuOTU5bDMuMDMyLTguNDQ4YzUuMDYzLTE0LjEwNSwxOC40MzQtMjMuNTEyLDMzLjQxOS0yMy41MTJoNDcuMDEzbDU0LjA0LDE4Ljk5bDE4LjYxMywxNy43Njh2MTEuMjg2ICAgbDI1Ljg3Nyw0OS41NjdsNy41MzUtMi43NzljMTYuMjcyLTYsMzEuMDQ3LTE1LjQ1OCw0My4zMTEtMjcuNzIxbC02LjI0Ny05LjM3MmMtMS45ODctMi45OCwwLjE1LTYuOTcxLDMuNzMxLTYuOTcxaDE1LjA4ICAgYzQuNDE2LDAsOC42MSwxLjkzNCwxMS40NzgsNS4yOTJsMTIuMzE5LDE0LjQyM2MxLjE3NCwxLjM3NCwyLjA5MSwyLjk0OCwyLjcwOSw0LjY0NmwxMy41OTQsMzcuMzgzbDYuNDcxLTYuNDcxICAgYzQuMDgtNC4wODEsNi4xNDYtOS42NCw2LjI0Mi0xNS40MWMwLjA3Ny00LjYzOSwyLjA5LTkuMDQsNS41NTktMTIuMTM0bDQuOTU2LTQuNDJjMS4yNDYtMS4xMTEsMi42MzYtMi4wMTQsNC4xMTYtMi42OTcgICBDNDkwLjA0MiwxNzYuNzAzLDQ4MS4zMTcsMTU0LjM1NCw0NjkuMDM0LDEzMy4wNzl6Ii8+Cgk8cGF0aCBzdHlsZT0iZmlsbDojQTVEQzY5OyIgZD0iTTEwMS4xMDcsMTQyLjY4NmwxMS43NjMtMTIuNjA1YzguNTc3LTkuMTkxLDExLjAwNy0yMi41NDEsNi4yMTctMzQuMTY1bDAsMCAgIGMtNS4wNjQtMTIuMjktMTYuMTY3LTIwLjI1OC0yOC40NTctMjEuOTA2Yy00My40NCwzOS4zOTgtNzAuNDQ5LDkyLjM2Ny03OC4yMTksMTQ4LjQ3NGM5LjE4NCw4LjAyOCwxOC43OTUsMTYuNjIyLDE4Ljc0LDE3LjM3OSAgIGMtMC4xMDYsMS40NDksMzQuNDA5LTQuMzM4LDM0LjQwOS00LjMzOGwtMTcuNzY4LTI2LjA2NWwyNS41MTctMTguMjQ1TDEwMS4xMDcsMTQyLjY4NnoiLz4KCTxwYXRoIHN0eWxlPSJmaWxsOiNBNURDNjk7IiBkPSJNMTI1LjAyNSwzODcuNzM5YzExLjA4OC0zLjYwMiwxNy4xNTYtMTUuNTExLDEzLjU1NC0yNi41OThsLTMuMTY3LTkuNzQ5ICAgYy0xLjM4NC00LjI1OS0xLjM3Ny04Ljg0NywwLjAxOS0xMy4xMDJsMCwwYzMuOTU3LTEyLjA2Mi0zLjU1MS0yNC44NjItMTYuMDA5LTI3LjI5N2wtMjQuODUzLTQuODU3TDQ5LjE3LDI3MS42MTlsLTM3LjUzMywxMi4xOTMgICBjMy42ODYsMzIuNTk1LDEzLjk3Myw2NC45ODEsMzEuNDIxLDk1LjIwNGMxNi4xMzgsMjcuOTUxLDM2Ljk0LDUxLjUyNSw2MC44NDYsNzAuMzNsMTEuMTg0LTU4LjM3OUwxMjUuMDI1LDM4Ny43Mzl6Ii8+CjwvZz4KPHBhdGggZD0iTTM3My45OTcsNDYwLjM4OGwtMC4zODUsMC4yMjJjLTQuNzc2LDIuNzcxLTYuNDAxLDguODktMy42MzEsMTMuNjY3YzEuODU1LDMuMTk3LDUuMjEsNC45ODMsOC42NTgsNC45ODMgIGMxLjcwMiwwLDMuNDMtMC40MzcsNS4wMDktMS4zNTNsMC4zODUtMC4yMjJjNC43NzYtMi43NzEsNi40MDEtOC44OSwzLjYzMS0xMy42NjdDMzg0Ljg5NCw0NTkuMjQ0LDM3OC43NzYsNDU3LjYxNywzNzMuOTk3LDQ2MC4zODggIHoiLz4KPHBhdGggZD0iTTQ3Ny42OTQsMTI4LjA4QzQ0My41MTIsNjguODc1LDM4OC4zMjEsMjYuNTI2LDMyMi4yODcsOC44MzJDMjU2LjI1NS04Ljg2MiwxODcuMjgzLDAuMjE5LDEyOC4wNzgsMzQuNCAgUzI2LjUyNCwxMjMuNzczLDguODMxLDE4OS44MDZzLTguNjEzLDEzNS4wMDYsMjUuNTY4LDE5NC4yMWMzMC42NjEsNTMuMTA3LDc5LjM5Myw5My40NjgsMTM3LjIxOSwxMTMuNjQ2ICBjMjcuNDExLDkuNTY0LDU2LjAyNiwxNC4zMzcsODQuNTk3LDE0LjMzN2MzMS4wNjUsMCw2Mi4wNzQtNS42NDYsOTEuMzg1LTE2LjkxMmM1LjE1NS0xLjk4MSw3LjcyNy03Ljc2Niw1Ljc0NS0xMi45MjEgIGMtMS45ODItNS4xNTUtNy43NjgtNy43My0xMi45MjEtNS43NDVjLTc4LjAyLDI5Ljk4Ny0xNjIuNDgyLDE2LjM2Mi0yMjUuNTg1LTMxLjAwNGw4Ljk1OS00Ni43NjVsNC4zMTctMS40MDIgIGMxNi4zMTMtNS4zLDI1LjI3My0yMi44ODQsMTkuOTc1LTM5LjE5OGwtMy4xNjgtOS43NDljLTAuNzMzLTIuMjU2LTAuNzI5LTQuNjQxLDAuMDEtNi44OTVjMi43NzktOC40NzIsMS43ODYtMTcuNzQxLTIuNzI1LTI1LjQzMyAgcy0xMi4xMTYtMTMuMDg0LTIwLjg2Ny0xNC43OTVsLTIyLjU3LTQuNDFsLTQzLjU0OC0zMy4xMWMtMi42MDktMS45ODQtNi4wMjQtMi41NjMtOS4xNDItMS41NTFsLTI1LjQ5Niw4LjI4MiAgYy0wLjU0MS05LjExOS0wLjU0OS0xOC4yMzUtMC4wMzUtMjcuMzAzYzEuMDA2LDAuOTM3LDEuNjYxLDEuNTc0LDIuMDY0LDEuOTkyYzAuNDk5LDAuODMxLDEuMTE3LDEuNTkzLDEuODQxLDIuMjUzICBjMi4wODIsMS44OTYsMy45NjgsMi43NTYsNy45MjgsMi43NTZjMy42MzktMC4wMDEsOS4wMjYtMC43MjYsMTcuOTIxLTIuMDRjOC40MzYtMS4yNDcsMTYuODI4LTIuNjUyLDE2LjkxMS0yLjY2NiAgYzMuMzYzLTAuNTYzLDYuMjA2LTIuODAzLDcuNTQ0LTUuOTM4YzEuMzM4LTMuMTM2LDAuOTg1LTYuNzM3LTAuOTM2LTkuNTU1bC0xMi4yNjEtMTcuOTg0bDE3LjU2Mi0xMi41NTggIGMxLjE3LTAuODM3LDIuMTQ2LTEuOTE2LDIuODYxLTMuMTY0bDI3LjIyMy00Ny41MjVsMTAuOTczLTExLjc1OGMxMS4yMTMtMTIuMDE4LDE0LjQxMy0yOS42MDEsOC4xNTEtNDQuNzk3ICBjLTMuNjk0LTguOTYzLTEwLjE0Ni0xNi40MjUtMTguMjE2LTIxLjQ1NGM4Ljc0LTYuODcxLDE4LjA1OS0xMy4yMTUsMjcuOTYzLTE4LjkzMmMzNi4zMzgtMjAuOTgsNzUuOTk0LTMxLjE0NywxMTUuMjMzLTMxLjUzNiAgbC0xNy44NTYsMjIuMzk5TDE2OS4yNCw2NS43OTVjLTIuNjg5LDAuOTQyLTQuODQ5LDIuOTg4LTUuOTM1LDUuNjIzbC0xOC40OTIsNDQuODI4Yy0xLjMxMywzLjE4NS0wLjg5Niw2LjgxOSwxLjEwNSw5LjYyMyAgbDI3LjAwOCwzNy44MzJjLTMuODY4LDMuNTI5LTcuNjMzLDguNjY5LTEyLjEzLDE1LjA1MWMtMS45NzIsMi43OTktMy44MzQsNS40NDItNS4xMjEsNi45MjRjLTEuMTE5LDEuMjktMi4yMzksMi41NS0zLjM0OSwzLjc5OCAgYy01LjgwOSw2LjUzNS0xMS44MTUsMTMuMjk0LTE2LjA4MiwyMi4zMjJjLTkuMzgyLDE5Ljg1OS03LjQ4Nyw0Mi45NDEsNC45NDUsNjAuMjM5YzEyLjAyMSwxNi43MjUsMzEuODM5LDI1LjIyNyw1Mi45OTEsMjIuNzM5ICBjMy40NDYtMC40MDQsNi42NTktMS4xOTksOS43NjgtMS45NjljOC41NzMtMi4xMjEsMTEuMjg5LTIuMzMzLDE0LjAzOSwwLjI0MWMxLjMzOCwxLjI1MywxLjQ2MSwxLjQ5LDEuNDM0LDUuNzM4ICBjLTAuMDE5LDIuNzA0LTAuMDQsNi4wNjgsMC44OTIsOS45MDljMS40OTMsNi4xNDUsNS4zNTMsMTAuMzkyLDguNDUyLDEzLjgwNGMxLjU0MSwxLjY5NSwzLjEzNSwzLjQ0OSwzLjYyNiw0LjYyNiAgYzMuMTE5LDcuNDc0LDEuNzYxLDExLjYxMy0xLjIxNSwyMC42ODNjLTAuMjU1LDAuNzc2LTAuNTE1LDEuNTY4LTAuNzc2LDIuMzhjLTQuNTIxLDEzLjk5NSwxLjc4MSwyNy44NzcsNy4zNDEsNDAuMTI0ICBjMS44MDYsMy45NzcsMy41MTEsNy43MzEsNC42MjgsMTEuMDQ5YzguOTkxLDI2LjY3OSwxNS43MzEsMzIuNzg5LDIxLjE0LDM1LjI0OWMyLjgzMywxLjI4OCw1Ljc2NSwxLjg1Myw4LjcyNywxLjg1MiAgYzE0LjQxNS0wLjAwMSwyOS40NTctMTMuMzg1LDM2LjM2Ny0yMS44N2M0LjM0LTUuMzI4LDUuNDA5LTEwLjY2Myw2LjE4OS0xNC41NmMwLjM4OS0xLjkzOCwwLjY5NS0zLjQ2OCwxLjI3OS00LjQ2OCAgYzAuODk0LTEuNTMsMS45NDctMi43MTYsMy4yOC00LjIxOGMyLjY4MS0zLjAxOSw2LjAxNy02Ljc3NSw4LjE3OS0xMy41ODRjMS42NDItNS4xNzIsMi44MzUtNi40NCw2Ljc4Ni0xMC42NDggIGMwLjY4OC0wLjczMSwxLjQyMS0xLjUxMywyLjIwOC0yLjM2OWMxMy4zMTktMTQuNDkzLDkuODg5LTI1LjU2NCw2LjI1Ni0zNy4yODZjLTMuMDU3LTkuODYzLDIuMjktMTYuMTcxLDE1LjIxOC0yOC4yMSAgYzUuNjA0LTUuMjE5LDExLjM5OC0xMC42MTUsMTUuODc3LTE3LjA5OGMxLjk2LTIuODM4LDcuOTIzLTExLjQ3MSw0LjIzMy0yMC4wMjhjLTMuNjE3LTguMzktMTIuODEtOS44LTIwLjE5Ni0xMC45MzIgIGMtMi45MTctMC40NDgtNy4zMjUtMS4xMjQtOC43MjgtMi4wNDFjLTYuMTg3LTQuMDQ1LTkuOTcyLTEyLjQ4Ny0xMy42MzMtMjAuNjUyYy0wLjcyOS0xLjYyNS0xLjQ0OC0zLjIyOS0yLjE3Ny00Ljc4NiAgYy0xLjMtMi43NzgtMi41OTktNi4xMzktMy45NzQtOS42OTdjLTMuNjM4LTkuNDE2LTcuNzYxLTIwLjA4OS0xNC43OC0yNy41MjljLTYuMzA5LTYuNjg1LTE4LjIwMi05LjkwNS0yOC42OTUtMTIuNzQ3ICBjLTMuNTI5LTAuOTU1LTYuODYtMS44NTctOS4wNTctMi42NjhjLTEuODQxLTAuNjgtMy44MzktMC44MDMtNS43NDYtMC4zNTVjLTUuMTA3LDEuMTk3LTguMjkzLDIuNTE2LTEwLjY1OSw0LjQxMiAgYy0wLjYyNSwwLjUwMS0yLjQ3NiwyLjE0Ni0zLjU2LDQuNzljLTMuNjYxLTEuNzU3LTguNjk1LTUuMTEyLTExLjc5My03LjE3N2MtMC4wNjQtMC4wNDMtMC4xMjktMC4wODYtMC4xOTMtMC4xMjkgIGMxLjA0NC00LjE3OCwwLjA5OS03LjUzMS0wLjg5MS05LjYyNWMtNS41ODctMTEuODE2LTI0LjEyOS0xMC44OTEtMjcuNzg3LTEwLjU4Yy0yLjA3OCwwLjE3NC00LjcwNywwLjI2Ny03LjQ4OCwwLjM2NSAgYy00LjM2OCwwLjE1NS05LjE5NiwwLjMyOS0xMy45NzMsMC44NjVsMC4yNDYtMC42ODZjMy42MjYtMTAuMTAzLDEzLjI3NC0xNi44OTIsMjQuMDA4LTE2Ljg5Mmg1LjY4NCAgYzUuNTIyLDAsOS45OTktNC40NzgsOS45OTktOS45OTljMC01LjUyMi00LjQ3OC05Ljk5OS05Ljk5OS05Ljk5OWgtNS42ODRjLTE1LjkzNiwwLTMwLjUyOSw4LjM4Ny0zOC43MDgsMjEuNTg4bC0xNC45MTUtMjAuODkzICBsMTQuNjc0LTM1LjU2OUwyNDQuNzg3LDYwLjVjMS43NzQtMC42MjIsMy4zMzgtMS43MzIsNC41MTEtMy4yMDNsMjguNzYyLTM2LjA3OWM3My40OTQsNi45OTEsMTQyLjY3NCw0OC4xOTcsMTgyLjMxNiwxMTYuODU5ICBjMTAuNTU5LDE4LjI4OSwxOC4zNywzNy41NDMsMjMuNTYzLDU3LjIzNmwtNC4yMzksMy43OGMtNS41MzMsNC45MzctOC43NzUsMTIuMDE4LTguODk5LDE5LjQyOSAgYy0wLjAwMSwwLjA4MS0wLjAwMywwLjE2MS0wLjAwNiwwLjI0MWwtNi45MDYtMTguOTkyYy0xLjAyOS0yLjgzNC0yLjU0NS01LjQzMy00LjUwMy03LjcyNGwtMTIuMzE5LTE0LjQyMyAgYy00Ljc3Ni01LjU5MS0xMS43My04Ljc5Ni0xOS4wODEtOC43OTZoLTE1LjA3OWMtNS4zNTMsMC0xMC4yNDUsMi45MzItMTIuNzcsNy42NDljLTIuNTI1LDQuNzE4LTIuMjQ5LDEwLjQxNiwwLjcyLDE0Ljg2OCAgbDEuNTI2LDIuMjkxYy05Ljc0NCw4LjM3OS0yMS4wMTQsMTUuMDg0LTMzLjAxNCwxOS42MDZMMzQ4LjcsMTczLjY0OXYtOC44MzNjMC0yLjczMi0xLjExOC01LjM0Ny0zLjA5NS03LjIzMmwtMTguNjEzLTE3Ljc2OSAgYy0xLjAyNy0wLjk4LTIuMjUxLTEuNzMtMy41OS0yLjIwMWwtMTYuNzU2LTUuODg4Yy01LjIxMy0xLjgzNC0xMC45MTksMC45MDktMTIuNzQ5LDYuMTE4Yy0xLjgzMSw1LjIxMSwwLjkwOCwxMC45MTgsNi4xMTgsMTIuNzQ5ICBsMTQuNzI0LDUuMTc1bDEzLjk2MiwxMy4zMjd2Ny4wMDhjMCwxLjYxMSwwLjM5LDMuMTk5LDEuMTM2LDQuNjI4bDI1Ljg3Nyw0OS41NjdjMi4zMjcsNC40Niw3LjYwOSw2LjQ5OCwxMi4zMjMsNC43NTRsNy41MzUtMi43NzggIGMxNy41MDUtNi40NTYsMzMuNzMtMTYuODQxLDQ2LjkyMi0zMC4wMzFjMy4zNy0zLjM3MSwzLjg5NC04LjY1LDEuMjQ5LTEyLjYxN2wtMC41MzItMC43OTloNC43NzVjMS40OTMsMCwyLjkwNiwwLjY1MSwzLjg3NiwxLjc4NyAgbDEyLjMxOSwxNC40MjNjMC4zOTcsMC40NjUsMC43MDQsMC45OTEsMC45MTQsMS41NjhsMTMuNTk1LDM3LjM4M2MxLjE2OCwzLjIxMiwzLjg5Niw1LjYwNCw3LjIzLDYuMzQ0ICBjMC43MiwwLjE1OSwxLjQ0NSwwLjIzNywyLjE2NiwwLjIzN2MyLjYyMywwLDUuMTc2LTEuMDMzLDcuMDctMi45MjlsNi40NzEtNi40NzFjNC4wOTgtNC4wOTksNi45MTktOS4yODUsOC4yNjctMTUuMDM0ICBjMTAuMDA4LDgwLjIwNS0yMS40NDEsMTYzLjE3My04Ny45MTUsMjE1LjM0N2MtNC4zNDUsMy40MDktNS4xMDMsOS42OTQtMS42OTIsMTQuMDM5YzMuNDA5LDQuMzQ1LDkuNjkzLDUuMTAzLDE0LjAzOSwxLjY5MiAgYzQ3Ljk5Mi0zNy42NjcsODAuOTYyLTkxLjU0Miw5Mi44MzctMTUxLjcwMUM1MTkuMTUsMjQ0Ljc3Myw1MDguNjg1LDE4MS43NTgsNDc3LjY5NCwxMjguMDh6IE00Ny4yODMsMjgyLjc0N2w0MS4yMzMsMzEuMzUxICBjMS4yMTksMC45MjcsMi42MzMsMS41NjEsNC4xMzUsMS44NTRsMjQuODUyLDQuODU2YzMuMTcyLDAuNjIsNS44MTgsMi40OTYsNy40NTMsNS4yODRjMS42MzUsMi43ODcsMS45NzksNi4wMTIsMC45NzMsOS4wODMgIGMtMi4wNyw2LjMxMy0yLjA4LDEyLjk5LTAuMDI3LDE5LjMwN2wzLjE2OCw5Ljc0OGMxLjg5Myw1LjgyNi0xLjMwOSwxMi4xMDctNy4xMzQsMTRsLTkuOTM3LDMuMjI5ICBjLTMuNDY3LDEuMTI2LTYuMDQ1LDQuMDUtNi43Myw3LjYyOGwtNy45OTgsNDEuNzQ5Yy0xNy41ODMtMTYuMDkzLTMzLjAyMS0zNS4xMTMtNDUuNTUyLTU2LjgxOCAgQzM2LjQzLDM0Ny41NDEsMjYuODc4LDMxOS4zLDIyLjY2OCwyOTAuNzQ0TDQ3LjI4MywyODIuNzQ3eiBNMjEuMTczLDI0MC40OGMwLjAyOCwwLjQzNCwwLjA4MywwLjg2NSwwLjE2NiwxLjI5MSAgQzIxLjI1OCwyNDEuMzY5LDIxLjIwMiwyNDAuOTM2LDIxLjE3MywyNDAuNDh6IE0xMDkuODQxLDk5LjcyM2MzLjI5LDcuOTgzLDEuNjA4LDE3LjIyMS00LjI4MiwyMy41MzVsLTExLjc2MywxMi42MDMgIGMtMC41MjUsMC41NjMtMC45ODQsMS4xODUtMS4zNjcsMS44NTNMNjUuNzE3LDE4NC4zNWwtMjMuNzQxLDE2Ljk3NmMtNC40MjIsMy4xNjItNS41MDgsOS4yNzUtMi40NDYsMTMuNzY3bDguODc5LDEzLjAyNCAgYy01LjExOCwwLjc2Mi05LjcxMSwxLjM5LTEyLjc2NSwxLjcyM2MtMC41ODctMC41NjMtMS4yMDEtMS4xMzQtMS44MzYtMS43MjRjLTIuMzc3LTIuMjA4LTUuNjgtNS4xNTctMTAuNjA0LTkuNDY2ICBjOC4xMjEtNTAuMjYzLDMyLjM0MS05Ny42MTUsNzAuNDMzLTEzMy43NkMxMDAuOTMyLDg3LjE4NSwxMDYuOTE3LDkyLjYyNywxMDkuODQxLDk5LjcyM3ogTTIwOS40NTksMTc0Ljc1NyAgYzMuMDI5LTAuMTA3LDUuODkxLTAuMjA5LDguNDQ3LTAuNDIzYzEuMzQ5LTAuMTEzLDIuODQ3LTAuMDkyLDQuMjYsMC4wMThjLTAuNjMxLDEuNjItMC44MzYsMy4zOTgtMC41NjIsNS4xNjIgIGMwLjQ4MSwzLjEwMywyLjM5NCw1Ljc5OCw1LjE2Miw3LjI3OWMxLjg3NiwxLjAwNCw0LjQ4NywyLjc0NSw3LjI1MSw0LjU4OGM3LjgxNSw1LjIxLDE2LjY3NSwxMS4xMTUsMjQuOTk2LDExLjY0NSAgYzcuNTY4LDAuNDkxLDExLjc3OS0zLjgyMiwxMy41ODMtNS42NmMwLjE0NC0wLjE0NiwwLjI4LTAuMjkyLDAuNDI0LTAuNDI1YzEuMDE2LTAuODI4LDEuOTY4LTEuOTM4LDIuNjc2LTMuMjc3ICBjMS41OTksMC40NTcsMy4yNzksMC45MTIsNS4wMDEsMS4zNzljNS45MjEsMS42MDMsMTYuOTQxLDQuNTg3LDE5LjM3Nyw3LjE2N2M0LjMyNSw0LjU4NSw3LjY5NiwxMy4zMTIsMTAuNjcxLDIxLjAxMSAgYzEuNTAzLDMuODkxLDIuOTIzLDcuNTYzLDQuNTE2LDEwLjk2OGMwLjY4NCwxLjQ2MSwxLjM1NywyLjk2NiwyLjA0MSw0LjQ5YzQuNjE0LDEwLjI5Miw5Ljg0NCwyMS45NTgsMjAuOTM5LDI5LjIxICBjNS4wMzEsMy4yODksMTEuMTk4LDQuMjM0LDE2LjY0LDUuMDY5YzAuNjU4LDAuMTAxLDEuNDEyLDAuMjE3LDIuMTc4LDAuMzQzYy0zLjIzLDQuNTA2LTcuODI5LDguNzg4LTEyLjY4OCwxMy4zMTMgIGMtMTIuMzc5LDExLjUyOC0yNy43ODUsMjUuODc2LTIwLjY5LDQ4Ljc2NWMzLjM0OSwxMC44MDgsMy41MDUsMTEuOTc2LTEuODgsMTcuODM0Yy0wLjczNCwwLjc5OS0xLjQxOCwxLjUyNy0yLjA1OSwyLjIwOSAgYy00LjYxMiw0LjkxLTguMjU1LDguNzg4LTExLjI3MSwxOC4yODhjLTAuODc2LDIuNzU5LTIuMDExLDQuMDM3LTQuMDcyLDYuMzU3Yy0xLjY0OCwxLjg1Ni0zLjcwMSw0LjE2OC01LjU5NSw3LjQwOCAgYy0yLjI2OCwzLjg4Mi0zLjAxOCw3LjYyLTMuNjE5LDEwLjYyM2MtMC41OTMsMi45NTUtMC45MjksNC40MzgtMi4wODksNS44NjNjLTIuNjQxLDMuMjQyLTcuNTY3LDcuOTUtMTIuNjI0LDExLjE2MyAgYy00LjcsMi45ODQtNy40NDQsMy4zOTItOC4zNzksMy4zMzZjLTEuMDY3LTEuMTQ0LTQuOTMyLTYuMTUyLTEwLjc3Mi0yMy40ODZjLTEuNDQtNC4yNzYtMy40MzgtOC42NzYtNS4zNy0xMi45MzEgIGMtNC4yNTktOS4zOC04LjY2Mi0xOS4wOC02LjUyLTI1LjcwOWMwLjI1My0wLjc4MiwwLjUwMy0xLjU0NiwwLjc0OS0yLjI5M2MzLjQyMi0xMC40Myw2LjY1Mi0yMC4yNzksMC42NjgtMzQuNjE5ICBjLTEuODIyLTQuMzY3LTQuNzIzLTcuNTU4LTcuMjgtMTAuMzc0Yy0xLjY1NS0xLjgyMS0zLjUzLTMuODg1LTMuODE5LTUuMDczYy0wLjM1Mi0xLjQ0OS0wLjM0MS0zLjEyMi0wLjMyOC01LjA1OSAgYzAuMDM0LTUuMjI1LDAuMDg2LTEzLjEyLTcuNzYzLTIwLjQ3Yy0xMS4wNjYtMTAuMzU4LTIzLjk3LTcuMTY3LTMyLjUxLTUuMDU1Yy0yLjYyMywwLjY0OC01LjEwMSwxLjI2Mi03LjI5NywxLjUyICBjLTE0LjA0OCwxLjY0Ni0yNi41OS0zLjY1NC0zNC40Mi0xNC41NWMtOC4xOTEtMTEuMzk3LTkuMzgtMjYuNzM0LTMuMTAyLTQwLjAyNGMzLjAzOS02LjQzMSw3LjYzLTExLjU5OCwxMi45NDYtMTcuNTc4ICBjMS4xNjEtMS4zMDcsMi4zMzMtMi42MjUsMy41MDUtMy45NzVjMS45NS0yLjI0OCw0LjA5Ni01LjI5Miw2LjM2NS04LjUxNWMyLjcxMS0zLjg0OCw3Ljc1NS0xMS4wMDcsOS45NDUtMTIuMzY5ICBDMTkxLjU0OSwxNzUuMzkyLDIwMS45MDEsMTc1LjAyNSwyMDkuNDU5LDE3NC43NTd6Ii8+CjxwYXRoIGQ9Ik0zNzQuMDQ4LDQyMi43MjJjMTAuMi0xLjY2NywxNy44NjgtMTIuMjc3LDI0LjEzNC0zMy4zOTNsMTEuNzYyLTM5LjY0MmMwLjUyMi0xLjc2MiwwLjU1LTMuNjM0LDAuMDc4LTUuNDFsLTQuODExLTE4LjEzNCAgYy0xLjA1MS0zLjk2LTQuNDExLTYuODc4LTguNDc4LTcuMzY0Yy00LjA3Mi0wLjQ3Ni04LjAyMSwxLjU2LTkuOTc2LDUuMTYxYy0xLjA5NiwyLjAyLTIuMDgzLDQuMTYtMy4wMzcsNi4yMjkgIGMtMS42MDUsMy40ODEtMy4yNjUsNy4wODEtNC45OTIsOS4wNjhjLTAuOTcsMS4xMTYtMy40NjIsMi4zMTktNS44NywzLjQ4MWMtNS43NTcsMi43NzgtMTMuNjQyLDYuNTgzLTE2LjY1NCwxNi4xODUgIGMtMS44Nyw1Ljk1Ni0xLjE3MiwxMC42NjgtMC42NjIsMTQuMTA4YzAuNDQxLDIuOTgzLDAuNTQzLDQuMDE3LTAuMjU2LDUuODkzbC0wLjEsMC4yMzNjLTMuMTgzLDcuNDY5LTkuMTA1LDIxLjM3NC0wLjgwMSwzMy4xOTUgIGM1LjkyNSw4LjQzNiwxMi4xNTUsMTAuNjA1LDE2Ljk5NiwxMC42MDVDMzcyLjMyNyw0MjIuOTQsMzczLjIyMSw0MjIuODU3LDM3NC4wNDgsNDIyLjcyMnogTTM3MC43NDksNDAwLjgzOSAgYy0xLjkxMS0yLjcyMiwwLjk0NS05LjQyNiwyLjgzNS0xMy44NjNsMC4xMDEtMC4yMzRjMy4wNDgtNy4xNTQsMi4yMzMtMTIuNjQ4LDEuNjQtMTYuNjZjLTAuMzgxLTIuNTY5LTAuNTE3LTMuNjczLTAuMDQtNS4xOSAgYzAuMzkyLTEuMjQ3LDIuNzM1LTIuNDU3LDYuMjY1LTQuMTYxYzEuNTY1LTAuNzU2LDMuMjg4LTEuNTg3LDUuMDI3LTIuNTkzbC03LjU2NiwyNS41MDJjLTMuMTk0LDEwLjc2Ni02LjAyLDE1Ljc5Mi03LjY1MSwxOC4wMiAgQzM3MS4xNzEsNDAxLjQyMiwzNzAuOTY3LDQwMS4xNSwzNzAuNzQ5LDQwMC44Mzl6Ii8+CjxwYXRoIGQ9Ik0yNjkuMzU1LDExOC42MjRjLTUuMjA3LTEuODI0LTEwLjkxNywwLjkxNS0xMi43NDUsNi4xMjZjLTEuODI4LDUuMjEyLDAuOTE1LDEwLjkxNyw2LjEyNiwxMi43NDVsMC42NzQsMC4yMzYgIGMxLjA5NSwwLjM4NCwyLjIxMSwwLjU2NiwzLjMxLDAuNTY2YzQuMTI4LDAsNy45OTItMi41NzcsOS40MzYtNi42OTJjMS44MjgtNS4yMTItMC45MTUtMTAuOTE3LTYuMTI2LTEyLjc0NUwyNjkuMzU1LDExOC42MjR6Ii8+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+Cjwvc3ZnPgo="/>
+        <img class="plane"
+             src="data:image/svg+xml;utf8;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iaXNvLTg4NTktMSI/Pgo8IS0tIEdlbmVyYXRvcjogQWRvYmUgSWxsdXN0cmF0b3IgMTkuMC4wLCBTVkcgRXhwb3J0IFBsdWctSW4gLiBTVkcgVmVyc2lvbjogNi4wMCBCdWlsZCAwKSAgLS0+CjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgdmVyc2lvbj0iMS4xIiBpZD0iQ2FwYV8xIiB4PSIwcHgiIHk9IjBweCIgdmlld0JveD0iMCAwIDUxMiA1MTIiIHN0eWxlPSJlbmFibGUtYmFja2dyb3VuZDpuZXcgMCAwIDUxMiA1MTI7IiB4bWw6c3BhY2U9InByZXNlcnZlIiB3aWR0aD0iNTEycHgiIGhlaWdodD0iNTEycHgiPgo8Zz4KCTxwYXRoIHN0eWxlPSJmaWxsOiM2Njc1N0Y7IiBkPSJNNDMzLjIyOSwzMzkuMjA1Yy01LjcxMiw1LjcyNi0xNC45NDQsNS43MjYtMjAuNjU1LDBsLTIwLjY1NS0yMC42NTUgICBjLTUuNzI2LTUuNzEyLTUuNzI2LTE0Ljk1OCwwLTIwLjY1NWw0MS4zMTItNDEuMzEyYzUuNzEyLTUuNzEyLDE0Ljk0NC01LjcxMiwyMC42NTUsMGwyMC42NTUsMjAuNjU1ICAgYzUuNzI2LDUuNjk3LDUuNzI2LDE0Ljk0NCwwLDIwLjY1NUw0MzMuMjI5LDMzOS4yMDV6Ii8+Cgk8cGF0aCBzdHlsZT0iZmlsbDojNjY3NTdGOyIgZD0iTTIxNC4xMDgsMTIwLjA4OGMtNS43MTIsNS43MjYtMTQuOTQ0LDUuNzI2LTIwLjY1NSwwbC0yMC42NTUtMjAuNjU1ICAgYy01LjcyNi01LjcxMi01LjcyNi0xNC45NTgsMC0yMC42NTVsNDEuMzEyLTQxLjMxMmM1LjcxMi01LjcxMiwxNC45NDQtNS43MTIsMjAuNjU1LDBsMjAuNjU1LDIwLjY1NSAgIGM1LjcyNiw1LjY5Nyw1LjcyNiwxNC45NDQsMCwyMC42NTVMMjE0LjEwOCwxMjAuMDg4eiIvPgo8L2c+CjxnPgoJPHBhdGggc3R5bGU9ImZpbGw6IzU1QUNFRTsiIGQ9Ik0yNC4yMDMsMzEyLjVjMjkuMjE2LDAsMTYwLjY4OSwxNC42MDgsMTYwLjY4OSwxNC42MDhTMTk5LjUsNDU4LjU4LDE5OS41LDQ4Ny43OTYgICBzLTI5LjIxNiwyOS4yMTYtNDMuODI0LDE0LjYwOGMtMTQuNjA4LTE0LjYwOC01OC40MzItODcuNjQ4LTU4LjQzMi04Ny42NDhzLTczLjA0LTQzLjgyNC04Ny42NDgtNTguNDMyUy01LjAxMywzMTIuNSwyNC4yMDMsMzEyLjUgICAiLz4KCTxwYXRoIHN0eWxlPSJmaWxsOiM1NUFDRUU7IiBkPSJNNTMuNDEyLDc5LjMzNWM0My44MjQtMC41NjksMzY1LjIwMSwxNC4wMzksMzY1LjIwMSwxNC4wMzlzMTMuNDk3LDMyMS4zNzcsMTQuMDUzLDM2NS4yMDEgICBzLTQwLjM0Nyw1OC40NjEtNTYuNDE2LDAuMDE1Yy0xNi4wNjktNTguNDQ3LTc0LjUwMS0yNDguMzUyLTc0LjUwMS0yNDguMzUycy0yMDMuODU1LTY0LjUxLTI0OC40MS03NC41MzEgICBDLTUuMDIsMTIyLjU4OSw5LjU4OCw3OS45MDUsNTMuNDEyLDc5LjMzNSIvPgo8L2c+CjxwYXRoIHN0eWxlPSJmaWxsOiNDQ0Q2REQ7IiBkPSJNMzg5LjQwNSwzNC45NDdDNDE4LjYyMSw1LjczMSw0OTEuNjYxLTguODc3LDUwNi4yNjksNS43MzFjMTQuNjA4LDE0LjYwOCwwLDg3LjY0OC0yOS4yMTYsMTE2Ljg2NCAgQzQ0Ny44MzcsMTUxLjgxMSwxOTkuNSwzODUuNTQsMTk5LjUsMzg1LjU0cy05NC45NTIsNjUuNzM2LTExNi44NjQsNDMuODI0QzYwLjcyNCw0MDcuNDUyLDEyNi40NiwzMTIuNSwxMjYuNDYsMzEyLjUgIFMzNjAuMTg4LDY0LjE2MywzODkuNDA1LDM0Ljk0NyIvPgo8Zz4KCTxwYXRoIHN0eWxlPSJmaWxsOiM2Njc1N0Y7IiBkPSJNMTk5LjUsMzEyLjVjMCwwLDcuMzA0LDcuMzA0LTU4LjQzMiw3My4wNHMtNzMuMDQsNTguNDMyLTczLjA0LDU4LjQzMnMtNy4zMDQtNy4zMDQsNTguNDMyLTczLjA0ICAgUzE5OS41LDMxMi41LDE5OS41LDMxMi41Ii8+Cgk8cGF0aCBzdHlsZT0iZmlsbDojNjY3NTdGOyIgZD0iTTQxOC42MjEsNDkuNTU1YzI0LjIwNSwwLDQzLjgyNCwxOS42MTksNDMuODI0LDQzLjgyNGgxMS43NTljMS42NjUtNC42MDIsMi44NDktOS40MjIsMi44NDktMTQuNjA4ICAgYzAtMjQuMjA1LTE5LjYxOS00My44MjQtNDMuODI0LTQzLjgyNGMtNS4xODYsMC0xMC4wMjIsMS4xODQtMTQuNjA4LDIuODQ5VjQ5LjU1NXoiLz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8L3N2Zz4K"/>
     </div>
-    <div style="width: 150px;">
-        <div>Review counts</div>
-        <div id="size-legend"></div>
+    <div class="landing-title"><b>Are you satisfied with airport dining?</b></div>
+    <div class="landing-subtitle">Most of us may have paid much for horrible airport restaurants.</div>
+    <div class="landing-next" onclick="G.gotoIntuition()">
+        <div><b>Checkout what's happening in Las Vegas</b></div>
+        <div class="down-arrow-container">
+            <div class="down-arrow">》</div>
+        </div>
+    </div>
+    <div class="data-sponsor">Data provided by <a href="https://www.yelp.com">Yelp</a>.</div>
+</div>
+
+<div id="intuition-page" class="full-page">
+    <div id="loading-mask">
+        <svg class="load" x="0px" y="0px" viewBox="0 0 150 150">
+            <circle class="loading-inner" cx="75" cy="75" r="60"></circle>
+        </svg>
+    </div>
+    <div id="leaflet-map" style="height: 100vh; width: 100%;"></div>
+
+    <div id="side-panel" class="side-panel hidden">
+        <div class="close-btn" onclick="G.reset()">✖</div>
+        <div class="side-title" style="margin-top: 50px;">Rating Analysis in Selected Area</div>
+        <div id="analysis-bar-chart" style="width: 100%;height: 350px;margin-top: 15px"></div>
+
+        <div class="side-title" style="margin-top: 15px">Overall Rating Analysis</div>
+        <div id="overall-bar-chart" style="width: 100%;height: 350px;margin-top: 15px"></div>
+
+        <div class="intuition-next" onclick="G.gotoValidation()">
+            <div class="intuition-next-content">See detailed distribution</div>
+            <div class="down-arrow-container">
+                <div class="down-arrow">》</div>
+            </div>
+        </div>
+    </div>
+
+    <div id="select-area" class="select-btn" style="top: 100px;left: 10px;" onclick="G.startRect()">
+        <img style="width: 20px;height: 20px;"
+             src="data:image/svg+xml;utf8;base64,PD94bWwgdmVyc2lvbj0iMS4wIj8+CjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiBoZWlnaHQ9IjE2cHgiIHZpZXdCb3g9IjAgMCA1MTIgNTEyIiB3aWR0aD0iMTZweCI+PHBhdGggZD0ibTUxMiA4Mi4zNjMyODF2LTgyLjM2MzI4MWgtODIuMTk5MjE5djI2LjE3MTg3NWgtMTMyLjE5NTMxMnYtMjYuMTcxODc1aC04Mi4xOTkyMTl2MjYuMTcxODc1aC0xMzMuMjA3MDMxdi0yNi4xNzE4NzVoLTgyLjE5OTIxOXY4Mi4zNjMyODFoMjcuMTM2NzE5djEzMi40NTcwMzFoLTI2LjEyMTA5NHY4Mi4zNjMyODJoMjYuMTE3MTg3djEzMi40NTcwMzFoLTI2LjEyMTA5M3Y4Mi4zNTkzNzVoODIuMTk5MjE5di0yNi4xNzE4NzVoMTMyLjE5NTMxMnYyNi4xNzE4NzVoODIuMTk5MjE5di0yNi4xNzE4NzVoMTMyLjE5OTIxOXYyNi4xNzE4NzVoODIuMTk1MzEydi04Mi4zNjMyODFoLTI1LjgyMDMxMnYtMTMyLjQ1NzAzMWgyNS44MTY0MDZ2LTgyLjM1OTM3NmgtMjUuODE2NDA2di0xMzIuNDU3MDMxem0tNTIuMjM0Mzc1LTUyLjM0Mzc1aDIyLjI3MzQzN3YyMi4zMjAzMTNoLTIyLjI3MzQzN3ptLTIxNC4zOTg0MzcgMGgyMi4yNzczNDN2MjIuMzIwMzEzaC0yMi4yNzczNDN6bS0yMTUuNDA2MjUgMGgyMi4yNzM0Mzd2MjIuMzIwMzEzaC0yMi4yNzM0Mzd6bTIzLjI4NTE1NiA0NTEuOTYwOTM4aC0yMi4yNzM0Mzh2LTIyLjMyMDMxM2gyMi4yNzczNDR2MjIuMzIwMzEzem0uMDA3ODEyLTIxNC44MjAzMTNoLTIyLjI3NzM0NHYtMjIuMzIwMzEyaDIyLjI3NzM0NHptMjE0LjM5MDYyNSAyMTQuODIwMzEzaC0yMi4yNzczNDN2LTIyLjMyMDMxM2gyMi4yNzczNDN6bTIxNC4zOTQ1MzEgMGgtMjIuMjczNDM3di0yMi4zMjAzMTNoMjIuMjczNDM3em0tLjAwMzkwNi0yMzcuMTQwNjI1djIyLjMyMDMxMmgtMjIuMjczNDM3di0yMi4zMjAzMTJ6bS0yNS44NTU0NjgtMzAuMDE5NTMyaC0yNi4zNzg5MDd2ODIuMzU5Mzc2aDI2LjM3ODkwN3YxMzIuNDU3MDMxaC0yNi4zNzV2MjYuMTcxODc1aC0xMzIuMTk5MjE5di0yNi4xNzE4NzVoLTgyLjE5OTIxOXYyNi4xNzE4NzVoLTEzMi4xOTUzMTJ2LTI2LjE3MTg3NWgtMjYuMTEzMjgydi0xMzIuNDU3MDMxaDI2LjExNzE4OHYtODIuMzU5Mzc2aC0yNi4xMTcxODh2LTEzMi40NTcwMzFoMjUuMTAxNTYzdi0yNi4xNzE4NzVoMTMzLjIwNzAzMXYyNi4xNzE4NzVoODIuMTk5MjE5di0yNi4xNzE4NzVoMTMyLjE5OTIxOXYyNi4xNzE4NzVoMjYuMzc1em0wIDAiIGZpbGw9IiMwMDAwMDAiLz48cGF0aCBkPSJtMTg0LjIzMDQ2OSAzMzAuNzQ2MDk0IDM2Ljc2OTUzMSA3OS41NTQ2ODcgOTIuODE2NDA2LTIxNy45NzY1NjItMjExLjE3MTg3NSAxMDYuNzM4Mjgxem0zNS42NDg0MzcgNS42ODc1LTEzLjU0Mjk2OC0yOS4zMDA3ODItMzAuMDQ2ODc2LTExLjY2Nzk2OCA3Ny43NzM0MzgtMzkuMzEyNXptMCAwIiBmaWxsPSIjMDAwMDAwIi8+PC9zdmc+Cg=="/>
+        <span class="select-detail" style="margin-left: 3px">Explore Area</span>
+    </div>
+    <div id="clear-area" class="select-btn" style="top: 140px;left: 10px;" onclick="G.reset()">
+        <span style="width: 20px;height: 20px;text-align: center">✖</span>
+        <span class="select-detail">Clear Area</span>
+    </div>
+
+    <div id="legend-container">
+        <div style="width: 170px;">
+            <div>Stars</div>
+            <div id="legend"></div>
+        </div>
+        <div style="width: 150px;">
+            <div>Review counts</div>
+            <div id="size-legend"></div>
+        </div>
+    </div>
+</div>
+
+<div id="validation-page" class="full-page">
+    <div class="validation-container">
+        <div id="validation-chart-container" class="validation-chart-container">
+            <div class="validation-title">
+                <b>Overall ratings</b>
+                <span class="dis-btn" onclick="G.fillOverall()" style="background: #6baed6;">Map distribution</span>
+            </div>
+            <div id="overall-validation-barchart" style="width: 600px;height: 150px;margin-top: 5px"></div>
+            <div class="validation-title">
+                <b>Ratings in selected area</b>
+                <span id="dis-btn" class="dis-btn" onclick="G.fillSelected()" style="background: #fd8d3c;">Map distribution</span>
+            </div>
+            <div id="selected-validation-barchart" style="width: 600px;height: 150px;margin-top: 5px"></div>
+            <hr/>
+            <div class="validation-title" style="margin-top: 2em"><b>Distribution of stars & price</b></div>
+            <div id="distribution-chart" style="width: 600px;height: calc(100vh - 20em - 300px);"></div>
+            <div style="width: 150px;">
+                <div>Review Count</div>
+                <div id="distribution-size-legend"></div>
+            </div>
+        </div>
+        <div id="conclusion-container" class="conclusion-container">
+            <div class="conclusion-title">Conclusion / Assumption</div>
+            <div class="conclusion-content">
+                <p>
+                    Considering the factor price we've chosen which is also one of the most potential factors,
+                    There's a obvious deviation in price range of 2 but unfortunately, there's no apparent clue
+                    that directly contributes to the different rating distribution in the airport.
+                </p>
+                <p>
+                    Through visualization, we can easily deduct that airport dining is less
+                    satisfied in Las Vegas. However, when we go deeper into validation, things become
+                    much more difficult. Satisfaction here is related to both interior(such as quality of food,
+                    environment, and service) and exterior factors(such as moods of tourists, environment of airport).
+                    <b>All in all, visualization provides us with excellent inspirations along with general analysis</b>,
+                    but speaking of validate the hypothesis, we still have a long way to go.
+                </p>
+            </div>
+            <div onclick="location.reload()" class="refresh">Restart journey</div>
+        </div>
     </div>
 </div>
 
