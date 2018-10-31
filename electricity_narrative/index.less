@@ -1,0 +1,42 @@
+@import "style/common";
+@import "style/intro";
+@import "style/preview";
+
+::-webkit-scrollbar {
+  width: 6px;
+  -webkit-appearance: none;
+  -webkit-border-radius: 100px;
+}
+
+::-webkit-scrollbar-thumb, ::-webkit-scrollbar-thumb:vertical {
+  background: #dadada;
+  border: none;
+}
+
+::-webkit-scrollbar-track {
+  background: #666666;
+}
+
+::selection {
+  background: #c3eeec;
+}
+
+body {
+  font-family: 'Lora', serif;
+  margin: 0;
+  box-sizing: border-box;
+  overflow-x: hidden;
+}
+
+#preview-trigger {
+  visibility: hidden;
+}
+
+.calendar-plot-container {
+  &:extend(.full-page);
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: #666666;
+  z-index: -1;
+}

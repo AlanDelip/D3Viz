@@ -1,0 +1,27 @@
+@import "common";
+
+#intro {
+  &:extend(.full-page);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  color: white;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));
+
+  .title {
+    font-size: 4em;
+    font-weight: bold;
+  }
+
+  .subtitle {
+    font-size: 1.5em;
+  }
+
+  .appendix {
+    margin-top: .5em;
+    a {
+      color: white;
+    }
+  }
+}

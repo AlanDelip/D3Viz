@@ -1,0 +1,27 @@
+@import "common";
+
+#preview {
+  color: white;
+  box-sizing: border-box;
+  padding: 0 10em;
+
+  .content {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(0, -50%);
+    z-index: 1;
+    opacity: 0;
+
+    .title {
+      font-size: 2em;
+      font-weight: bold;
+      padding-bottom: .5em;
+    }
+
+    .description {
+      font-size: 1.5em;
+    }
+  }
+
+}
