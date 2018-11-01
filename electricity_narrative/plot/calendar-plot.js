@@ -1,22 +1,30 @@
 const d3 = require('d3');
 
 export default class CalendarPlot {
-	constructor({container, margin, size}) {
+	constructor({container, margin}) {
 		this.container = container;
 		this.margin = margin;
-		this.size = size;
 		this.svg = null;
+
+		let containerDOM = document.getElementById(this.container.substr(1));
+		this.size = {width: containerDOM.offsetWidth, height: containerDOM.offsetHeight};
+
+		// scale
+		this.x = d3.scaleLinear().domain([0, 36]).range([this.margin.left, this.size.width - this.margin.right]);
+		this.y = d3.scaleLinear().domain([0, 16]).range([this.margin.top, this.size.height - this.margin.bottom]);
+		this.r = d3.scaleLinear().domain([300000, 600000]).range([1, 20]);
+		this.color = d3.scaleOrdinal().domain(["high-temp", "low-temp", "event", "festival", "special-weather", ""]).range(["orange", "lightblue", "lightgreen", "yellow", "pink", "grey"]);
 	}
+
 
 	/**
 	 * init with configurations
 	 * @param container
 	 * @param margin
-	 * @param size
 	 * @returns {CalendarPlot}
 	 */
-	static of({container, margin, size}) {
-		return new CalendarPlot({container, margin, size});
+	static of({container, margin}) {
+		return new CalendarPlot({container, margin});
 	}
 
 	data(data) {
@@ -25,45 +33,72 @@ export default class CalendarPlot {
 	}
 
 	draw() {
-		this._validateConfig();
-
 		this.svg = d3.select(this.container)
 			.append("svg")
 			.attr("width", this.size.width)
 			.attr("height", this.size.height);
 
-		this.calendar = this.svg.append("g")
-			.selectAll("circle")
-			.data(this.data).enter()
-			.append("circle")
-			.attr("cx", d => d.x)
-			.attr("cy", d => d.y)
-			.attr("r", d => d.size)
-			.attr("fill", d => d.color);
+		this.g = this.svg.append("g");
+		this.update(this.data, true);
 
 		return this;
+	}
+
+	update(data, animated) {
+		// simplified data, try to locate data with month
+		if (data.length !== 0 && !data[0].load) {
+			data = this.data.filter(od => {
+				for (let nd of data) {
+					if (od.month === nd.month) {
+						return true;
+					}
+				}
+				return false;
+			});
+		}
+
+		this.calendar = this.g
+			.selectAll("circle")
+			.attr("opacity", 1)
+			.data(data, d => d.id);
+
+		let enteredModel = this.calendar.enter()
+			.append("circle")
+			.attr("cx", d => this.x(6 * ((d.month - 1) % 6) + d.week))
+			.attr("cy", d => this.y(Math.floor(((d.month - 1) / 6)) * 8 + d.day_of_week))
+			.attr("r", 0)
+			.attr("fill", d => this.color(d.type));
+
+		let exitModel = this.calendar.exit();
+
+		if (animated) {
+			enteredModel.transition()
+				.delay((d, i) => Math.random() * i * 2)
+				.attr("r", d => this.r(d.load));
+
+			exitModel.transition()
+				.delay((d, i) => Math.random() * i / 2)
+				.attr("r", 0)
+				.remove();
+		} else {
+			enteredModel.attr("r", d => this.r(d.load));
+			exitModel.remove();
+		}
 	}
 
 	highlight(data) {
 		this.calendar.attr("opacity", original_data => {
 			for (let highlight_data of data) {
-				if (original_data.x === highlight_data.x && original_data.y === highlight_data.y) {
+				if (original_data.month === highlight_data.month && original_data.week === highlight_data.week && original_data.day_of_week === highlight_data.day_of_week) {
 					return 1;
 				}
 			}
-			return .3;
+			return .1;
 		});
 	}
 
 	reset() {
-		this.calendar.attr("opacity", 1);
-	}
-
-	_validateConfig() {
-		if (this.size == null) {
-			let container = document.getElementById(this.container.substr(1));
-			this.size = {width: container.offsetWidth, height: container.offsetHeight};
-		}
+		this.update(this.data);
 	}
 
 	getSvg() {
@@ -72,5 +107,13 @@ export default class CalendarPlot {
 
 	getCalendar() {
 		return this.calendar;
+	}
+
+	getXScale() {
+		return this.x;
+	}
+
+	getYScale() {
+		return this.y;
 	}
 }
