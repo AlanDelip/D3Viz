@@ -21,6 +21,7 @@
     "intro.js": "^2.9.3",
     "leaflet": "^1.3.4",
     "leaflet-shades": "^0.1.2",
+    "oboe": "^2.1.4",
     "scrollmagic": "^2.0.6",
     "topojson-client": "^3.0.0"
   },
