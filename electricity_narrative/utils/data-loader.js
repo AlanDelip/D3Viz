@@ -36,6 +36,7 @@ export function loadData() {
 					type
 				});
 			}
+			console.log(JSON.stringify(data));
 			return data;
 		});
 }
