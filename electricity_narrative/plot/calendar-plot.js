@@ -13,7 +13,7 @@ export default class CalendarPlot {
 		this.x = d3.scaleLinear().domain([0, 36]).range([this.margin.left, this.size.width - this.margin.right]);
 		this.y = d3.scaleLinear().domain([0, 16]).range([this.margin.top, this.size.height - this.margin.bottom]);
 		this.r = d3.scaleLinear().domain([300000, 600000]).range([1, 20]);
-		this.color = d3.scaleOrdinal().domain(["high-temp", "low-temp", "event", "festival", "special-weather", ""]).range(["orange", "lightblue", "lightgreen", "yellow", "pink", "grey"]);
+		this.color = d3.scaleOrdinal().domain(["high-temp", "low-temp", "event", "holiday", ""]).range(["orange", "lightblue", "lightgreen", "yellow", "grey"]);
 	}
 
 
