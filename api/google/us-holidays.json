@@ -1,0 +1,764 @@
+{
+  "kind": "calendar#events",
+  "etag": "\"p320c5r7fhj6ts0g\"",
+  "summary": "Holidays in United States",
+  "updated": "2018-11-10T13:33:32.000Z",
+  "timeZone": "America/New_York",
+  "accessRole": "reader",
+  "defaultReminders": [],
+  "nextSyncToken": "CIDGy5z4yd4CEOiR1tDByN4CGAE=",
+  "items": [
+    {
+      "kind": "calendar#event",
+      "etag": "\"2778476758000000\"",
+      "id": "20171031_60o30dr4cko30c1g60o30dr564",
+      "status": "confirmed",
+      "htmlLink": "https://www.google.com/calendar/event?eid=MjAxNzEwMzFfNjBvMzBkcjRja28zMGMxZzYwbzMwZHI1NjQgZW4udXNhI2hvbGlkYXlAdg",
+      "created": "2014-01-09T03:32:59.000Z",
+      "updated": "2014-01-09T03:32:59.000Z",
+      "summary": "Halloween",
+      "creator": {
+        "email": "en.usa#holiday@group.v.calendar.google.com",
+        "displayName": "Holidays in United States",
+        "self": true
+      },
+      "organizer": {
+        "email": "en.usa#holiday@group.v.calendar.google.com",
+        "displayName": "Holidays in United States",
+        "self": true
+      },
+      "start": {
+        "date": "2017-10-31"
+      },
+      "end": {
+        "date": "2017-11-01"
+      },
+      "transparency": "transparent",
+      "visibility": "public",
+      "iCalUID": "20171031_60o30dr4cko30c1g60o30dr564@google.com",
+      "sequence": 0
+    },
+    {
+      "kind": "calendar#event",
+      "etag": "\"2778476758000000\"",
+      "id": "20171123_60o30dr5cco30e1g60o30dr564",
+      "status": "confirmed",
+      "htmlLink": "https://www.google.com/calendar/event?eid=MjAxNzExMjNfNjBvMzBkcjVjY28zMGUxZzYwbzMwZHI1NjQgZW4udXNhI2hvbGlkYXlAdg",
+      "created": "2014-01-09T03:32:59.000Z",
+      "updated": "2014-01-09T03:32:59.000Z",
+      "summary": "Thanksgiving Day",
+      "creator": {
+        "email": "en.usa#holiday@group.v.calendar.google.com",
+        "displayName": "Holidays in United States",
+        "self": true
+      },
+      "organizer": {
+        "email": "en.usa#holiday@group.v.calendar.google.com",
+        "displayName": "Holidays in United States",
+        "self": true
+      },
+      "start": {
+        "date": "2017-11-23"
+      },
+      "end": {
+        "date": "2017-11-24"
+      },
+      "transparency": "transparent",
+      "visibility": "public",
+      "iCalUID": "20171123_60o30dr5cco30e1g60o30dr564@google.com",
+      "sequence": 0
+    },
+    {
+      "kind": "calendar#event",
+      "etag": "\"2778476758000000\"",
+      "id": "20180704_60o30dr470o30c1g60o30dr568",
+      "status": "confirmed",
+      "htmlLink": "https://www.google.com/calendar/event?eid=MjAxODA3MDRfNjBvMzBkcjQ3MG8zMGMxZzYwbzMwZHI1NjggZW4udXNhI2hvbGlkYXlAdg",
+      "created": "2014-01-09T03:32:59.000Z",
+      "updated": "2014-01-09T03:32:59.000Z",
+      "summary": "Independence Day",
+      "creator": {
+        "email": "en.usa#holiday@group.v.calendar.google.com",
+        "displayName": "Holidays in United States",
+        "self": true
+      },
+      "organizer": {
+        "email": "en.usa#holiday@group.v.calendar.google.com",
+        "displayName": "Holidays in United States",
+        "self": true
+      },
+      "start": {
+        "date": "2018-07-04"
+      },
+      "end": {
+        "date": "2018-07-05"
+      },
+      "transparency": "transparent",
+      "visibility": "public",
+      "iCalUID": "20180704_60o30dr470o30c1g60o30dr568@google.com",
+      "sequence": 0
+    },
+    {
+      "kind": "calendar#event",
+      "etag": "\"2778476760000000\"",
+      "id": "20171111_60o30dr568o30c1g60o30dr564",
+      "status": "confirmed",
+      "htmlLink": "https://www.google.com/calendar/event?eid=MjAxNzExMTFfNjBvMzBkcjU2OG8zMGMxZzYwbzMwZHI1NjQgZW4udXNhI2hvbGlkYXlAdg",
+      "created": "2014-01-09T03:33:00.000Z",
+      "updated": "2014-01-09T03:33:00.000Z",
+      "summary": "Veterans Day",
+      "creator": {
+        "email": "en.usa#holiday@group.v.calendar.google.com",
+        "displayName": "Holidays in United States",
+        "self": true
+      },
+      "organizer": {
+        "email": "en.usa#holiday@group.v.calendar.google.com",
+        "displayName": "Holidays in United States",
+        "self": true
+      },
+      "start": {
+        "date": "2017-11-11"
+      },
+      "end": {
+        "date": "2017-11-12"
+      },
+      "transparency": "transparent",
+      "visibility": "public",
+      "iCalUID": "20171111_60o30dr568o30c1g60o30dr564@google.com",
+      "sequence": 0
+    },
+    {
+      "kind": "calendar#event",
+      "etag": "\"2778476760000000\"",
+      "id": "20171225_60o30dr56go30c1g60o30dr564",
+      "status": "confirmed",
+      "htmlLink": "https://www.google.com/calendar/event?eid=MjAxNzEyMjVfNjBvMzBkcjU2Z28zMGMxZzYwbzMwZHI1NjQgZW4udXNhI2hvbGlkYXlAdg",
+      "created": "2014-01-09T03:33:00.000Z",
+      "updated": "2014-01-09T03:33:00.000Z",
+      "summary": "Christmas Day",
+      "creator": {
+        "email": "en.usa#holiday@group.v.calendar.google.com",
+        "displayName": "Holidays in United States",
+        "self": true
+      },
+      "organizer": {
+        "email": "en.usa#holiday@group.v.calendar.google.com",
+        "displayName": "Holidays in United States",
+        "self": true
+      },
+      "start": {
+        "date": "2017-12-25"
+      },
+      "end": {
+        "date": "2017-12-26"
+      },
+      "transparency": "transparent",
+      "visibility": "public",
+      "iCalUID": "20171225_60o30dr56go30c1g60o30dr564@google.com",
+      "sequence": 0
+    },
+    {
+      "kind": "calendar#event",
+      "etag": "\"2778476760000000\"",
+      "id": "20171231_60o30dr4coo30c1g60o30dr564",
+      "status": "confirmed",
+      "htmlLink": "https://www.google.com/calendar/event?eid=MjAxNzEyMzFfNjBvMzBkcjRjb28zMGMxZzYwbzMwZHI1NjQgZW4udXNhI2hvbGlkYXlAdg",
+      "created": "2014-01-09T03:33:00.000Z",
+      "updated": "2014-01-09T03:33:00.000Z",
+      "summary": "New Year's Eve",
+      "creator": {
+        "email": "en.usa#holiday@group.v.calendar.google.com",
+        "displayName": "Holidays in United States",
+        "self": true
+      },
+      "organizer": {
+        "email": "en.usa#holiday@group.v.calendar.google.com",
+        "displayName": "Holidays in United States",
+        "self": true
+      },
+      "start": {
+        "date": "2017-12-31"
+      },
+      "end": {
+        "date": "2018-01-01"
+      },
+      "transparency": "transparent",
+      "visibility": "public",
+      "iCalUID": "20171231_60o30dr4coo30c1g60o30dr564@google.com",
+      "sequence": 0
+    },
+    {
+      "kind": "calendar#event",
+      "etag": "\"2778476760000000\"",
+      "id": "20180214_60o30dr46so30c1g60o30dr568",
+      "status": "confirmed",
+      "htmlLink": "https://www.google.com/calendar/event?eid=MjAxODAyMTRfNjBvMzBkcjQ2c28zMGMxZzYwbzMwZHI1NjggZW4udXNhI2hvbGlkYXlAdg",
+      "created": "2014-01-09T03:33:00.000Z",
+      "updated": "2014-01-09T03:33:00.000Z",
+      "summary": "Valentine's Day",
+      "creator": {
+        "email": "en.usa#holiday@group.v.calendar.google.com",
+        "displayName": "Holidays in United States",
+        "self": true
+      },
+      "organizer": {
+        "email": "en.usa#holiday@group.v.calendar.google.com",
+        "displayName": "Holidays in United States",
+        "self": true
+      },
+      "start": {
+        "date": "2018-02-14"
+      },
+      "end": {
+        "date": "2018-02-15"
+      },
+      "transparency": "transparent",
+      "visibility": "public",
+      "iCalUID": "20180214_60o30dr46so30c1g60o30dr568@google.com",
+      "sequence": 0
+    },
+    {
+      "kind": "calendar#event",
+      "etag": "\"2778476760000000\"",
+      "id": "20180903_60o30dr5c4o30e1g60o30dr568",
+      "status": "confirmed",
+      "htmlLink": "https://www.google.com/calendar/event?eid=MjAxODA5MDNfNjBvMzBkcjVjNG8zMGUxZzYwbzMwZHI1NjggZW4udXNhI2hvbGlkYXlAdg",
+      "created": "2014-01-09T03:33:00.000Z",
+      "updated": "2014-01-09T03:33:00.000Z",
+      "summary": "Labor Day",
+      "creator": {
+        "email": "en.usa#holiday@group.v.calendar.google.com",
+        "displayName": "Holidays in United States",
+        "self": true
+      },
+      "organizer": {
+        "email": "en.usa#holiday@group.v.calendar.google.com",
+        "displayName": "Holidays in United States",
+        "self": true
+      },
+      "start": {
+        "date": "2018-09-03"
+      },
+      "end": {
+        "date": "2018-09-04"
+      },
+      "transparency": "transparent",
+      "visibility": "public",
+      "iCalUID": "20180903_60o30dr5c4o30e1g60o30dr568@google.com",
+      "sequence": 0
+    },
+    {
+      "kind": "calendar#event",
+      "etag": "\"2778476760000000\"",
+      "id": "20181031_60o30dr4cko30c1g60o30dr568",
+      "status": "confirmed",
+      "htmlLink": "https://www.google.com/calendar/event?eid=MjAxODEwMzFfNjBvMzBkcjRja28zMGMxZzYwbzMwZHI1NjggZW4udXNhI2hvbGlkYXlAdg",
+      "created": "2014-01-09T03:33:00.000Z",
+      "updated": "2014-01-09T03:33:00.000Z",
+      "summary": "Halloween",
+      "creator": {
+        "email": "en.usa#holiday@group.v.calendar.google.com",
+        "displayName": "Holidays in United States",
+        "self": true
+      },
+      "organizer": {
+        "email": "en.usa#holiday@group.v.calendar.google.com",
+        "displayName": "Holidays in United States",
+        "self": true
+      },
+      "start": {
+        "date": "2018-10-31"
+      },
+      "end": {
+        "date": "2018-11-01"
+      },
+      "transparency": "transparent",
+      "visibility": "public",
+      "iCalUID": "20181031_60o30dr4cko30c1g60o30dr568@google.com",
+      "sequence": 0
+    },
+    {
+      "kind": "calendar#event",
+      "etag": "\"2778476762000000\"",
+      "id": "20171224_60o30dr56ko30c1g60o30dr564",
+      "status": "confirmed",
+      "htmlLink": "https://www.google.com/calendar/event?eid=MjAxNzEyMjRfNjBvMzBkcjU2a28zMGMxZzYwbzMwZHI1NjQgZW4udXNhI2hvbGlkYXlAdg",
+      "created": "2014-01-09T03:33:01.000Z",
+      "updated": "2014-01-09T03:33:01.000Z",
+      "summary": "Christmas Eve",
+      "creator": {
+        "email": "en.usa#holiday@group.v.calendar.google.com",
+        "displayName": "Holidays in United States",
+        "self": true
+      },
+      "organizer": {
+        "email": "en.usa#holiday@group.v.calendar.google.com",
+        "displayName": "Holidays in United States",
+        "self": true
+      },
+      "start": {
+        "date": "2017-12-24"
+      },
+      "end": {
+        "date": "2017-12-25"
+      },
+      "transparency": "transparent",
+      "visibility": "public",
+      "iCalUID": "20171224_60o30dr56ko30c1g60o30dr564@google.com",
+      "sequence": 0
+    },
+    {
+      "kind": "calendar#event",
+      "etag": "\"2778476762000000\"",
+      "id": "20180101_60o30dr46oo30c1g60o30dr568",
+      "status": "confirmed",
+      "htmlLink": "https://www.google.com/calendar/event?eid=MjAxODAxMDFfNjBvMzBkcjQ2b28zMGMxZzYwbzMwZHI1NjggZW4udXNhI2hvbGlkYXlAdg",
+      "created": "2014-01-09T03:33:01.000Z",
+      "updated": "2014-01-09T03:33:01.000Z",
+      "summary": "New Year's Day",
+      "creator": {
+        "email": "en.usa#holiday@group.v.calendar.google.com",
+        "displayName": "Holidays in United States",
+        "self": true
+      },
+      "organizer": {
+        "email": "en.usa#holiday@group.v.calendar.google.com",
+        "displayName": "Holidays in United States",
+        "self": true
+      },
+      "start": {
+        "date": "2018-01-01"
+      },
+      "end": {
+        "date": "2018-01-02"
+      },
+      "transparency": "transparent",
+      "visibility": "public",
+      "iCalUID": "20180101_60o30dr46oo30c1g60o30dr568@google.com",
+      "sequence": 0
+    },
+    {
+      "kind": "calendar#event",
+      "etag": "\"2778476762000000\"",
+      "id": "20180401_60o30dr660o30c1g60o30dr568",
+      "status": "confirmed",
+      "htmlLink": "https://www.google.com/calendar/event?eid=MjAxODA0MDFfNjBvMzBkcjY2MG8zMGMxZzYwbzMwZHI1NjggZW4udXNhI2hvbGlkYXlAdg",
+      "created": "2014-01-09T03:33:01.000Z",
+      "updated": "2014-01-09T03:33:01.000Z",
+      "summary": "Easter Sunday",
+      "creator": {
+        "email": "en.usa#holiday@group.v.calendar.google.com",
+        "displayName": "Holidays in United States",
+        "self": true
+      },
+      "organizer": {
+        "email": "en.usa#holiday@group.v.calendar.google.com",
+        "displayName": "Holidays in United States",
+        "self": true
+      },
+      "start": {
+        "date": "2018-04-01"
+      },
+      "end": {
+        "date": "2018-04-02"
+      },
+      "transparency": "transparent",
+      "visibility": "public",
+      "iCalUID": "20180401_60o30dr660o30c1g60o30dr568@google.com",
+      "sequence": 0
+    },
+    {
+      "kind": "calendar#event",
+      "etag": "\"2778476764000000\"",
+      "id": "20180528_60o30dr56co30e1g60o30dr568",
+      "status": "confirmed",
+      "htmlLink": "https://www.google.com/calendar/event?eid=MjAxODA1MjhfNjBvMzBkcjU2Y28zMGUxZzYwbzMwZHI1NjggZW4udXNhI2hvbGlkYXlAdg",
+      "created": "2014-01-09T03:33:02.000Z",
+      "updated": "2014-01-09T03:33:02.000Z",
+      "summary": "Memorial Day",
+      "creator": {
+        "email": "en.usa#holiday@group.v.calendar.google.com",
+        "displayName": "Holidays in United States",
+        "self": true
+      },
+      "organizer": {
+        "email": "en.usa#holiday@group.v.calendar.google.com",
+        "displayName": "Holidays in United States",
+        "self": true
+      },
+      "start": {
+        "date": "2018-05-28"
+      },
+      "end": {
+        "date": "2018-05-29"
+      },
+      "transparency": "transparent",
+      "visibility": "public",
+      "iCalUID": "20180528_60o30dr56co30e1g60o30dr568@google.com",
+      "sequence": 0
+    },
+    {
+      "kind": "calendar#event",
+      "etag": "\"2859315260000000\"",
+      "id": "20171105_60o30c9o64o30dpj6sqj0dr564",
+      "status": "confirmed",
+      "htmlLink": "https://www.google.com/calendar/event?eid=MjAxNzExMDVfNjBvMzBjOW82NG8zMGRwajZzcWowZHI1NjQgZW4udXNhI2hvbGlkYXlAdg",
+      "created": "2015-04-21T23:07:10.000Z",
+      "updated": "2015-04-21T23:07:10.000Z",
+      "summary": "Daylight Saving Time ends",
+      "creator": {
+        "email": "en.usa#holiday@group.v.calendar.google.com",
+        "displayName": "Holidays in United States",
+        "self": true
+      },
+      "organizer": {
+        "email": "en.usa#holiday@group.v.calendar.google.com",
+        "displayName": "Holidays in United States",
+        "self": true
+      },
+      "start": {
+        "date": "2017-11-05"
+      },
+      "end": {
+        "date": "2017-11-06"
+      },
+      "transparency": "transparent",
+      "visibility": "public",
+      "iCalUID": "20171105_60o30c9o64o30dpj6sqj0dr564@google.com",
+      "sequence": 0
+    },
+    {
+      "kind": "calendar#event",
+      "etag": "\"2859315260000000\"",
+      "id": "20180311_60o30c9o60o30dpj6sqj0dr568",
+      "status": "confirmed",
+      "htmlLink": "https://www.google.com/calendar/event?eid=MjAxODAzMTFfNjBvMzBjOW82MG8zMGRwajZzcWowZHI1NjggZW4udXNhI2hvbGlkYXlAdg",
+      "created": "2015-04-21T23:07:10.000Z",
+      "updated": "2015-04-21T23:07:10.000Z",
+      "summary": "Daylight Saving Time starts",
+      "creator": {
+        "email": "en.usa#holiday@group.v.calendar.google.com",
+        "displayName": "Holidays in United States",
+        "self": true
+      },
+      "organizer": {
+        "email": "en.usa#holiday@group.v.calendar.google.com",
+        "displayName": "Holidays in United States",
+        "self": true
+      },
+      "start": {
+        "date": "2018-03-11"
+      },
+      "end": {
+        "date": "2018-03-12"
+      },
+      "transparency": "transparent",
+      "visibility": "public",
+      "iCalUID": "20180311_60o30c9o60o30dpj6sqj0dr568@google.com",
+      "sequence": 0
+    },
+    {
+      "kind": "calendar#event",
+      "etag": "\"2870372268000000\"",
+      "id": "20180513_60o30dr560o30e1g60o30dr568",
+      "status": "confirmed",
+      "htmlLink": "https://www.google.com/calendar/event?eid=MjAxODA1MTNfNjBvMzBkcjU2MG8zMGUxZzYwbzMwZHI1NjggZW4udXNhI2hvbGlkYXlAdg",
+      "created": "2015-06-24T22:48:54.000Z",
+      "updated": "2015-06-24T22:48:54.000Z",
+      "summary": "Mother's Day",
+      "creator": {
+        "email": "en.usa#holiday@group.v.calendar.google.com",
+        "displayName": "Holidays in United States",
+        "self": true
+      },
+      "organizer": {
+        "email": "en.usa#holiday@group.v.calendar.google.com",
+        "displayName": "Holidays in United States",
+        "self": true
+      },
+      "start": {
+        "date": "2018-05-13"
+      },
+      "end": {
+        "date": "2018-05-14"
+      },
+      "transparency": "transparent",
+      "visibility": "public",
+      "iCalUID": "20180513_60o30dr560o30e1g60o30dr568@google.com",
+      "sequence": 0
+    },
+    {
+      "kind": "calendar#event",
+      "etag": "\"2870372268000000\"",
+      "id": "20180617_60o30dr564o30e1g60o30dr568",
+      "status": "confirmed",
+      "htmlLink": "https://www.google.com/calendar/event?eid=MjAxODA2MTdfNjBvMzBkcjU2NG8zMGUxZzYwbzMwZHI1NjggZW4udXNhI2hvbGlkYXlAdg",
+      "created": "2015-06-24T22:48:54.000Z",
+      "updated": "2015-06-24T22:48:54.000Z",
+      "summary": "Father's Day",
+      "creator": {
+        "email": "en.usa#holiday@group.v.calendar.google.com",
+        "displayName": "Holidays in United States",
+        "self": true
+      },
+      "organizer": {
+        "email": "en.usa#holiday@group.v.calendar.google.com",
+        "displayName": "Holidays in United States",
+        "self": true
+      },
+      "start": {
+        "date": "2018-06-17"
+      },
+      "end": {
+        "date": "2018-06-18"
+      },
+      "transparency": "transparent",
+      "visibility": "public",
+      "iCalUID": "20180617_60o30dr564o30e1g60o30dr568@google.com",
+      "sequence": 0
+    },
+    {
+      "kind": "calendar#event",
+      "etag": "\"2968011030000000\"",
+      "id": "20180115_60o30dr56oo30c1g60o30dr568",
+      "status": "confirmed",
+      "htmlLink": "https://www.google.com/calendar/event?eid=MjAxODAxMTVfNjBvMzBkcjU2b28zMGMxZzYwbzMwZHI1NjggZW4udXNhI2hvbGlkYXlAdg",
+      "created": "2017-01-09T23:45:15.000Z",
+      "updated": "2017-01-09T23:45:15.000Z",
+      "summary": "Martin Luther King Jr. Day",
+      "creator": {
+        "email": "en.usa#holiday@group.v.calendar.google.com",
+        "displayName": "Holidays in United States",
+        "self": true
+      },
+      "organizer": {
+        "email": "en.usa#holiday@group.v.calendar.google.com",
+        "displayName": "Holidays in United States",
+        "self": true
+      },
+      "start": {
+        "date": "2018-01-15"
+      },
+      "end": {
+        "date": "2018-01-16"
+      },
+      "transparency": "transparent",
+      "visibility": "public",
+      "iCalUID": "20180115_60o30dr56oo30c1g60o30dr568@google.com",
+      "sequence": 0
+    },
+    {
+      "kind": "calendar#event",
+      "etag": "\"3006880052000000\"",
+      "id": "20171110_60o30dr568o36c1g60o30dr564",
+      "status": "confirmed",
+      "htmlLink": "https://www.google.com/calendar/event?eid=MjAxNzExMTBfNjBvMzBkcjU2OG8zNmMxZzYwbzMwZHI1NjQgZW4udXNhI2hvbGlkYXlAdg",
+      "created": "2017-08-22T22:13:46.000Z",
+      "updated": "2017-08-22T22:13:46.000Z",
+      "summary": "Veterans Day observed",
+      "creator": {
+        "email": "en.usa#holiday@group.v.calendar.google.com",
+        "displayName": "Holidays in United States",
+        "self": true
+      },
+      "organizer": {
+        "email": "en.usa#holiday@group.v.calendar.google.com",
+        "displayName": "Holidays in United States",
+        "self": true
+      },
+      "start": {
+        "date": "2017-11-10"
+      },
+      "end": {
+        "date": "2017-11-11"
+      },
+      "transparency": "transparent",
+      "visibility": "public",
+      "iCalUID": "20171110_60o30dr568o36c1g60o30dr564@google.com",
+      "sequence": 0
+    },
+    {
+      "kind": "calendar#event",
+      "etag": "\"3018115702000000\"",
+      "id": "20181008_60o30dr5c8o38c1g60o30dr568",
+      "status": "confirmed",
+      "htmlLink": "https://www.google.com/calendar/event?eid=MjAxODEwMDhfNjBvMzBkcjVjOG8zOGMxZzYwbzMwZHI1NjggZW4udXNhI2hvbGlkYXlAdg",
+      "created": "2017-10-26T22:44:11.000Z",
+      "updated": "2017-10-26T22:44:11.000Z",
+      "summary": "Columbus Day (regional holiday)",
+      "description": "Public holiday in: Alabama, Arizona, Colorado, Connecticut, District of Columbia, Georgia, Idaho, Illinois, Indiana, Iowa, Kansas, Kentucky, Louisiana, Maine, Maryland, Massachusetts, Mississippi, Missouri, Montana, Nebraska, New Hampshire, New Jersey, New Mexico, New York, North Carolina, Northern Mariana Islands, Ohio, Oklahoma, Pennsylvania, Rhode Island, South Carolina, Tennessee, Utah, Virginia, West Virginia, Wisconsin",
+      "creator": {
+        "email": "en.usa#holiday@group.v.calendar.google.com",
+        "displayName": "Holidays in United States",
+        "self": true
+      },
+      "organizer": {
+        "email": "en.usa#holiday@group.v.calendar.google.com",
+        "displayName": "Holidays in United States",
+        "self": true
+      },
+      "start": {
+        "date": "2018-10-08"
+      },
+      "end": {
+        "date": "2018-10-09"
+      },
+      "transparency": "transparent",
+      "visibility": "public",
+      "iCalUID": "20181008_60o30dr5c8o38c1g60o30dr568@google.com",
+      "sequence": 0
+    },
+    {
+      "kind": "calendar#event",
+      "etag": "\"3037301898000000\"",
+      "id": "20180219_60o30dr570o30e1g60o30dr568",
+      "status": "confirmed",
+      "htmlLink": "https://www.google.com/calendar/event?eid=MjAxODAyMTlfNjBvMzBkcjU3MG8zMGUxZzYwbzMwZHI1NjggZW4udXNhI2hvbGlkYXlAdg",
+      "created": "2018-02-14T23:29:09.000Z",
+      "updated": "2018-02-14T23:29:09.000Z",
+      "summary": "Presidents' Day (regional holiday)",
+      "description": "Public holiday in: Alabama, Alaska, Arizona, Arkansas, California, Colorado, Connecticut, District of Columbia, Florida, Hawaii, Idaho, Illinois, Maine, Maryland, Massachusetts, Michigan, Minnesota, Mississippi, Missouri, Montana, Nebraska, Nevada, New Hampshire, New Jersey, New York, North Dakota, Northern Mariana Islands, Ohio, Oklahoma, Oregon, Pennsylvania, South Carolina, South Dakota, Tennessee, Texas, Utah, Vermont, Virginia, Washington, West Virginia, Wyoming",
+      "creator": {
+        "email": "en.usa#holiday@group.v.calendar.google.com",
+        "displayName": "Holidays in United States",
+        "self": true
+      },
+      "organizer": {
+        "email": "en.usa#holiday@group.v.calendar.google.com",
+        "displayName": "Holidays in United States",
+        "self": true
+      },
+      "start": {
+        "date": "2018-02-19"
+      },
+      "end": {
+        "date": "2018-02-20"
+      },
+      "transparency": "transparent",
+      "visibility": "public",
+      "iCalUID": "20180219_60o30dr570o30e1g60o30dr568@google.com",
+      "sequence": 0
+    },
+    {
+      "kind": "calendar#event",
+      "etag": "\"3043015676000000\"",
+      "id": "20171124_60o30dr5cgo30e1g60o30dr564",
+      "status": "confirmed",
+      "htmlLink": "https://www.google.com/calendar/event?eid=MjAxNzExMjRfNjBvMzBkcjVjZ28zMGUxZzYwbzMwZHI1NjQgZW4udXNhI2hvbGlkYXlAdg",
+      "created": "2018-03-20T01:03:58.000Z",
+      "updated": "2018-03-20T01:03:58.000Z",
+      "summary": "Black Friday",
+      "creator": {
+        "email": "en.usa#holiday@group.v.calendar.google.com",
+        "displayName": "Holidays in United States",
+        "self": true
+      },
+      "organizer": {
+        "email": "en.usa#holiday@group.v.calendar.google.com",
+        "displayName": "Holidays in United States",
+        "self": true
+      },
+      "start": {
+        "date": "2017-11-24"
+      },
+      "end": {
+        "date": "2017-11-25"
+      },
+      "transparency": "transparent",
+      "visibility": "public",
+      "iCalUID": "20171124_60o30dr5cgo30e1g60o30dr564@google.com",
+      "sequence": 0
+    },
+    {
+      "kind": "calendar#event",
+      "etag": "\"3043699712000000\"",
+      "id": "20180317_60o30dr4c8o30c1g60o30dr568",
+      "status": "confirmed",
+      "htmlLink": "https://www.google.com/calendar/event?eid=MjAxODAzMTdfNjBvMzBkcjRjOG8zMGMxZzYwbzMwZHI1NjggZW4udXNhI2hvbGlkYXlAdg",
+      "created": "2018-03-24T00:04:16.000Z",
+      "updated": "2018-03-24T00:04:16.000Z",
+      "summary": "St. Patrick's Day",
+      "creator": {
+        "email": "en.usa#holiday@group.v.calendar.google.com",
+        "displayName": "Holidays in United States",
+        "self": true
+      },
+      "organizer": {
+        "email": "en.usa#holiday@group.v.calendar.google.com",
+        "displayName": "Holidays in United States",
+        "self": true
+      },
+      "start": {
+        "date": "2018-03-17"
+      },
+      "end": {
+        "date": "2018-03-18"
+      },
+      "transparency": "transparent",
+      "visibility": "public",
+      "iCalUID": "20180317_60o30dr4c8o30c1g60o30dr568@google.com",
+      "sequence": 0
+    },
+    {
+      "kind": "calendar#event",
+      "etag": "\"3043699712000000\"",
+      "id": "20180417_60o30dr66ko30c1g60o30dr568",
+      "status": "confirmed",
+      "htmlLink": "https://www.google.com/calendar/event?eid=MjAxODA0MTdfNjBvMzBkcjY2a28zMGMxZzYwbzMwZHI1NjggZW4udXNhI2hvbGlkYXlAdg",
+      "created": "2018-03-24T00:04:16.000Z",
+      "updated": "2018-03-24T00:04:16.000Z",
+      "summary": "Tax Day",
+      "creator": {
+        "email": "en.usa#holiday@group.v.calendar.google.com",
+        "displayName": "Holidays in United States",
+        "self": true
+      },
+      "organizer": {
+        "email": "en.usa#holiday@group.v.calendar.google.com",
+        "displayName": "Holidays in United States",
+        "self": true
+      },
+      "start": {
+        "date": "2018-04-17"
+      },
+      "end": {
+        "date": "2018-04-18"
+      },
+      "transparency": "transparent",
+      "visibility": "public",
+      "iCalUID": "20180417_60o30dr66ko30c1g60o30dr568@google.com",
+      "sequence": 0
+    },
+    {
+      "kind": "calendar#event",
+      "etag": "\"3043699712000000\"",
+      "id": "20180505_60o30dr474o30c1g60o30dr568",
+      "status": "confirmed",
+      "htmlLink": "https://www.google.com/calendar/event?eid=MjAxODA1MDVfNjBvMzBkcjQ3NG8zMGMxZzYwbzMwZHI1NjggZW4udXNhI2hvbGlkYXlAdg",
+      "created": "2018-03-24T00:04:16.000Z",
+      "updated": "2018-03-24T00:04:16.000Z",
+      "summary": "Cinco de Mayo",
+      "creator": {
+        "email": "en.usa#holiday@group.v.calendar.google.com",
+        "displayName": "Holidays in United States",
+        "self": true
+      },
+      "organizer": {
+        "email": "en.usa#holiday@group.v.calendar.google.com",
+        "displayName": "Holidays in United States",
+        "self": true
+      },
+      "start": {
+        "date": "2018-05-05"
+      },
+      "end": {
+        "date": "2018-05-06"
+      },
+      "transparency": "transparent",
+      "visibility": "public",
+      "iCalUID": "20180505_60o30dr474o30c1g60o30dr568@google.com",
+      "sequence": 0
+    }
+  ]
+}

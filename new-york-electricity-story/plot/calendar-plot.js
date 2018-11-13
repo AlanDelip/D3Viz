@@ -13,7 +13,6 @@ export default class CalendarPlot {
 		this.x = d3.scaleLinear().domain([0, 36]).range([this.margin.left, this.size.width - this.margin.right]);
 		this.y = d3.scaleLinear().domain([0, 16]).range([this.margin.top, this.size.height - this.margin.bottom]);
 		this.r = d3.scaleLinear().domain([300000, 600000]).range([1, 20]);
-		this.color = d3.scaleOrdinal().domain(["high-temp", "low-temp", "event", "holiday", ""]).range(["orange", "lightblue", "lightgreen", "yellow", "grey"]);
 	}
 
 
@@ -67,7 +66,23 @@ export default class CalendarPlot {
 			.attr("cx", d => this.x(6 * ((d.month - 1) % 6) + d.week))
 			.attr("cy", d => this.y(Math.floor(((d.month - 1) / 6)) * 8 + d.day_of_week))
 			.attr("r", 0)
-			.attr("fill", d => this.color(d.type));
+			.attr("fill", d => {
+				if (d.type.indexOf('temp') !== -1) {
+					if (d.desc[d.type.indexOf('temp')] === 'high temp') {
+						return "#fdb02d";
+					} else {
+						return "#a6e7fd";
+					}
+				} else if (d.type.indexOf('holiday') !== -1) {
+					return "#f5a9b6"
+				} else if (d.type.indexOf('event') !== -1) {
+					return "#fdfc7f";
+				} else if (d.type.indexOf('weekend') !== -1) {
+					return "#a1e7a6";
+				} else{
+					return "#909290";
+				}
+			});
 
 		let exitModel = this.calendar.exit();
 

@@ -3,17 +3,31 @@ const readline = require('readline');
 const {google} = require('googleapis');
 
 // If modifying these scopes, delete token.json.
-const SCOPES = ['https://www.googleapis.com/auth/calendar.readonly'];
+const SCOPES = ['https://www.googleapis.com/auth/calendar.events', 'https://www.googleapis.com/auth/calendar.events.readonly',
+	'https://www.googleapis.com/auth/calendar', 'https://www.googleapis.com/auth/calendar.readonly'];
 // The file token.json stores the user's access and refresh tokens, and is
 // created automatically when the authorization flow completes for the first
 // time.
 const TOKEN_PATH = 'token.json';
 
 // Load client secrets from a local file.
-fs.readFile('credentials.json', (err, content) => {
-	if (err) return console.log('Error loading client secret file:', err);
-	// Authorize a client with credentials, then call the Google Calendar API.
-	authorize(JSON.parse(content), listEvents);
+// fs.readFile('credentials.json', (err, content) => {
+// 	if (err) return console.log('Error loading client secret file:', err);
+// 	// Authorize a client with credentials, then call the Google Calendar API.
+// 	authorize(JSON.parse(content), listEvents);
+// });
+
+fs.readFile('./us-holidays.json', (err, content) => {
+	let data = [];
+	let holidays = JSON.parse(content).items;
+	for (let holiday of holidays) {
+		const start = holiday.start.dateTime || holiday.start.date;
+		const end = holiday.end.dateTime || holiday.end.date;
+		data.push({start, end, name: holiday.summary});
+	}
+	fs.writeFile("ny-holidays.json", JSON.stringify(data), res => {
+		console.log("write success");
+	})
 });
 
 /**
@@ -72,21 +86,26 @@ function getAccessToken(oAuth2Client, callback) {
  */
 function listEvents(auth) {
 	const calendar = google.calendar({version: 'v3', auth});
+	let startDate = new Date();
+	startDate.setFullYear(2017, 10, 0);
+	let data = [];
 	calendar.events.list({
-		calendarId: 'primary',
-		timeMin: (new Date()).toISOString(),
-		maxResults: 10,
-		singleEvents: true,
-		orderBy: 'startTime',
+		calendarId: 'columbia.edu_ntjs0e60drh90lf9t9hk4oaoks@group.calendar.google.com',
+		timeMin: startDate.toISOString(),
+		maxResults: 100,
+		singleEvents: true
 	}, (err, res) => {
 		if (err) return console.log('The API returned an error: ' + err);
 		const events = res.data.items;
 		if (events.length) {
-			console.log('Upcoming 10 events:');
 			events.map((event, i) => {
 				const start = event.start.dateTime || event.start.date;
-				console.log(`${start} - ${event.summary}`);
+				const end = event.end.dateTime || event.end.date;
+				data.push({start, end, name: event.summary});
 			});
+			fs.writeFile("ny-events.json", JSON.stringify(data), res => {
+				console.log("write success");
+			})
 		} else {
 			console.log('No upcoming events found.');
 		}

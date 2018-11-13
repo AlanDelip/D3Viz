@@ -1,0 +1,95 @@
+@import "common";
+
+#relation-exploration {
+  background: white;
+  text-align: center;
+  padding: 10em 7em 0;
+
+  .title {
+    font-size: 4em;
+    font-weight: bold;
+  }
+
+  .description {
+    font-size: 1.3em;
+    text-align: start;
+    div {
+      margin-bottom: .6em;
+    }
+  }
+
+  .labels {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5em;
+
+    .label {
+      margin: .5em 1em;
+    }
+  }
+
+  .relation-container {
+    width: 100%;
+    margin-top: 1em;
+    display: flex;
+    align-items: center;
+    position: relative;
+
+    .description {
+      width: 40%;
+      padding: 1em;
+    }
+
+    #special-load {
+      width: 60%;
+      height: 65vh;
+    }
+  }
+
+  #temp-load {
+    width: 100%;
+    height: 65vh;
+  }
+
+  #temp-load-container {
+    width: 60%;
+    position: relative;
+    text-align: center;
+
+    .labels {
+      font-size: 1em;
+
+      &.hidden {
+        visibility: hidden;
+      }
+    }
+  }
+
+  #relation-exploration-trigger-2 {
+    position: absolute;
+    top: 35vh;
+    left: 0;
+    transform: translateY(-50%);
+  }
+
+  .scene-container {
+    position: relative;
+    text-align: start;
+
+    .desc-container {
+      position: absolute;
+      right: 0;
+      top: 30vh;
+      width: 40%;
+
+      .space {
+        height: 40vh;
+      }
+
+      .description {
+      }
+    }
+
+  }
+}

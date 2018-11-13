@@ -45,7 +45,6 @@ function extractExistedData2File() {
 		});
 }
 
-
 function getDayOfWeek(year, month, day) {
 	let a = Math.floor((14 - month) / 12);
 	let y = year - a;
@@ -55,11 +54,11 @@ function getDayOfWeek(year, month, day) {
 }
 
 function extractData() {
-	fs.readdir("./2017_11_ny_load_csv", (err, files) => {
+	fs.readdir("./ny-load-data/2017_12_ny_load_csv", (err, files) => {
 		let data = [];
 		let index = 332;
 		files.forEach((file, i) => {
-			let stream = fs.createReadStream(`2017_11_ny_load_csv/${file}`);
+			let stream = fs.createReadStream(`./ny-load-data/2017_12_ny_load_csv/${file}`);
 			let header = true;
 			let load = 0;
 			let csvStream = csv.parse()
@@ -74,7 +73,7 @@ function extractData() {
 					let year = parseInt(file.substr(0, 4));
 					let month = parseInt(file.substr(4, 2));
 					let day = (parseInt(file.substr(6, 2)) - 1) % 7 + 1;
-					let week = Math.floor((file.substr(6, 2) - 1) / 7) + 1
+					let week = Math.floor((file.substr(6, 2) - 1) / 7) + 1;
 					let day_of_week = getDayOfWeek(year, month, day) + 1;
 					week = day_of_week - day < 0 ? week + 1 : week;
 					data.push({
@@ -82,13 +81,13 @@ function extractData() {
 						year,
 						month,
 						week,
-						day,
+						day: parseInt(file.substr(6, 2)),
 						day_of_week,
 						load
 					});
 
-					if (i === 29) {
-						fs.writeFile('ny_load_1711.json', JSON.stringify(data), res => {
+					if (i === 30) {
+						fs.writeFile('ny_load_1712.json', JSON.stringify(data), res => {
 							console.log("The file was saved!");
 						});
 					}
@@ -100,5 +99,48 @@ function extractData() {
 	});
 }
 
+function extractHourlyData() {
+	let stream = fs.createReadStream("./ny-load-data/20180901palIntegrated_csv/20180929palIntegrated.csv");
+	let header = true;
+	let load = 0;
+	let hdata = [];
+	let index = 0;
+	let csvStream = csv.parse()
+		.on("data", data => {
+			if (index !== 0) {
+				load += parseFloat(data[4]);
+				if (index % 11 === 0) {
+					hdata.push({hour: index / 11 - 1, load: parseFloat(load.toFixed(1))});
+					load = 0;
+				}
+			}
+			index++;
+		})
+		.on("end", () => {
+			fs.writeFile('ny_load_180929.json', JSON.stringify(hdata), res => {
+				console.log("The file was saved!");
+			});
+			stream.close();
+		});
+
+	stream.pipe(csvStream);
+}
+
+function convertHourlyData() {
+	let data = JSON.parse(fs.readFileSync("./ny-load-data/hourly-data/financial-now.json"));
+	let day = 0;
+	let current = 0;
+	data = data.map(d => {
+		if (d.Time_Stamp.substr(3, 2) !== day) {
+			day = d.Time_Stamp.substr(3, 2);
+			current++;
+		}
+		return {day: current, hour: parseInt(d.Time_Stamp.substr(11, 2)), load: d.Integrated_Load}
+	});
+	fs.writeFile("financial-now.json", JSON.stringify(data), res => console.log("saved"));
+}
+
 // extractExistedData2File();
-extractData();
+// extractData();
+// extractHourlyData();
+convertHourlyData();

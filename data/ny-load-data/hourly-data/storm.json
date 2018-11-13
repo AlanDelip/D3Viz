@@ -1,0 +1,290 @@
+[
+  {
+    "Time_Stamp": "03\/13\/2017 00:00:00",
+    "Integrated_Load": 16718.3
+  },
+  {
+    "Time_Stamp": "03\/13\/2017 01:00:00",
+    "Integrated_Load": 16260.8
+  },
+  {
+    "Time_Stamp": "03\/13\/2017 02:00:00",
+    "Integrated_Load": 16022.3
+  },
+  {
+    "Time_Stamp": "03\/13\/2017 03:00:00",
+    "Integrated_Load": 15984.8
+  },
+  {
+    "Time_Stamp": "03\/13\/2017 04:00:00",
+    "Integrated_Load": 16266.8
+  },
+  {
+    "Time_Stamp": "03\/13\/2017 05:00:00",
+    "Integrated_Load": 17156.7
+  },
+  {
+    "Time_Stamp": "03\/13\/2017 06:00:00",
+    "Integrated_Load": 18959.7
+  },
+  {
+    "Time_Stamp": "03\/13\/2017 07:00:00",
+    "Integrated_Load": 20233.5
+  },
+  {
+    "Time_Stamp": "03\/13\/2017 08:00:00",
+    "Integrated_Load": 20610.9
+  },
+  {
+    "Time_Stamp": "03\/13\/2017 09:00:00",
+    "Integrated_Load": 20666.3
+  },
+  {
+    "Time_Stamp": "03\/13\/2017 10:00:00",
+    "Integrated_Load": 20618.0
+  },
+  {
+    "Time_Stamp": "03\/13\/2017 11:00:00",
+    "Integrated_Load": 20527.4
+  },
+  {
+    "Time_Stamp": "03\/13\/2017 12:00:00",
+    "Integrated_Load": 20226.6
+  },
+  {
+    "Time_Stamp": "03\/13\/2017 13:00:00",
+    "Integrated_Load": 20012.6
+  },
+  {
+    "Time_Stamp": "03\/13\/2017 14:00:00",
+    "Integrated_Load": 19817.4
+  },
+  {
+    "Time_Stamp": "03\/13\/2017 15:00:00",
+    "Integrated_Load": 19635.1
+  },
+  {
+    "Time_Stamp": "03\/13\/2017 16:00:00",
+    "Integrated_Load": 19731.2
+  },
+  {
+    "Time_Stamp": "03\/13\/2017 17:00:00",
+    "Integrated_Load": 19899.4
+  },
+  {
+    "Time_Stamp": "03\/13\/2017 18:00:00",
+    "Integrated_Load": 20273.2
+  },
+  {
+    "Time_Stamp": "03\/13\/2017 19:00:00",
+    "Integrated_Load": 21009.2
+  },
+  {
+    "Time_Stamp": "03\/13\/2017 20:00:00",
+    "Integrated_Load": 20808.3
+  },
+  {
+    "Time_Stamp": "03\/13\/2017 21:00:00",
+    "Integrated_Load": 20025.9
+  },
+  {
+    "Time_Stamp": "03\/13\/2017 22:00:00",
+    "Integrated_Load": 18879.8
+  },
+  {
+    "Time_Stamp": "03\/13\/2017 23:00:00",
+    "Integrated_Load": 17686.8
+  },
+  {
+    "Time_Stamp": "03\/14\/2017 00:00:00",
+    "Integrated_Load": 16671.2
+  },
+  {
+    "Time_Stamp": "03\/14\/2017 01:00:00",
+    "Integrated_Load": 16068.0
+  },
+  {
+    "Time_Stamp": "03\/14\/2017 02:00:00",
+    "Integrated_Load": 15714.6
+  },
+  {
+    "Time_Stamp": "03\/14\/2017 03:00:00",
+    "Integrated_Load": 15632.4
+  },
+  {
+    "Time_Stamp": "03\/14\/2017 04:00:00",
+    "Integrated_Load": 15770.5
+  },
+  {
+    "Time_Stamp": "03\/14\/2017 05:00:00",
+    "Integrated_Load": 16296.3
+  },
+  {
+    "Time_Stamp": "03\/14\/2017 06:00:00",
+    "Integrated_Load": 17231.7
+  },
+  {
+    "Time_Stamp": "03\/14\/2017 07:00:00",
+    "Integrated_Load": 17944.9
+  },
+  {
+    "Time_Stamp": "03\/14\/2017 08:00:00",
+    "Integrated_Load": 18589.5
+  },
+  {
+    "Time_Stamp": "03\/14\/2017 09:00:00",
+    "Integrated_Load": 19445.6
+  },
+  {
+    "Time_Stamp": "03\/14\/2017 10:00:00",
+    "Integrated_Load": 20103.8
+  },
+  {
+    "Time_Stamp": "03\/14\/2017 11:00:00",
+    "Integrated_Load": 20353.9
+  },
+  {
+    "Time_Stamp": "03\/14\/2017 12:00:00",
+    "Integrated_Load": 20407.7
+  },
+  {
+    "Time_Stamp": "03\/14\/2017 13:00:00",
+    "Integrated_Load": 20323.9
+  },
+  {
+    "Time_Stamp": "03\/14\/2017 14:00:00",
+    "Integrated_Load": 20096.8
+  },
+  {
+    "Time_Stamp": "03\/14\/2017 15:00:00",
+    "Integrated_Load": 19889.4
+  },
+  {
+    "Time_Stamp": "03\/14\/2017 16:00:00",
+    "Integrated_Load": 19925.6
+  },
+  {
+    "Time_Stamp": "03\/14\/2017 17:00:00",
+    "Integrated_Load": 20162.5
+  },
+  {
+    "Time_Stamp": "03\/14\/2017 18:00:00",
+    "Integrated_Load": 20386.5
+  },
+  {
+    "Time_Stamp": "03\/14\/2017 19:00:00",
+    "Integrated_Load": 20886.5
+  },
+  {
+    "Time_Stamp": "03\/14\/2017 20:00:00",
+    "Integrated_Load": 20533.1
+  },
+  {
+    "Time_Stamp": "03\/14\/2017 21:00:00",
+    "Integrated_Load": 19741.8
+  },
+  {
+    "Time_Stamp": "03\/14\/2017 22:00:00",
+    "Integrated_Load": 18674.2
+  },
+  {
+    "Time_Stamp": "03\/14\/2017 23:00:00",
+    "Integrated_Load": 17485.0
+  },
+  {
+    "Time_Stamp": "03\/15\/2017 00:00:00",
+    "Integrated_Load": 16569.0
+  },
+  {
+    "Time_Stamp": "03\/15\/2017 01:00:00",
+    "Integrated_Load": 16072.0
+  },
+  {
+    "Time_Stamp": "03\/15\/2017 02:00:00",
+    "Integrated_Load": 15847.1
+  },
+  {
+    "Time_Stamp": "03\/15\/2017 03:00:00",
+    "Integrated_Load": 15778.6
+  },
+  {
+    "Time_Stamp": "03\/15\/2017 04:00:00",
+    "Integrated_Load": 15999.4
+  },
+  {
+    "Time_Stamp": "03\/15\/2017 05:00:00",
+    "Integrated_Load": 16752.9
+  },
+  {
+    "Time_Stamp": "03\/15\/2017 06:00:00",
+    "Integrated_Load": 18214.3
+  },
+  {
+    "Time_Stamp": "03\/15\/2017 07:00:00",
+    "Integrated_Load": 19397.4
+  },
+  {
+    "Time_Stamp": "03\/15\/2017 08:00:00",
+    "Integrated_Load": 20023.5
+  },
+  {
+    "Time_Stamp": "03\/15\/2017 09:00:00",
+    "Integrated_Load": 20529.5
+  },
+  {
+    "Time_Stamp": "03\/15\/2017 10:00:00",
+    "Integrated_Load": 20846.4
+  },
+  {
+    "Time_Stamp": "03\/15\/2017 11:00:00",
+    "Integrated_Load": 20961.8
+  },
+  {
+    "Time_Stamp": "03\/15\/2017 12:00:00",
+    "Integrated_Load": 20939.7
+  },
+  {
+    "Time_Stamp": "03\/15\/2017 13:00:00",
+    "Integrated_Load": 20878.8
+  },
+  {
+    "Time_Stamp": "03\/15\/2017 14:00:00",
+    "Integrated_Load": 20672.1
+  },
+  {
+    "Time_Stamp": "03\/15\/2017 15:00:00",
+    "Integrated_Load": 20597.9
+  },
+  {
+    "Time_Stamp": "03\/15\/2017 16:00:00",
+    "Integrated_Load": 20716.8
+  },
+  {
+    "Time_Stamp": "03\/15\/2017 17:00:00",
+    "Integrated_Load": 20945.7
+  },
+  {
+    "Time_Stamp": "03\/15\/2017 18:00:00",
+    "Integrated_Load": 21117.4
+  },
+  {
+    "Time_Stamp": "03\/15\/2017 19:00:00",
+    "Integrated_Load": 21689.3
+  },
+  {
+    "Time_Stamp": "03\/15\/2017 20:00:00",
+    "Integrated_Load": 21483.3
+  },
+  {
+    "Time_Stamp": "03\/15\/2017 21:00:00",
+    "Integrated_Load": 20540.9
+  },
+  {
+    "Time_Stamp": "03\/15\/2017 22:00:00",
+    "Integrated_Load": 19182.9
+  },
+  {
+    "Time_Stamp": "03\/15\/2017 23:00:00",
+    "Integrated_Load": 17832.2
+  }
+]

@@ -2,7 +2,7 @@
 > For display, interaction, and analysis of the projects, please visit [Alan's Site](https://alan-zhufengxu.com "Alan's Site") or my [Observable homepage](https://beta.observablehq.com/@alandelip "Observable Notebook for d3").
 
 ### Electricity Consumption Story in New York
-![Electricity Story](electricity_narrative/electricity_consumption_story.png)
+![Electricity Story](new-york-electricity-story/new-york-electricity-story.png)
 
 ### Bar Chart
 - simple bar chart

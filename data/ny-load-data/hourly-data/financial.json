@@ -1,0 +1,290 @@
+[
+  {
+    "Time_Stamp": "09\/16\/2018 00:00:00",
+    "Integrated_Load": 5599.1
+  },
+  {
+    "Time_Stamp": "09\/16\/2018 01:00:00",
+    "Integrated_Load": 5356.6
+  },
+  {
+    "Time_Stamp": "09\/16\/2018 02:00:00",
+    "Integrated_Load": 5169.4
+  },
+  {
+    "Time_Stamp": "09\/16\/2018 03:00:00",
+    "Integrated_Load": 5042.1
+  },
+  {
+    "Time_Stamp": "09\/16\/2018 04:00:00",
+    "Integrated_Load": 4967.2
+  },
+  {
+    "Time_Stamp": "09\/16\/2018 05:00:00",
+    "Integrated_Load": 4970.4
+  },
+  {
+    "Time_Stamp": "09\/16\/2018 06:00:00",
+    "Integrated_Load": 5065.9
+  },
+  {
+    "Time_Stamp": "09\/16\/2018 07:00:00",
+    "Integrated_Load": 5264.1
+  },
+  {
+    "Time_Stamp": "09\/16\/2018 08:00:00",
+    "Integrated_Load": 5636.6
+  },
+  {
+    "Time_Stamp": "09\/16\/2018 09:00:00",
+    "Integrated_Load": 6031.3
+  },
+  {
+    "Time_Stamp": "09\/16\/2018 10:00:00",
+    "Integrated_Load": 6431.1
+  },
+  {
+    "Time_Stamp": "09\/16\/2018 11:00:00",
+    "Integrated_Load": 6776.0
+  },
+  {
+    "Time_Stamp": "09\/16\/2018 12:00:00",
+    "Integrated_Load": 7008.5
+  },
+  {
+    "Time_Stamp": "09\/16\/2018 13:00:00",
+    "Integrated_Load": 7188.1
+  },
+  {
+    "Time_Stamp": "09\/16\/2018 14:00:00",
+    "Integrated_Load": 7331.5
+  },
+  {
+    "Time_Stamp": "09\/16\/2018 15:00:00",
+    "Integrated_Load": 7422.9
+  },
+  {
+    "Time_Stamp": "09\/16\/2018 16:00:00",
+    "Integrated_Load": 7477.5
+  },
+  {
+    "Time_Stamp": "09\/16\/2018 17:00:00",
+    "Integrated_Load": 7437.8
+  },
+  {
+    "Time_Stamp": "09\/16\/2018 18:00:00",
+    "Integrated_Load": 7286.7
+  },
+  {
+    "Time_Stamp": "09\/16\/2018 19:00:00",
+    "Integrated_Load": 7244.4
+  },
+  {
+    "Time_Stamp": "09\/16\/2018 20:00:00",
+    "Integrated_Load": 7171.7
+  },
+  {
+    "Time_Stamp": "09\/16\/2018 21:00:00",
+    "Integrated_Load": 7009.6
+  },
+  {
+    "Time_Stamp": "09\/16\/2018 22:00:00",
+    "Integrated_Load": 6711.5
+  },
+  {
+    "Time_Stamp": "09\/16\/2018 23:00:00",
+    "Integrated_Load": 6316.7
+  },
+  {
+    "Time_Stamp": "09\/14\/2018 00:00:00",
+    "Integrated_Load": 5671.9
+  },
+  {
+    "Time_Stamp": "09\/14\/2018 01:00:00",
+    "Integrated_Load": 5370.7
+  },
+  {
+    "Time_Stamp": "09\/14\/2018 02:00:00",
+    "Integrated_Load": 5184.3
+  },
+  {
+    "Time_Stamp": "09\/14\/2018 03:00:00",
+    "Integrated_Load": 5098.0
+  },
+  {
+    "Time_Stamp": "09\/14\/2018 04:00:00",
+    "Integrated_Load": 5117.7
+  },
+  {
+    "Time_Stamp": "09\/14\/2018 05:00:00",
+    "Integrated_Load": 5372.8
+  },
+  {
+    "Time_Stamp": "09\/14\/2018 06:00:00",
+    "Integrated_Load": 5945.3
+  },
+  {
+    "Time_Stamp": "09\/14\/2018 07:00:00",
+    "Integrated_Load": 6547.3
+  },
+  {
+    "Time_Stamp": "09\/14\/2018 08:00:00",
+    "Integrated_Load": 6962.6
+  },
+  {
+    "Time_Stamp": "09\/14\/2018 09:00:00",
+    "Integrated_Load": 7228.6
+  },
+  {
+    "Time_Stamp": "09\/14\/2018 10:00:00",
+    "Integrated_Load": 7332.8
+  },
+  {
+    "Time_Stamp": "09\/14\/2018 11:00:00",
+    "Integrated_Load": 7404.9
+  },
+  {
+    "Time_Stamp": "09\/14\/2018 12:00:00",
+    "Integrated_Load": 7471.7
+  },
+  {
+    "Time_Stamp": "09\/14\/2018 13:00:00",
+    "Integrated_Load": 7536.5
+  },
+  {
+    "Time_Stamp": "09\/14\/2018 14:00:00",
+    "Integrated_Load": 7480.5
+  },
+  {
+    "Time_Stamp": "09\/14\/2018 15:00:00",
+    "Integrated_Load": 7545.5
+  },
+  {
+    "Time_Stamp": "09\/14\/2018 16:00:00",
+    "Integrated_Load": 7568.3
+  },
+  {
+    "Time_Stamp": "09\/14\/2018 17:00:00",
+    "Integrated_Load": 7455.4
+  },
+  {
+    "Time_Stamp": "09\/14\/2018 18:00:00",
+    "Integrated_Load": 7224.8
+  },
+  {
+    "Time_Stamp": "09\/14\/2018 19:00:00",
+    "Integrated_Load": 7117.6
+  },
+  {
+    "Time_Stamp": "09\/14\/2018 20:00:00",
+    "Integrated_Load": 6867.9
+  },
+  {
+    "Time_Stamp": "09\/14\/2018 21:00:00",
+    "Integrated_Load": 6604.4
+  },
+  {
+    "Time_Stamp": "09\/14\/2018 22:00:00",
+    "Integrated_Load": 6311.5
+  },
+  {
+    "Time_Stamp": "09\/14\/2018 23:00:00",
+    "Integrated_Load": 5990.7
+  },
+  {
+    "Time_Stamp": "09\/15\/2018 00:00:00",
+    "Integrated_Load": 5623.3
+  },
+  {
+    "Time_Stamp": "09\/15\/2018 01:00:00",
+    "Integrated_Load": 5347.2
+  },
+  {
+    "Time_Stamp": "09\/15\/2018 02:00:00",
+    "Integrated_Load": 5151.7
+  },
+  {
+    "Time_Stamp": "09\/15\/2018 03:00:00",
+    "Integrated_Load": 5024.0
+  },
+  {
+    "Time_Stamp": "09\/15\/2018 04:00:00",
+    "Integrated_Load": 4949.4
+  },
+  {
+    "Time_Stamp": "09\/15\/2018 05:00:00",
+    "Integrated_Load": 4984.1
+  },
+  {
+    "Time_Stamp": "09\/15\/2018 06:00:00",
+    "Integrated_Load": 5142.9
+  },
+  {
+    "Time_Stamp": "09\/15\/2018 07:00:00",
+    "Integrated_Load": 5420.3
+  },
+  {
+    "Time_Stamp": "09\/15\/2018 08:00:00",
+    "Integrated_Load": 5794.8
+  },
+  {
+    "Time_Stamp": "09\/15\/2018 09:00:00",
+    "Integrated_Load": 6122.4
+  },
+  {
+    "Time_Stamp": "09\/15\/2018 10:00:00",
+    "Integrated_Load": 6404.0
+  },
+  {
+    "Time_Stamp": "09\/15\/2018 11:00:00",
+    "Integrated_Load": 6600.5
+  },
+  {
+    "Time_Stamp": "09\/15\/2018 12:00:00",
+    "Integrated_Load": 6727.7
+  },
+  {
+    "Time_Stamp": "09\/15\/2018 13:00:00",
+    "Integrated_Load": 6796.4
+  },
+  {
+    "Time_Stamp": "09\/15\/2018 14:00:00",
+    "Integrated_Load": 6879.0
+  },
+  {
+    "Time_Stamp": "09\/15\/2018 15:00:00",
+    "Integrated_Load": 6919.3
+  },
+  {
+    "Time_Stamp": "09\/15\/2018 16:00:00",
+    "Integrated_Load": 6938.2
+  },
+  {
+    "Time_Stamp": "09\/15\/2018 17:00:00",
+    "Integrated_Load": 6888.0
+  },
+  {
+    "Time_Stamp": "09\/15\/2018 18:00:00",
+    "Integrated_Load": 6736.9
+  },
+  {
+    "Time_Stamp": "09\/15\/2018 19:00:00",
+    "Integrated_Load": 6659.0
+  },
+  {
+    "Time_Stamp": "09\/15\/2018 20:00:00",
+    "Integrated_Load": 6560.0
+  },
+  {
+    "Time_Stamp": "09\/15\/2018 21:00:00",
+    "Integrated_Load": 6392.0
+  },
+  {
+    "Time_Stamp": "09\/15\/2018 22:00:00",
+    "Integrated_Load": 6163.8
+  },
+  {
+    "Time_Stamp": "09\/15\/2018 23:00:00",
+    "Integrated_Load": 5885.7
+  }
+]

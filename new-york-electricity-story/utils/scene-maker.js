@@ -2,7 +2,7 @@ import ScrollMagic from "scrollmagic";
 
 const d3 = require("d3");
 
-export let createHighlightScene = (scrollCtrl, calendar, selection, highlightedData, {triggerElement, duration, textElement}) => {
+export let createCalendarHLScene = (scrollCtrl, calendar, selection, highlightedData, {triggerElement, duration, textElement}) => {
 	let zoom = d3.zoom()
 		.extent([[0, 0], [0, 0]])	// set view port to the left top corner
 		.on(".zoom", null)
@@ -65,4 +65,48 @@ export let createHighlightScene = (scrollCtrl, calendar, selection, highlightedD
 	};
 
 	return {scene, zoom, selection};
+};
+
+export let createScatterHLScene = (scrollCtrl, scatterPlot, pinnedEle, {triggerElement, duration}) => {
+	return new ScrollMagic.Scene({triggerElement, duration})
+		.setPin(pinnedEle)
+		.addTo(scrollCtrl)
+		.on("progress", e => {
+			let progress = e.progress;
+			if (progress < .35) {
+				scatterPlot.lockHighlight(false);
+				scatterPlot.reset();
+			}
+			if (progress >= .35 && progress < .7) {
+				scatterPlot.lockHighlight(false);
+				scatterPlot.highlight(["high temp", "low temp"]);
+				scatterPlot.lockHighlight(true);
+			}
+			if (progress >= .7) {
+				scatterPlot.lockHighlight(false);
+				scatterPlot.highlight(["normal days", "weekend"]);
+				scatterPlot.lockHighlight(true);
+			}
+		})
+		.on("leave", e => {
+			scatterPlot.lockHighlight(false);
+			scatterPlot.reset();
+		});
+};
+
+export let createFixedScene = (scrollCtrl, pinnedEle, {triggerElement, duration}, {startCB, progressCB, endCB}) => {
+	return new ScrollMagic.Scene({triggerElement, duration})
+		.setPin(pinnedEle)
+		.addTo(scrollCtrl)
+		.on("start", e => startCB ? startCB(e) : null)
+		.on("progress", e => progressCB ? progressCB(e) : null)
+		.on("end", e => endCB ? endCB() : null);
+};
+
+export let createTriggerScene = (scrollCtrl, {triggerElement, duration = 0}, {startCB, progressCB, endCB}) => {
+	return new ScrollMagic.Scene({triggerElement, duration})
+		.addTo(scrollCtrl)
+		.on("start", e => startCB ? startCB(e) : null)
+		.on("progress", e => progressCB ? progressCB(e) : null)
+		.on("end", e => endCB ? endCB() : null);
 };
