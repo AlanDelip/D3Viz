@@ -6,7 +6,8 @@
     "barchart": "parcel barcharts/index.html",
     "map": "parcel maps/index.html --global G",
     "music": "parcel music_viz/index.html",
-    "elect": "parcel new-york-electricity-story/index.html"
+    "elect": "parcel new-york-electricity-story/index.html",
+    "build-elect": "parcel build new-york-electricity-story/index.html --public-url ./ -d build/new-york-electricity-story"
   },
   "author": "Alan. Zhufeng Xu",
   "license": "MIT",

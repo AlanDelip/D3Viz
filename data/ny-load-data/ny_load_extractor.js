@@ -127,7 +127,7 @@ function extractHourlyData() {
 }
 
 function convertHourlyData() {
-	let data = JSON.parse(fs.readFileSync("./ny-load-data/hourly-data/financial-now.json"));
+	let data = JSON.parse(fs.readFileSync("./ny-load-data/hourly-data/financial.json"));
 	let day = 0;
 	let current = 0;
 	data = data.map(d => {
@@ -137,7 +137,7 @@ function convertHourlyData() {
 		}
 		return {day: current, hour: parseInt(d.Time_Stamp.substr(11, 2)), load: d.Integrated_Load}
 	});
-	fs.writeFile("financial-now.json", JSON.stringify(data), res => console.log("saved"));
+	fs.writeFile("financial.json", JSON.stringify(data), res => console.log("saved"));
 }
 
 // extractExistedData2File();

@@ -645,102 +645,101 @@ export const eventDataSet = {
 		"hour": 23,
 		"load": 5802.1
 	}],
-	"financial-now":
-		[{"day": 1, "hour": 0, "load": 5599.1}, {"day": 1, "hour": 1, "load": 5356.6}, {
-			"day": 1,
-			"hour": 2,
-			"load": 5169.4
-		}, {"day": 1, "hour": 3, "load": 5042.1}, {"day": 1, "hour": 4, "load": 4967.2}, {
-			"day": 1,
-			"hour": 5,
-			"load": 4970.4
-		}, {"day": 1, "hour": 6, "load": 5065.9}, {"day": 1, "hour": 7, "load": 5264.1}, {
-			"day": 1,
-			"hour": 8,
-			"load": 5636.6
-		}, {"day": 1, "hour": 9, "load": 6031.3}, {"day": 1, "hour": 10, "load": 6431.1}, {
-			"day": 1,
-			"hour": 11,
-			"load": 6776
-		}, {"day": 1, "hour": 12, "load": 7008.5}, {"day": 1, "hour": 13, "load": 7188.1}, {
-			"day": 1,
-			"hour": 14,
-			"load": 7331.5
-		}, {"day": 1, "hour": 15, "load": 7422.9}, {"day": 1, "hour": 16, "load": 7477.5}, {
-			"day": 1,
-			"hour": 17,
-			"load": 7437.8
-		}, {"day": 1, "hour": 18, "load": 7286.7}, {"day": 1, "hour": 19, "load": 7244.4}, {
-			"day": 1,
-			"hour": 20,
-			"load": 7171.7
-		}, {"day": 1, "hour": 21, "load": 7009.6}, {"day": 1, "hour": 22, "load": 6711.5}, {
-			"day": 1,
-			"hour": 23,
-			"load": 6316.7
-		}, {"day": 2, "hour": 0, "load": 5671.9}, {"day": 2, "hour": 1, "load": 5370.7}, {
-			"day": 2,
-			"hour": 2,
-			"load": 5184.3
-		}, {"day": 2, "hour": 3, "load": 5098}, {"day": 2, "hour": 4, "load": 5117.7}, {
-			"day": 2,
-			"hour": 5,
-			"load": 5372.8
-		}, {"day": 2, "hour": 6, "load": 5945.3}, {"day": 2, "hour": 7, "load": 6547.3}, {
-			"day": 2,
-			"hour": 8,
-			"load": 6962.6
-		}, {"day": 2, "hour": 9, "load": 7228.6}, {"day": 2, "hour": 10, "load": 7332.8}, {
-			"day": 2,
-			"hour": 11,
-			"load": 7404.9
-		}, {"day": 2, "hour": 12, "load": 7471.7}, {"day": 2, "hour": 13, "load": 7536.5}, {
-			"day": 2,
-			"hour": 14,
-			"load": 7480.5
-		}, {"day": 2, "hour": 15, "load": 7545.5}, {"day": 2, "hour": 16, "load": 7568.3}, {
-			"day": 2,
-			"hour": 17,
-			"load": 7455.4
-		}, {"day": 2, "hour": 18, "load": 7224.8}, {"day": 2, "hour": 19, "load": 7117.6}, {
-			"day": 2,
-			"hour": 20,
-			"load": 6867.9
-		}, {"day": 2, "hour": 21, "load": 6604.4}, {"day": 2, "hour": 22, "load": 6311.5}, {
-			"day": 2,
-			"hour": 23,
-			"load": 5990.7
-		}, {"day": 3, "hour": 0, "load": 5623.3}, {"day": 3, "hour": 1, "load": 5347.2}, {
-			"day": 3,
-			"hour": 2,
-			"load": 5151.7
-		}, {"day": 3, "hour": 3, "load": 5024}, {"day": 3, "hour": 4, "load": 4949.4}, {
-			"day": 3,
-			"hour": 5,
-			"load": 4984.1
-		}, {"day": 3, "hour": 6, "load": 5142.9}, {"day": 3, "hour": 7, "load": 5420.3}, {
-			"day": 3,
-			"hour": 8,
-			"load": 5794.8
-		}, {"day": 3, "hour": 9, "load": 6122.4}, {"day": 3, "hour": 10, "load": 6404}, {
-			"day": 3,
-			"hour": 11,
-			"load": 6600.5
-		}, {"day": 3, "hour": 12, "load": 6727.7}, {"day": 3, "hour": 13, "load": 6796.4}, {
-			"day": 3,
-			"hour": 14,
-			"load": 6879
-		}, {"day": 3, "hour": 15, "load": 6919.3}, {"day": 3, "hour": 16, "load": 6938.2}, {
-			"day": 3,
-			"hour": 17,
-			"load": 6888
-		}, {"day": 3, "hour": 18, "load": 6736.9}, {"day": 3, "hour": 19, "load": 6659}, {
-			"day": 3,
-			"hour": 20,
-			"load": 6560
-		}, {"day": 3, "hour": 21, "load": 6392}, {"day": 3, "hour": 22, "load": 6163.8}, {
-			"day": 3,
-			"hour": 23,
-			"load": 5885.7
-		}]
+	"financial-now": [{"day": 1, "hour": 0, "load": 5599.1}, {"day": 1, "hour": 1, "load": 5356.6}, {
+		"day": 1,
+		"hour": 2,
+		"load": 5169.4
+	}, {"day": 1, "hour": 3, "load": 5042.1}, {"day": 1, "hour": 4, "load": 4967.2}, {
+		"day": 1,
+		"hour": 5,
+		"load": 4970.4
+	}, {"day": 1, "hour": 6, "load": 5065.9}, {"day": 1, "hour": 7, "load": 5264.1}, {
+		"day": 1,
+		"hour": 8,
+		"load": 5636.6
+	}, {"day": 1, "hour": 9, "load": 6031.3}, {"day": 1, "hour": 10, "load": 6431.1}, {
+		"day": 1,
+		"hour": 11,
+		"load": 6776
+	}, {"day": 1, "hour": 12, "load": 7008.5}, {"day": 1, "hour": 13, "load": 7188.1}, {
+		"day": 1,
+		"hour": 14,
+		"load": 7331.5
+	}, {"day": 1, "hour": 15, "load": 7422.9}, {"day": 1, "hour": 16, "load": 7477.5}, {
+		"day": 1,
+		"hour": 17,
+		"load": 7437.8
+	}, {"day": 1, "hour": 18, "load": 7286.7}, {"day": 1, "hour": 19, "load": 7244.4}, {
+		"day": 1,
+		"hour": 20,
+		"load": 7171.7
+	}, {"day": 1, "hour": 21, "load": 7009.6}, {"day": 1, "hour": 22, "load": 6711.5}, {
+		"day": 1,
+		"hour": 23,
+		"load": 6316.7
+	}, {"day": 2, "hour": 0, "load": 5671.9}, {"day": 2, "hour": 1, "load": 5370.7}, {
+		"day": 2,
+		"hour": 2,
+		"load": 5184.3
+	}, {"day": 2, "hour": 3, "load": 5098}, {"day": 2, "hour": 4, "load": 5117.7}, {
+		"day": 2,
+		"hour": 5,
+		"load": 5372.8
+	}, {"day": 2, "hour": 6, "load": 5945.3}, {"day": 2, "hour": 7, "load": 6547.3}, {
+		"day": 2,
+		"hour": 8,
+		"load": 6962.6
+	}, {"day": 2, "hour": 9, "load": 7228.6}, {"day": 2, "hour": 10, "load": 7332.8}, {
+		"day": 2,
+		"hour": 11,
+		"load": 7404.9
+	}, {"day": 2, "hour": 12, "load": 7471.7}, {"day": 2, "hour": 13, "load": 7536.5}, {
+		"day": 2,
+		"hour": 14,
+		"load": 7480.5
+	}, {"day": 2, "hour": 15, "load": 7545.5}, {"day": 2, "hour": 16, "load": 7568.3}, {
+		"day": 2,
+		"hour": 17,
+		"load": 7455.4
+	}, {"day": 2, "hour": 18, "load": 7224.8}, {"day": 2, "hour": 19, "load": 7117.6}, {
+		"day": 2,
+		"hour": 20,
+		"load": 6867.9
+	}, {"day": 2, "hour": 21, "load": 6604.4}, {"day": 2, "hour": 22, "load": 6311.5}, {
+		"day": 2,
+		"hour": 23,
+		"load": 5990.7
+	}, {"day": 3, "hour": 0, "load": 5623.3}, {"day": 3, "hour": 1, "load": 5347.2}, {
+		"day": 3,
+		"hour": 2,
+		"load": 5151.7
+	}, {"day": 3, "hour": 3, "load": 5024}, {"day": 3, "hour": 4, "load": 4949.4}, {
+		"day": 3,
+		"hour": 5,
+		"load": 4984.1
+	}, {"day": 3, "hour": 6, "load": 5142.9}, {"day": 3, "hour": 7, "load": 5420.3}, {
+		"day": 3,
+		"hour": 8,
+		"load": 5794.8
+	}, {"day": 3, "hour": 9, "load": 6122.4}, {"day": 3, "hour": 10, "load": 6404}, {
+		"day": 3,
+		"hour": 11,
+		"load": 6600.5
+	}, {"day": 3, "hour": 12, "load": 6727.7}, {"day": 3, "hour": 13, "load": 6796.4}, {
+		"day": 3,
+		"hour": 14,
+		"load": 6879
+	}, {"day": 3, "hour": 15, "load": 6919.3}, {"day": 3, "hour": 16, "load": 6938.2}, {
+		"day": 3,
+		"hour": 17,
+		"load": 6888
+	}, {"day": 3, "hour": 18, "load": 6736.9}, {"day": 3, "hour": 19, "load": 6659}, {
+		"day": 3,
+		"hour": 20,
+		"load": 6560
+	}, {"day": 3, "hour": 21, "load": 6392}, {"day": 3, "hour": 22, "load": 6163.8}, {
+		"day": 3,
+		"hour": 23,
+		"load": 5885.7
+	}]
 };

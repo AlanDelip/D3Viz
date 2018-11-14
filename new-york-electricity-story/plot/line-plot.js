@@ -267,7 +267,7 @@ export default class LinePlot {
 				})
 				.attr("r", d => {
 					if (peakHour.includes(d.hour)) {
-						return 7;
+						return 9;
 					} else {
 						return 4;
 					}

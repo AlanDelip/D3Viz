@@ -193,7 +193,7 @@ loadData().then(data => {
 
 		createFixedScene(scrollCtrl, "#typical-day-temp-chart", {
 			triggerElement: "#typical-day-exploration-trigger-2",
-			duration: 6150
+			duration: 6300
 		}, {
 			startCB: e => {
 				if (e.scrollDirection === "FORWARD") {

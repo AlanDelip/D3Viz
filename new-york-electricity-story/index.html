@@ -135,7 +135,7 @@
             <div class="description">
                 <div>
                     These are the weekends in August, 2018. Comparing to nearby weekdays,
-                    they seemed to consume less electricity.
+                    it seems that they consumed less electricity.
                 </div>
                 <div>
                     While <i>Westside</i> never closes, most companies have a 2-day off to take a break.
@@ -179,12 +179,11 @@
         <div id="special-load"></div>
         <div class="description">
             <div>
-                Now that we notice some visual patterns from the calendar view, whether the electricity load will
-                actually
-                be influenced by them is to be validated.
+                Now that we've noticed some visual patterns from the calendar view, whether the electricity load will
+                actually be influenced by them is to be validated in a more logical way.
             </div>
             <div>
-                Searching from the 6 categorized types will be a great approach.
+                Starting from the 6 categorized types will be a great approach.
             </div>
             <div>
                 We notice that both <b>High Temperature</b> and
@@ -234,7 +233,7 @@
             <div class="description">
                 <div>
                     Since the temperature has the biggest visual effect on the electricity load, we're now trying to
-                    use a temperature axis to find more details.
+                    use a temperature axis to separate the factor and see more details.
                 </div>
                 <div>
                     Hover on one of the labels, we can see corresponding data in a highlighted form.
@@ -243,8 +242,8 @@
             <div class="space"></div>
             <div class="description">
                 Focusing on <b>temperature</b> only, we can find out that both high temperature and low temperature
-                will positive relation with the electricity load. What's more, a high-temperature situation
-                stands out more significantly, which is also mentioned above.
+                have a positive relation with the electricity load. What's more, a high-temperature situation
+                stands out more significantly.
             </div>
             <div class="space"></div>
             <div class="description">
@@ -350,6 +349,10 @@
                             <div class="dot low-temp"></div>
                             <div>Jan 1, 2018</div>
                         </div>
+                        <div class="mix-day">
+                            <div class="dot low-temp"></div>
+                            <div>Jan 8, 2018</div>
+                        </div>
                     </div>
                 </div>
                 <div>
@@ -376,6 +379,11 @@
                             <div>Sep 22, 2018</div>
                             <div>Saturday</div>
                         </div>
+                        <div class="mix-day">
+                            <div class="dot weekend"></div>
+                            <div>Sep 23, 2018</div>
+                            <div>Sunday</div>
+                        </div>
                     </div>
                 </div>
                 <div>
@@ -387,6 +395,13 @@
             <div class="l-space"></div>
             <div class="description">
                 <div class="d-title">Historical Events</div>
+                <div>
+                    There're also some interesting historical events to be explored.
+                </div>
+                <div>
+                    We extract data of the date when the certain event happened, along with the data from previous
+                    day, following day and corresponding days in 2018.
+                </div>
             </div>
             <div class="l-space"></div>
             <div id="typical-day-exploration-trigger-7"></div>
@@ -400,12 +415,10 @@
                         <div class="mix-day">
                             <div class="dot event"></div>
                             <div>Jan 19-21, 2017</div>
-                            <div>Friday</div>
                         </div>
                         <div class="mix-day">
                             <div class="dot normal"></div>
                             <div>Jan 19-21, 2018</div>
-                            <div>Saturday</div>
                         </div>
                     </div>
                 </div>
@@ -414,7 +427,8 @@
                 </div>
                 <div>
                     It looks like the electricity load exceeds that of 2018. But, don't forget to look at the
-                    day of week. A more probable explanation would be a <b>weekend</b> effect.
+                    day of week. While Jan 20 in 2017 is Friday, the Jan 20 in 2018 is Saturday. A more probable
+                    explanation here would be a <b>weekend</b> effect.
                 </div>
             </div>
             <div class="space"></div>
