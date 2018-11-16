@@ -1,45 +1,23 @@
 # Visualization works with D3JS
-> For display, interaction, and analysis of the projects, please visit [Alan's Site](https://alan-zhufengxu.com "Alan's Site") or my [Observable homepage](https://beta.observablehq.com/@alandelip "Observable Notebook for d3").
+> For display, interaction, and analysis of the projects, please visit readme files inside the project.
+ And warm welcome from [Alan's Site](https://alan-zhufengxu.com "Alan's Site") or my [Observable homepage](https://beta.observablehq.com/@alandelip "Observable Notebook for d3")!.
 
-### Electricity Consumption Story in New York
-#### Inspiration
-<img style="width:75%" src="new-york-electricity-story/new-york-electricity-story.png"/>
+## Projects
+- [New York Electricity Story](new-york-electricity-story)
+- [Music Viz](music-viz)
+- [DevOps Viz](devops-viz)
+- [Window Viz](window-viz)
 
-#### Relation Exploration
-<img style="width:75%" src="new-york-electricity-story/relation-exploration.png"/>
-
-#### Typical Days Exploration
-<img style="width:75%" src="new-york-electricity-story/typical-days.png"/>
-<img style="width:75%" src="new-york-electricity-story/historical-events.png"/>
-
-### Bar Chart
+## D3 Basic Practices
+### [Bar Chart](barcharts)
 - simple bar chart
 - horizontal bar chart
 - stacked bar chart
-- bar chart with label and interaction (TODO)
-- bar chart with average line
 - bar chart with customized reference line
-- bar chart with timeline (TODO)
-- side-by-side barchart (TODO)
 
-### Line Chart
-- simple line chart (TODO)
-
-### Pie Chart
-- simple pie chart (TODO)
-
-### Scatter Plot
-- simple scatter plot (TODO)
-
-### Map
+### [Map](maps)
 - simple map
-![Simple Map](maps/simple-map/simple-map.png)
 - zoomable map
 - map with customized dots
 - map within certain ranges
-![Leaflet Map](maps/leaflet-map/leaflet-map.png)
 - map with selected area analysis
-![Leaflet Map](maps/leaflet-map/area-select-analysis.png)
-
-### Music Viz
-![Music Viz](music_viz/music_viz.png)
