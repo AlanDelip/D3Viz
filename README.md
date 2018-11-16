@@ -1,6 +1,8 @@
 # Visualization works with D3JS
-> For display, interaction, and analysis of the projects, please visit readme files inside the project.
- And warm welcome from [Alan's Site](https://alan-zhufengxu.com "Alan's Site") or my [Observable homepage](https://beta.observablehq.com/@alandelip "Observable Notebook for d3")!.
+> For display, interaction, and analysis of the projects, please visit
+readme files inside the project.
+
+Warm welcome from [Alan's Site](https://alan-zhufengxu.com "Alan's Site") or my [Observable homepage](https://beta.observablehq.com/@alandelip "Observable Notebook for d3")!
 
 ## Projects
 - [New York Electricity Story](new-york-electricity-story)
