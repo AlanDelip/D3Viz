@@ -126,7 +126,7 @@ loadData().then(data => {
 
 		createScatterHLScene(scrollCtrl, qScatterPlot, "#temp-load-container", {
 			triggerElement: "#relation-exploration-trigger-2",
-			duration: 1200
+			duration: document.getElementById("relation-exploration-desc").offsetHeight
 		});
 	}
 
@@ -160,40 +160,12 @@ loadData().then(data => {
 					.style("opacity", progress);
 			}
 		});
-		// let circleData = [];
-		// 	() => {
-		// 		if (circleData.length === 0) {
-		// 			let leftEle = document.getElementById("one-day-high-temp");
-		// 			let numberOfPoints = 24;
-		// 			let radius = 20;
-		// 			let margin = {top: 10, left: 0};
-		// 			let lineLength = 2 * radius * Math.PI;
-		// 			for (let i = 0; i < numberOfPoints; i++) {
-		// 				let imag = margin.left + radius * Math.sin(2 * i * Math.PI / (numberOfPoints - 1));
-		// 				let real = margin.top + radius - radius * Math.cos(2 * i * Math.PI / (numberOfPoints - 1));
-		// 				circleData.push({x: imag, y: real});
-		// 			}
-		//
-		// 			let lineFunction = d3.line()
-		// 				.x(d => d.x)
-		// 				.y(d => d.y);
-		//
-		// 			let circleSVG = d3.select("#high-temp-circle")
-		// 				.append("svg").attr("width", "100%").attr("height", "100%");
-		//
-		// 			let circle = circleSVG.append("g")
-		// 				.attr("transform", `translate(${leftEle.offsetLeft * 2 + radius / 2},0)`)
-		// 				.append("path")
-		// 				.data([circleData])
-		// 				.attr("d", lineFunction);
-		// 		}
-		// 	});
 
 		let linePlot = LinePlot.of("#typical-day-temp-chart");
 
 		createFixedScene(scrollCtrl, "#typical-day-temp-chart", {
 			triggerElement: "#typical-day-exploration-trigger-2",
-			duration: 6300
+			duration: document.getElementById("typical-scene").offsetHeight - 400
 		}, {
 			startCB: e => {
 				if (e.scrollDirection === "FORWARD") {

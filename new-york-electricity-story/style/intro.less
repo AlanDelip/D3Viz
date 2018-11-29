@@ -1,25 +1,99 @@
 @import "common";
 
 #intro {
-  &:extend(.full-page);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
   color: white;
-  background-image: linear-gradient(rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));
+
+  .project-intro {
+    &:extend(.full-page);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    background: rgba(0, 0, 0, 0.6);
+
+    .go-down {
+      position: absolute;
+      bottom: 1em;
+      font-size: 3em;
+      font-weight: bold;
+      animation: go-down 2s ease-in-out infinite;
+    }
+
+    @keyframes go-down {
+      0% {
+        transform: rotate(90deg) translateX(0)
+      }
+      50% {
+        transform: rotate(90deg) translateX(1em)
+      }
+      100% {
+        transform: rotate(90deg) translateX(0)
+      }
+    }
+  }
+
+  .calendar-intro {
+    &:extend(.full-page);
+    box-sizing: border-box;
+    padding: 0 10%;
+    text-align: center;
+
+    .subtitle-wrapper {
+      padding-top: 15%;
+      display: flex;
+      align-items: flex-start;
+      justify-content: center;
+    }
+
+    .subtitle {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      flex-basis: 400px;
+      font-size: 1.3em;
+
+      .label{
+        font-size: 2em;
+      }
+    }
+
+    div {
+      padding: .5em;
+    }
+
+    b {
+      font-size: 1.2em;
+    }
+
+    .go-down {
+      font-size: 1.7em;
+      &.mt {
+        margin-top: 2em;
+      }
+    }
+  }
+
+  .gradient-bg {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0));
+  }
 
   .title {
-    font-size: 4em;
+    font-size: 5.5em;
     font-weight: bold;
   }
 
   .subtitle {
-    font-size: 1.5em;
+    font-size: 1.7em;
+
+    &.mt {
+      margin-top: 2em;
+    }
   }
 
   .appendix {
     margin-top: .5em;
+
     a {
       color: white;
     }

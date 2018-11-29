@@ -1,5 +1,14 @@
 # Window Viz
-Visualization about the light through the windows on Upper West
-110th street, New York, at 8.30p.m.
+Visualization inspired by the light through the windows on Upper West
+110th street, New York.
 
-Planned Date: 11/16/2018 - 12/26/2018
+![Windows](raw-windows-1.jpg)
+![Windows](raw-windows-2.jpg)
+
+Planned Date: 11/16/2018 - 12/16/2018
+
+## Transformation
+
+## Scenarios
+
+## Case Exploration

@@ -46,10 +46,12 @@ export let createCalendarHLScene = (scrollCtrl, calendar, selection, highlighted
 			}
 		})
 		.on("enter", e => {
+			calendar.hideMarks();
 			calendar.update(highlightedData);
 			selection = calendar.getCalendar();
 		})
 		.on("leave", e => {
+			calendar.showMarks();
 			calendar.reset();
 			selection = calendar.getCalendar();
 		});
@@ -73,19 +75,23 @@ export let createScatterHLScene = (scrollCtrl, scatterPlot, pinnedEle, {triggerE
 		.addTo(scrollCtrl)
 		.on("progress", e => {
 			let progress = e.progress;
-			if (progress < .35) {
+			if (progress < .25) {
 				scatterPlot.lockHighlight(false);
 				scatterPlot.reset();
 			}
-			if (progress >= .35 && progress < .7) {
+			if (progress >= .25 && progress < .5) {
 				scatterPlot.lockHighlight(false);
 				scatterPlot.highlight(["high temp", "low temp"]);
 				scatterPlot.lockHighlight(true);
 			}
-			if (progress >= .7) {
+			if (progress >= .5 && progress < .88) {
 				scatterPlot.lockHighlight(false);
 				scatterPlot.highlight(["normal days", "weekend"]);
 				scatterPlot.lockHighlight(true);
+			}
+			if (progress >= .88) {
+				scatterPlot.lockHighlight(false);
+				scatterPlot.reset();
 			}
 		})
 		.on("leave", e => {

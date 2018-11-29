@@ -11,20 +11,59 @@
 <div id="calendar-plot" class="calendar-plot-container"></div>
 
 <section id="intro">
-    <div class="title">Electricity Consumption Story</div>
-    <div class="subtitle">New York, 2017.11 - 2018.10</div>
-    <div class="appendix">
-        <div>
-            Data provided by
-            <a target="_blank" href="http://www.nyiso.com">NYISO</a>,
-            <a target="_blank" href="https://eia.gov">EIA</a>,
-            <a target="_blank" href="https://developers.google.com/calendar/">Google Calendar</a> and
-            <a target="_blank" href="https://openweathermap.org/api">OepnWeatherMap</a>
+    <div class="project-intro">
+        <div class="title">Human vs Nature</div>
+        <div class="subtitle">What is Driving Our Electricity Use and How?</div>
+        <div class="subtitle mt">New York, 2017.11 - 2018.10</div>
+        <div class="appendix">
+            <div>
+                Data provided by
+                <a target="_blank" href="http://www.nyiso.com">NYISO</a>,
+                <a target="_blank" href="https://eia.gov">EIA</a>,
+                <a target="_blank" href="https://developers.google.com/calendar/">Google Calendar</a> and
+                <a target="_blank" href="https://openweathermap.org/api">OepnWeatherMap</a>
+            </div>
+        </div>
+        <div class="go-down">》</div>
+    </div>
+    <div class="calendar-intro gradient-bg">
+        <div class="go-down">First, let's get some <u>general inspirations</u></div>
+        <div class="subtitle-wrapper">
+            <div class="subtitle">
+                <b class="label">Calendar View</b>
+                <div>
+                    From the top viewport, a big calendar is adopted to show the general distribution of electricity
+                    consumption in New York State from November, 2017 to October, 2018 with labels of the month and the
+                    day
+                    of week.
+                </div>
+            </div>
+            <div class="subtitle">
+                <b class="label">Size</b>
+                <div>
+                    We use <span class="dot high-temp"></span> to represent each day. Meanwhile, the <b>size</b> of the
+                    dots shows the electricity consumption of the day.
+                </div>
+            </div>
+            <div class="subtitle">
+                <b class="label">Colors</b>
+                <div>
+                    Different colors are used to label different typical types:<br/>
+                    <b class="high-temp">HOT DAY</b><br/>
+                    <b class="low-temp">COLD DAY</b><br/>
+                    <b class="holiday">HOLIDAY</b><br/>
+                    <b class="event">EVENT</b><br/>
+                    <b class="weekend">WEEKEND</b><br/>
+                    <b class="normal">NORMAL DAY</b>
+                </div>
+            </div>
         </div>
     </div>
+    <div class="space"></div>
 </section>
 
 <section id="preview">
+    <div class="space"></div>
     <div id="preview-1" class="full-page">
         <div id="preview-trigger-1"></div>
         <div class="content">
@@ -34,16 +73,7 @@
             </div>
             <div class="description">
                 <div>
-                    This is July in a typical calendar view. We use
-                    <span class="dot high-temp"></span>
-                    to represent each day.
-                </div>
-                <div>
                     The first week of July is extremely hot this year with highest temperature over 89.6°F (32°C).
-                </div>
-                <div>
-                    At the same time, the <b style="font-size: 1.5em">size</b> of the dots shows the electricity
-                    load/consumption of the day.
                 </div>
                 <div>
                     The load in New York State goes up dramatically comparing to that of cooler days. From a broader
@@ -62,11 +92,6 @@
             </div>
             <div class="description">
                 <div>Apart from hot days, chilly days in winter are also potential high consumers.</div>
-                <div>We use different colors to label different typical types, such as a
-                    <b class="high-temp">HOT DAY</b>, a <b class="low-temp">COLD DAY</b>,
-                    a <b class="holiday">HOLIDAY</b>, an <b class="event">EVENT</b>,
-                    a <b class="weekend">WEEKEND</b> and a <b class="normal">NORMAL DAY</b>.
-                </div>
                 <div>
                     Here're some days in the beginning of 2018 with temperature under 23°F (-5°C).
                     The increasing tendency of electricity consumption gradually revealed at the end of 2017.
@@ -148,7 +173,18 @@
 </section>
 
 <section id="relation-exploration">
-    <div class="title">Relation Exploration</div>
+    <div class="title">What is affecting electricity use?</div>
+    <div class="subtitle">Relation Exploration</div>
+    <div class="split"></div>
+    <div class="relation-intro">
+        <div>
+            Now that we've noticed some visual patterns from the calendar view, whether the electricity load will
+            actually be influenced by them is to be validated in a more logical way.
+        </div>
+        <div>
+            Starting from the 6 categorized types will be a great approach.
+        </div>
+    </div>
     <div class="labels">
         <div class="label">
             <div class="dot high-temp"></div>
@@ -178,22 +214,15 @@
     <div class="relation-container">
         <div id="special-load"></div>
         <div class="description">
-            <div>
-                Now that we've noticed some visual patterns from the calendar view, whether the electricity load will
-                actually be influenced by them is to be validated in a more logical way.
-            </div>
-            <div>
-                Starting from the 6 categorized types will be a great approach.
-            </div>
+            <div>Natural factors win from the first glance.</div>
             <div>
                 We notice that both <b>High Temperature</b> and
                 <b>Low Temperature</b> will stimulate the electricity load.
                 Meanwhile, a high-temperature situation stands out more significantly.
             </div>
             <div>
-                While there're no visible pattern in <b>event</b> distribution,
-                <b>holidays</b> and <b>weekends</b> keep a denser data
-                distribution under the average line.
+                While there're no obvious visual pattern in human factors,
+                it seems that <b>weekends</b> keep a denser data distribution under the average line.
             </div>
         </div>
     </div>
@@ -229,7 +258,7 @@
                 </div>
             </div>
         </div>
-        <div class="desc-container">
+        <div class="desc-container" id="relation-exploration-desc">
             <div class="description">
                 <div>
                     Since the temperature has the biggest visual effect on the electricity load, we're now trying to
@@ -254,6 +283,16 @@
                 </div>
                 <div>
                     The short rest for people and their companies contributes to the reduction on electricity usage.
+                </div>
+            </div>
+            <div class="space"></div>
+            <div class="description">
+                <div>
+                    While answering the 'What' question, part of the answer to 'How' is also revealed.
+                </div>
+                <div>
+                    Both natural(temperature) and human(weekends) factors contribute to the abnormality in
+                    electricity consumption.
                 </div>
             </div>
         </div>
@@ -294,7 +333,7 @@
     <div class="scene-container">
         <div id="typical-day-exploration-trigger-2"></div>
         <div id="typical-day-temp-chart"></div>
-        <div class="desc-container">
+        <div id="typical-scene" class="desc-container">
             <div class="description">
                 After we've gained some senses on what is affecting the electricity load, it's time to look into
                 how these factors influence the daily load pattern.
@@ -499,8 +538,9 @@
 </section>
 
 <section id="ending">
-    <div class="title">Electricity Consumption Story</div>
-    <div class="subtitle">New York, 2017.11 - 2018.10</div>
+    <div class="title">Human vs Nature</div>
+    <div class="subtitle">What is Driving Our Electricity Use and How?</div>
+    <div class="subtitle mt">New York, 2017.11 - 2018.10</div>
     <div class="appendix">
         <div>
             Designed & D3 Implemented by
