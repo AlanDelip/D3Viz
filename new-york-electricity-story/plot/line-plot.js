@@ -124,6 +124,25 @@ export default class LinePlot {
 		}
 	}
 
+	highlightAxis() {
+		this.highlightBlock = this.svg.append('rect')
+			.attr("opacity", 0)
+			.attr("x", this.x("2/0"))
+			.attr("y", 20)
+			.attr("width", this.x("3/0") - this.x("2/0"))
+			.attr("height", document.getElementById("typical-day-temp-chart").offsetHeight)
+			.attr("fill", "#e4dfdf");
+
+		this.highlightBlock
+			.transition()
+			.duration(300)
+			.attr("opacity", .2);
+	}
+
+	removeHighlightAxis() {
+		this.highlightBlock.transition().duration(300).attr("opacity", 0).remove();
+	}
+
 	switchXAxis() {
 		let hours = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23];
 		let domain = [];

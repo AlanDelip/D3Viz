@@ -100,7 +100,7 @@ function extractData() {
 }
 
 function extractHourlyData() {
-	let stream = fs.createReadStream("./ny-load-data/20180901palIntegrated_csv/20180929palIntegrated.csv");
+	let stream = fs.createReadStream("./data/ny-load-data/20180901palIntegrated_csv/20180920palIntegrated.csv");
 	let header = true;
 	let load = 0;
 	let hdata = [];
@@ -117,7 +117,7 @@ function extractHourlyData() {
 			index++;
 		})
 		.on("end", () => {
-			fs.writeFile('ny_load_180929.json', JSON.stringify(hdata), res => {
+			fs.writeFile('ny_load_180920.json', JSON.stringify(hdata), res => {
 				console.log("The file was saved!");
 			});
 			stream.close();
@@ -142,5 +142,5 @@ function convertHourlyData() {
 
 // extractExistedData2File();
 // extractData();
-// extractHourlyData();
-convertHourlyData();
+extractHourlyData();
+// convertHourlyData();

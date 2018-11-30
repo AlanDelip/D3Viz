@@ -100,7 +100,7 @@ export let createScatterHLScene = (scrollCtrl, scatterPlot, pinnedEle, {triggerE
 		});
 };
 
-export let createFixedScene = (scrollCtrl, pinnedEle, {triggerElement, duration}, {startCB, progressCB, endCB}) => {
+export let createFixedScene = (scrollCtrl, pinnedEle, {triggerElement, duration}, {startCB, progressCB, endCB} = {}) => {
 	return new ScrollMagic.Scene({triggerElement, duration})
 		.setPin(pinnedEle)
 		.addTo(scrollCtrl)

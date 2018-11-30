@@ -132,95 +132,98 @@ loadData().then(data => {
 
 	/** typical days exploration section **/
 	{
-		createFixedScene(scrollCtrl, "#one-day-labels", {
-			triggerElement: "#typical-day-exploration-trigger-1",
-			duration: 400
-		}, {
-			startCB: e => {
-				if (e.scrollDirection === "FORWARD") {
-					d3.select("#temp-load-container .labels")
-						.attr("class", "labels hidden");
-					d3.select("#one-day-labels")
-						.attr("class", "labels");
-				} else {
-					d3.select("#temp-load-container .labels")
-						.attr("class", "labels");
-					d3.select("#one-day-labels")
-						.attr("class", "labels hidden");
-				}
-			},
-			progressCB: e => {
-				let progress = e.progress;
-				d3.selectAll("#one-day-labels .label")
-					.style("opacity", (d, i) => i !== 0 ? 1 - progress : 1)
-					.style("transform", (d, i) => i !== 0 ? "" : `scale(${(progress + 1)})`);
-				d3.select("#one-day-labels .label .text")
-					.style("opacity", 1 - progress);
-				d3.select("#one-day-labels .label .next-text")
-					.style("opacity", progress);
-			}
-		});
+		// createFixedScene(scrollCtrl, "#one-day-labels", {
+		// 	triggerElement: "#typical-day-exploration-trigger-1",
+		// 	duration: 400
+		// }, {
+		// 	startCB: e => {
+		// 		if (e.scrollDirection === "FORWARD") {
+		// 			d3.select("#temp-load-container .labels")
+		// 				.attr("class", "labels hidden");
+		// 			d3.select("#one-day-labels")
+		// 				.attr("class", "labels");
+		// 		} else {
+		// 			d3.select("#temp-load-container .labels")
+		// 				.attr("class", "labels");
+		// 			d3.select("#one-day-labels")
+		// 				.attr("class", "labels hidden");
+		// 		}
+		// 	},
+		// 	progressCB: e => {
+		// 		let progress = e.progress;
+		// 		d3.selectAll("#one-day-labels .label")
+		// 			.style("opacity", (d, i) => i !== 0 ? 1 - progress : 1)
+		// 			.style("transform", (d, i) => i !== 0 ? "" : `scale(${(progress + 1)})`);
+		// 		d3.select("#one-day-labels .label .text")
+		// 			.style("opacity", 1 - progress);
+		// 		d3.select("#one-day-labels .label .next-text")
+		// 			.style("opacity", progress);
+		// 	}
+		// });
 
 		let linePlot = LinePlot.of("#typical-day-temp-chart");
 
-		createFixedScene(scrollCtrl, "#typical-day-temp-chart", {
-			triggerElement: "#typical-day-exploration-trigger-2",
-			duration: document.getElementById("typical-scene").offsetHeight - 400
-		}, {
-			startCB: e => {
-				if (e.scrollDirection === "FORWARD") {
-					// dispatch line
-					linePlot.data(hourlyDataSet["hot-day-1"], "#fdb02d", "hot-day-1").draw();
-				} else {
-					linePlot.removeAll();
-				}
-			}
-		});
+		// createFixedScene(scrollCtrl, "#typical-day-temp-chart", {
+		// 	triggerElement: "#typical-day-exploration-trigger-2",
+		// 	duration: document.getElementById("typical-scene").offsetHeight - 400
+		// }, {
+		// 	startCB: e => {
+		// 		if (e.scrollDirection === "FORWARD") {
+		// 			// dispatch line
+		// 			linePlot.data(hourlyDataSet["hot-day-1"], "#fdb02d", "hot-day-1").draw();
+		// 		} else {
+		// 			linePlot.removeAll();
+		// 		}
+		// 	}
+		// });
 
-		createTriggerScene(scrollCtrl, {
-			triggerElement: "#typical-day-exploration-trigger-3"
-		}, {
-			startCB: e => {
-				if (e.scrollDirection === "FORWARD") {
-					linePlot.highlightPeak();
-				} else {
-					linePlot.resetPeak();
-				}
-			}
-		});
+		// createTriggerScene(scrollCtrl, {
+		// 	triggerElement: "#typical-day-exploration-trigger-3"
+		// }, {
+		// 	startCB: e => {
+		// 		if (e.scrollDirection === "FORWARD") {
+		// 			linePlot.highlightPeak();
+		// 		} else {
+		// 			linePlot.resetPeak();
+		// 		}
+		// 	}
+		// });
+		//
+		// createTriggerScene(scrollCtrl, {
+		// 	triggerElement: "#typical-day-exploration-trigger-4"
+		// }, {
+		// 	startCB: e => {
+		// 		if (e.scrollDirection === "FORWARD") {
+		// 			linePlot.data(hourlyDataSet["hot-day-2"], "#fdb02d", "hot-day-2").draw();
+		// 			linePlot.highlightPeak();
+		// 		} else {
+		// 			linePlot.resetPeak();
+		// 			linePlot.remove("hot-day-2");
+		// 			linePlot.highlightPeak();
+		// 		}
+		// 	}
+		// });
 
 		createTriggerScene(scrollCtrl, {
 			triggerElement: "#typical-day-exploration-trigger-4"
 		}, {
 			startCB: e => {
 				if (e.scrollDirection === "FORWARD") {
-					linePlot.data(hourlyDataSet["hot-day-2"], "#fdb02d", "hot-day-2").draw();
+					linePlot
+						.data(hourlyDataSet["hot-day-1"], "#fdb02d", "hot-day-1")
+						.data(hourlyDataSet["hot-day-2"], "#fdb02d", "hot-day-2")
+						.data(hourlyDataSet["cold-day-1"], "#a6e7fd", "cold-day-1")
+						.data(hourlyDataSet["cold-day-2"], "#a6e7fd", "cold-day-2").draw();
 					linePlot.highlightPeak();
 				} else {
-					linePlot.resetPeak();
-					linePlot.remove("hot-day-2");
-					linePlot.highlightPeak();
+					linePlot.removeAll();
 				}
 			}
 		});
 
-		createTriggerScene(scrollCtrl, {
-			triggerElement: "#typical-day-exploration-trigger-5"
-		}, {
-			startCB: e => {
-				if (e.scrollDirection === "FORWARD") {
-					linePlot.remove("hot-day-2");
-					linePlot.data(hourlyDataSet["cold-day-1"], "#a6e7fd", "cold-day-1")
-						.data(hourlyDataSet["cold-day-2"], "#a6e7fd", "cold-day-2").draw();
-					linePlot.highlightPeak();
-				} else {
-					linePlot.resetPeak();
-					linePlot.remove("cold-day-1");
-					linePlot.remove("cold-day-2");
-					linePlot.data(hourlyDataSet["hot-day-2"], "#fdb02d", "hot-day-2").draw();
-					linePlot.highlightPeak();
-				}
-			}
+		createFixedScene(scrollCtrl, "#typical-day-temp-chart", {
+			triggerElement: "#typical-day-exploration-trigger-5",
+			duration: document.getElementById("typical-scene").offsetHeight - 400
 		});
 
 		createTriggerScene(scrollCtrl, {
@@ -231,12 +234,14 @@ loadData().then(data => {
 					linePlot.removeAll();
 					linePlot.data(hourlyDataSet["weekend-1"], "#a1e7a6", "weekend-1")
 						.data(hourlyDataSet["weekend-2"], "#a1e7a6", "weekend-2")
+						.data(hourlyDataSet["normal-1"], "#909290", "normal-1")
 						.data(hourlyDataSet["normal-2"], "#909290", "normal-2").draw();
 					linePlot.highlightPeak();
 				} else {
 					linePlot.resetPeak();
 					linePlot.removeAll();
 					linePlot.data(hourlyDataSet["hot-day-1"], "#fdb02d", "hot-day-1")
+						.data(hourlyDataSet["hot-day-2"], "#fdb02d", "hot-day-2")
 						.data(hourlyDataSet["cold-day-1"], "#a6e7fd", "cold-day-1")
 						.data(hourlyDataSet["cold-day-2"], "#a6e7fd", "cold-day-2").draw();
 					linePlot.highlightPeak();
@@ -251,14 +256,17 @@ loadData().then(data => {
 				if (e.scrollDirection === "FORWARD") {
 					linePlot.removeAll();
 					linePlot.switchXAxis();
+					linePlot.highlightAxis();
 					linePlot.data(eventDataSet["trump"], "#e2ea64", "trump")
 						.data(eventDataSet["trump-now"], "#909290", "trump-now")
 						.draw(true);
 				} else {
 					linePlot.removeAll();
 					linePlot.resetXAxis();
+					linePlot.removeHighlightAxis();
 					linePlot.data(hourlyDataSet["weekend-1"], "#a1e7a6", "weekend-1")
 						.data(hourlyDataSet["weekend-2"], "#a1e7a6", "weekend-2")
+						.data(hourlyDataSet["normal-1"], "#909290", "normal-1")
 						.data(hourlyDataSet["normal-2"], "#909290", "normal-2").draw();
 					linePlot.highlightPeak();
 				}

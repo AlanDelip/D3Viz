@@ -111,7 +111,7 @@ export default class CalendarPlot {
 
 		if (animated) {
 			enteredModel.transition()
-				.delay((d, i) => Math.random() * i * 2)
+				.delay((d, i) => Math.random() * i * 5)
 				.attr("r", d => this.r(d.load));
 
 			exitModel.transition()

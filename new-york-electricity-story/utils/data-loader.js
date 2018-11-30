@@ -119,24 +119,24 @@ export const hourlyDataSet = {
 		"hour": 23,
 		"load": 14985.7
 	}],
-	"normal-1": [{"hour": 0, "load": 17566.1}, {"hour": 1, "load": 16695.8}, {"hour": 2, "load": 16106.6}, {
+	"normal-1": [{"hour": 0, "load": 16280.8}, {"hour": 1, "load": 15476.4}, {"hour": 2, "load": 14929.9}, {
 		"hour": 3,
-		"load": 15771.1
-	}, {"hour": 4, "load": 15900.4}, {"hour": 5, "load": 16699.6}, {"hour": 6, "load": 18345.6}, {
+		"load": 14624.3
+	}, {"hour": 4, "load": 14707.2}, {"hour": 5, "load": 15462.6}, {"hour": 6, "load": 17058.7}, {
 		"hour": 7,
-		"load": 19611.9
-	}, {"hour": 8, "load": 20639.3}, {"hour": 9, "load": 21419.2}, {"hour": 10, "load": 22185}, {
+		"load": 18143.3
+	}, {"hour": 8, "load": 18768.3}, {"hour": 9, "load": 19134.5}, {"hour": 10, "load": 19382.8}, {
 		"hour": 11,
-		"load": 22814.7
-	}, {"hour": 12, "load": 23317.1}, {"hour": 13, "load": 23756.3}, {"hour": 14, "load": 23905.6}, {
+		"load": 19577.7
+	}, {"hour": 12, "load": 19759.9}, {"hour": 13, "load": 20106.9}, {"hour": 14, "load": 20281}, {
 		"hour": 15,
-		"load": 24114.6
-	}, {"hour": 16, "load": 24171.4}, {"hour": 17, "load": 24084.7}, {"hour": 18, "load": 23753.1}, {
+		"load": 20524.5
+	}, {"hour": 16, "load": 20720.2}, {"hour": 17, "load": 20609}, {"hour": 18, "load": 20337.2}, {
 		"hour": 19,
-		"load": 23804.9
-	}, {"hour": 20, "load": 23302.2}, {"hour": 21, "load": 22136}, {"hour": 22, "load": 20685.4}, {
+		"load": 20515
+	}, {"hour": 20, "load": 20132.2}, {"hour": 21, "load": 19231.1}, {"hour": 22, "load": 17987.9}, {
 		"hour": 23,
-		"load": 19190.8
+		"load": 16759
 	}],
 	"normal-2": [{"hour": 0, "load": 15672.4}, {"hour": 1, "load": 14998.2}, {"hour": 2, "load": 14624.7}, {
 		"hour": 3,

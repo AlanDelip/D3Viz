@@ -27,7 +27,7 @@
         <div class="go-down">》</div>
     </div>
     <div class="calendar-intro gradient-bg">
-        <div class="go-down">First, let's get some <u>general inspirations</u></div>
+        <div class="go-down-text">First, let's get some <u>general inspirations</u></div>
         <div class="subtitle-wrapper">
             <div class="subtitle">
                 <b class="label">Calendar View</b>
@@ -173,7 +173,7 @@
 </section>
 
 <section id="relation-exploration">
-    <div class="title">What is affecting electricity use?</div>
+    <div class="title">What is affecting the electricity use?</div>
     <div class="subtitle">Relation Exploration</div>
     <div class="split"></div>
     <div class="relation-intro">
@@ -183,6 +183,10 @@
         </div>
         <div>
             Starting from the 6 categorized types will be a great approach.
+        </div>
+        <div>
+            Here let's try to transform dots in the calendar view into an axis system using x-position to indicate
+            categories and y-position to indicate the consumption.
         </div>
     </div>
     <div class="labels">
@@ -262,7 +266,7 @@
             <div class="description">
                 <div>
                     Since the temperature has the biggest visual effect on the electricity load, we're now trying to
-                    use a temperature axis to separate the factor and see more details.
+                    use temperature as the x-axis to separate the factor and see more details.
                 </div>
                 <div>
                     Hover on one of the labels, we can see corresponding data in a highlighted form.
@@ -292,7 +296,8 @@
                 </div>
                 <div>
                     Both natural(temperature) and human(weekends) factors contribute to the abnormality in
-                    electricity consumption.
+                    electricity consumption. For the temperature factor, the electricity usage tends to go higher
+                    when it gets closer to either end of its extremes(cold or hot).
                 </div>
             </div>
         </div>
@@ -300,114 +305,116 @@
 </section>
 
 <section id="one-day-exploration">
-    <div id="typical-day-exploration-trigger-1"></div>
+    <div class="title">How factors affect the electricity use?</div>
+    <div class="subtitle">Typical Days Exploration</div>
     <div class="split"></div>
-    <div class="title">Typical Days Exploration</div>
-    <div id="one-day-labels" class="labels hidden">
-        <div class="label">
-            <div id="one-day-high-temp" class="dot high-temp"></div>
-            <div class="text">High Temperature</div>
-            <div class="next-text"><b>July 2, 2018</b></div>
+    <div class="one-day-intro">
+        <div>
+            Previously, we've already explored some effects based on a daily view.
         </div>
-        <div class="label">
-            <div class="dot low-temp"></div>
-            <div>Low Temperature</div>
+        <div>
+            What about narrowing down to a hourly view?
         </div>
-        <div class="label">
-            <div class="dot holiday"></div>
-            <div>Holidays</div>
+        <div>
+            Do the factors influence daily electricity pattern?
         </div>
-        <div class="label">
-            <div class="dot event"></div>
-            <div>Events</div>
-        </div>
-        <div class="label">
-            <div class="dot weekend"></div>
-            <div>Weekends</div>
-        </div>
-        <div class="label">
-            <div class="dot normal"></div>
-            <div>Normal days</div>
+        <div>
+            After encoding and analyzing the hourly data, two common effects are found below.
         </div>
     </div>
     <div class="scene-container">
-        <div id="typical-day-exploration-trigger-2"></div>
+        <!--<div id="typical-day-exploration-trigger-2"></div>-->
+        <div id="typical-day-exploration-trigger-4"></div>
+        <div id="typical-day-exploration-trigger-5"></div>
         <div id="typical-day-temp-chart"></div>
         <div id="typical-scene" class="desc-container">
+            <!--<div class="description">-->
+            <!--<div class="d-title">A Hot Day</div>-->
+            <!--<div>-->
+            <!--Looking closer into <b>July 2, 2018</b>, an extremely hot day with highest temperature over 96.8 °F.-->
+            <!--</div>-->
+            <!--</div>-->
+            <!--<div class="l-space"></div>-->
+            <!--<div id="typical-day-exploration-trigger-3"></div>-->
+            <!--<div class="description">-->
+            <!--The electricity load peak at <b>3p.m.</b> are highlighted. It's commonly seen during-->
+            <!--summer time due to high consumption from air conditioners which defend the hot weather.-->
+            <!--</div>-->
+            <!--<div class="space"></div>-->
+            <!--<div id="typical-day-exploration-trigger-4"></div>-->
+            <!--<div class="description">-->
+            <!--<div>-->
+            <!--<div class="d-title">Summer Days</div>-->
+            <!--<div>Now let's try to mix typical days together. Here's a mix of 2 hot days.</div>-->
+            <!--<div class="mix-days">-->
+            <!--<div class="mix-day">-->
+            <!--<div class="dot high-temp"></div>-->
+            <!--<div>July 2, 2018</div>-->
+            <!--</div>-->
+            <!--<div class="mix-day">-->
+            <!--<div class="dot high-temp"></div>-->
+            <!--<div>August 6, 2018</div>-->
+            <!--</div>-->
+            <!--</div>-->
+            <!--</div>-->
+            <!--<div>-->
+            <!--It's not hard to find out that <b>hot days</b> are sharing a similar pattern in hourly distribution.-->
+            <!--The peak hour appears around 3p.m. which is the hottest working hour.-->
+            <!--</div>-->
+            <!--</div>-->
+            <!--<div class="space"></div>-->
             <div class="description">
-                After we've gained some senses on what is affecting the electricity load, it's time to look into
-                how these factors influence the daily load pattern.
-            </div>
-            <div class="l-space"></div>
-            <div class="description">
-                <div class="d-title">A Hot Day</div>
-                <div>
-                    Looking closer into <b>July 2, 2018</b>, an extremely hot day with highest temperature over 96.8 °F.
-                </div>
-            </div>
-            <div class="l-space"></div>
-            <div id="typical-day-exploration-trigger-3"></div>
-            <div class="description">
-                The electricity load peak at <b>3p.m.</b> are highlighted. It's commonly seen during
-                summer time due to high consumption from air conditioners which defend the hot weather.
-            </div>
-            <div class="space"></div>
-            <div id="typical-day-exploration-trigger-4"></div>
-            <div class="description">
-                <div>
-                    <div class="d-title">Summer Days</div>
-                    <div>Now let's try to mix typical days together. Here's a mix of 2 hot days.</div>
-                    <div class="mix-days">
-                        <div class="mix-day">
-                            <div class="dot high-temp"></div>
-                            <div>July 2, 2018</div>
-                        </div>
-                        <div class="mix-day">
-                            <div class="dot high-temp"></div>
-                            <div>August 6, 2018</div>
-                        </div>
+                <div class="d-title"><i>Temperature Effect</i></div>
+                <div class="mix-days">
+                    <div class="mix-day">
+                        <div class="dot high-temp"></div>
+                        <div>July 2, 2018</div>
+                    </div>
+                    <div class="mix-day">
+                        <div class="dot high-temp"></div>
+                        <div>August 6, 2018</div>
+                    </div>
+                    <div class="mix-day">
+                        <div class="dot low-temp"></div>
+                        <div>Jan 1, 2018</div>
+                    </div>
+                    <div class="mix-day">
+                        <div class="dot low-temp"></div>
+                        <div>Jan 8, 2018</div>
                     </div>
                 </div>
                 <div>
-                    It's not hard to find out that <b>hot days</b> are sharing a similar pattern in hourly distribution.
-                    The peak hour appears around 3p.m. which is the hottest working hour.
-                </div>
-            </div>
-            <div class="space"></div>
-            <div id="typical-day-exploration-trigger-5"></div>
-            <div class="description">
-                <div class="d-title">Winter Days</div>
-                <div>
-                    What about <b>chilly days</b>? We now try to compare a hot day with a chilly day.
-                    <div class="mix-days">
-                        <div class="mix-day">
-                            <div class="dot high-temp"></div>
-                            <div>July 2, 2018</div>
-                        </div>
-                        <div class="mix-day">
-                            <div class="dot low-temp"></div>
-                            <div>Jan 1, 2018</div>
-                        </div>
-                        <div class="mix-day">
-                            <div class="dot low-temp"></div>
-                            <div>Jan 8, 2018</div>
-                        </div>
-                    </div>
+                    Generally, from the previous part, we notice that the electricity usage tends to go higher
+                    when either the temperature goes higher or lower.
                 </div>
                 <div>
-                    On <b>chilly days</b>, heaters, replacing air conditioners, become the biggest consumers.
-                    Comparing to the pattern of hot days, the one of chilly days shifts towards later time.
+                    What's more, it's not hard to find out here that hot or cold days share different patterns in
+                    hourly distribution.
                 </div>
                 <div>
-                    The peak hours appear around 12p.m. and 6p.m. which is near the lunch time and the dinner time.
+                    For <b>summer time, the peak hour appears around 3p.m.</b> which is the hottest
+                    working hour.
                 </div>
+                <div>
+                    For <b>winter time, the peak hours appear around 12p.m. and 6p.m.</b> which are near
+                    the lunch and the dinner time.
+                </div>
+                <small>
+                    *Note that most space heaters in apartments are using natural gas
+                    and fuel oil which are not counted here.
+                </small>
             </div>
             <div class="space"></div>
             <div id="typical-day-exploration-trigger-6"></div>
             <div class="description">
                 <div>
-                    <div class="d-title">Lovely Weekends</div>
+                    <div class="d-title"><i>Weekends Effect</i></div>
                     <div class="mix-days">
+                        <div class="mix-day">
+                            <div class="dot normal"></div>
+                            <div>Sep 20, 2018</div>
+                            <div>Thursday</div>
+                        </div>
                         <div class="mix-day">
                             <div class="dot normal"></div>
                             <div>Sep 21, 2018</div>
@@ -426,20 +433,21 @@
                     </div>
                 </div>
                 <div>
-                    On <b>weekends</b>, both the load and pattern are different. With total consumption goes down,
-                    peak hours don't show up with the range working hours as well.
-                    Instead, peak hours are moving towards the lunch time and the dinner time.
+                    On weekends, both the load and pattern are different. With total consumption goes down,
+                    peak hours don't show up within the range working hours as well.
+                    Instead, <b>peak hours are moving towards the lunch time and the dinner time</b> and the working
+                    hours tend to form a flat in between.
                 </div>
             </div>
             <div class="l-space"></div>
             <div class="description">
                 <div class="d-title">Historical Events</div>
                 <div>
-                    There're also some interesting historical events to be explored.
+                    Finally, there're also some interesting historical events to be explored.
                 </div>
                 <div>
-                    We extract data of the date when the certain event happened, along with the data from previous
-                    day, following day and corresponding days in 2018.
+                    We extract data of the date when the certain event happened (highlighted), along with the data from
+                    previous day, following day and corresponding days in 2018.
                 </div>
             </div>
             <div class="l-space"></div>
@@ -449,6 +457,7 @@
                     <img src="https://www.flaticon.com/premium-icon/icons/svg/805/805442.svg"/>
                 </div>
                 <div class="d-title">the 58th Presidential Inauguration</div>
+                <span>(Human Factor)</span>
                 <div>
                     <div class="mix-days">
                         <div class="mix-day">
@@ -467,7 +476,7 @@
                 <div>
                     It looks like the electricity load exceeds that of 2018. But, don't forget to look at the
                     day of week. While Jan 20 in 2017 is Friday, the Jan 20 in 2018 is Saturday. A more probable
-                    explanation here would be a <b>weekend</b> effect.
+                    explanation here would be a <b>Weekends Effect</b>.
                 </div>
             </div>
             <div class="space"></div>
@@ -477,6 +486,7 @@
                     <img src="https://image.freepik.com/free-vector/skinny-business-man-with-fat-debt-burden-paunch_3446-517.jpg"/>
                 </div>
                 <div class="d-title">the 2008 Global Financial Crisis</div>
+                <span>(Human Factor)</span>
                 <div>
                     <div class="mix-days">
                         <div class="mix-day">
@@ -495,12 +505,9 @@
                     assets.
                 </div>
                 <div>
-                    On Sep 15, the electricity load was higher than the nearby dates. At the same time,
-                    the temperature of corresponding days are: 09/14-79°F, 09/15-74°F, and 09/16-66°F.
-                </div>
-                <div>
-                    Though the temperature factor, which is one of the most effective factors, cannot be ignored in this
-                    case, the Financial Crisis did affect the electricity load.
+                    While the electricity load seems to be higher than the nearby dates, we can't draw a clear
+                    conclusion here because lots of factors like weather, temperature and more factors from the
+                    financial perspective should be considered in this case.
                 </div>
             </div>
             <div class="space"></div>
@@ -510,6 +517,7 @@
                     <img src="data:image/svg+xml;utf8;base64,PD94bWwgdmVyc2lvbj0iMS4wIj8+CjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiBoZWlnaHQ9IjUxMnB4IiB2aWV3Qm94PSItMTggMCA1MTIgNTEyLjAwMTY1IiB3aWR0aD0iNTEycHgiPjxnIGZpbGw9IiMwMGFhZGYiPjxwYXRoIGQ9Im05Ny42Mjg5MDYgNTAxLjA0Njg3NSAyNi45NzI2NTYtNjkgMjguMDE5NTMyIDEwLjk1NzAzMS0yNi45NzI2NTYgNjguOTk2MDk0em0wIDAiLz48cGF0aCBkPSJtMjM0LjMxNjQwNiA1MDEuMDQyOTY5IDI2Ljk3MjY1Ni02OSAyOC4wMjM0MzggMTAuOTUzMTI1LTI2Ljk3MjY1NiA2OXptMCAwIi8+PHBhdGggZD0ibTMwMi42MDkzNzUgNTAxLjAzOTA2MiAyNi45NzY1NjMtNjkgMjguMDE5NTMxIDEwLjk1NzAzMi0yNi45NzI2NTcgNjl6bTAgMCIvPjxwYXRoIGQ9Im0xMDguOTU3MDMxIDMzOS0yMi4zMTI1IDU1Ljg4NjcxOSAyOC4wMjM0MzggMTAuOTUzMTI1IDI2LjU4OTg0My02Ni44Mzk4NDR6bTAgMCIvPjxwYXRoIGQ9Im0zMDkuOTcyNjU2IDM0NS4yNjU2MjUtMTkuMzQ3NjU2IDQ5LjYyMTA5NCAyOC4wMTk1MzEgMTAuOTUzMTI1IDIzLjYzMjgxMy02MC41NzQyMTl6bTAgMCIvPjwvZz48cGF0aCBkPSJtMjM0LjMxNjQwNiA1MDEuMDQyOTY5IDI2Ljk3MjY1Ni02OSAyOC4wMjM0MzggMTAuOTUzMTI1LTI2Ljk3MjY1NiA2OXptMCAwIiBmaWxsPSIjMDA3ZmM1Ii8+PHBhdGggZD0ibTMwMi42MDkzNzUgNTAxLjAzOTA2MiAyNi45NzY1NjMtNjkgMjguMDE5NTMxIDEwLjk1NzAzMi0yNi45NzI2NTcgNjl6bTAgMCIgZmlsbD0iIzAwN2ZjNSIvPjxwYXRoIGQ9Im0zMDkuOTcyNjU2IDM0NS4yNjU2MjUtMTkuMzQ3NjU2IDQ5LjYyMTA5NCAyOC4wMTk1MzEgMTAuOTUzMTI1IDIzLjYzMjgxMy02MC41NzQyMTl6bTAgMCIgZmlsbD0iIzAwN2ZjNSIvPjxwYXRoIGQ9Im0zODcuNjY3OTY5IDM0OC41MTE3MTloLTI4Mi43NDIxODhjLTU3Ljg1NTQ2OSAwLTEwNC45MjU3ODEtNDcuMDcwMzEzLTEwNC45MjU3ODEtMTA0LjkyNTc4MXYtOC4wNDY4NzZjMC01My4xMzI4MTIgMzkuNzAzMTI1LTk3LjE3MTg3NCA5MS0xMDQuMDAzOTA2di0zMS41NjI1YzAtNTUuMTI1IDQ0Ljg0NzY1Ni05OS45NzI2NTYgOTkuOTcyNjU2LTk5Ljk3MjY1NmgxLjcxNDg0NGM1MC40NzY1NjIgMCA5Mi4zMzU5MzggMzcuNjAxNTYyIDk5LjAzOTA2MiA4Ni4yNjU2MjUgNDcuNTY2NDA3IDMuMTY0MDYzIDg2LjA3ODEyNiAzOS45NTcwMzEgOTEuOTIxODc2IDg2Ljc1MzkwNmg0LjAxOTUzMWM0OC4zODI4MTIgMCA4Ny43NDYwOTMgMzkuMzYzMjgxIDg3Ljc0NjA5MyA4Ny43NDYwOTRzLTM5LjM2MzI4MSA4Ny43NDYwOTQtODcuNzQ2MDkzIDg3Ljc0NjA5NHptMCAwIiBmaWxsPSIjYjZjNGNmIi8+PHBhdGggZD0ibTM4Ny42Njc5NjkgMTczLjAxOTUzMWgtNC4wMTk1MzFjLTUuODQzNzUtNDYuNzk2ODc1LTQ0LjM1NTQ2OS04My41ODk4NDMtOTEuOTIxODc2LTg2Ljc1MzkwNi00Ljk0OTIxOC0zNS45MDYyNS0yOS4wNDI5NjgtNjUuNzczNDM3LTYxLjYwOTM3NC03OC45NzI2NTZ2MzQxLjIxODc1aDE1Ny41NTA3ODFjNDguMzgyODEyIDAgODcuNzQ2MDkzLTM5LjM2MzI4MSA4Ny43NDYwOTMtODcuNzQ2MDk0cy0zOS4zNjMyODEtODcuNzQ2MDk0LTg3Ljc0NjA5My04Ny43NDYwOTR6bTAgMCIgZmlsbD0iIzk2YTNhYiIvPjxwYXRoIGQ9Im0yODMuMzgyODEyIDE0OC43NDYwOTQtMTguNTE5NTMxIDE0MC44MjAzMTJoNTEuNWwtMTI0LjMyODEyNSAyMjIuNDMzNTk0IDE4LjUxNTYyNS0xMzAuNTg1OTM4aC01MS40OTYwOTN6bTAgMCIgZmlsbD0iI2ZmZGEyZCIvPjxwYXRoIGQ9Im0yMzAuMTE3MTg4IDI0OC40Mjk2ODguOTQ5MjE4IDE5My43NDIxODcgODUuMjk2ODc1LTE1Mi42MDU0NjloLTUxLjVsMTguNTE5NTMxLTE0MC44MjAzMTJ6bTAgMCIgZmlsbD0iI2ZkYmYwMCIvPjwvc3ZnPgo="/>
                 </div>
                 <div class="d-title">Big Storm in 2017</div>
+                <span>(Natural Factor)</span>
                 <div>
                     <div class="mix-days">
                         <div class="mix-day">
@@ -525,12 +533,14 @@
                 <div>
                     A <i>Nor'easter</i> moved up the eastern US coast on March 13th to late on the 14th. Heavy snow
                     spread across parts of central New York and Pennsylvania late on March 13th. By late evening on the
-                    14th snowfall amounts range from 8 to 33 inches of snow. After the strong area of low pressure moved
-                    northeast, lake effect snow bands formed producing more snow across the area on March 15, 2017.
+                    14th snowfall amounts range from 8 to 33 inches of snow.
                 </div>
                 <div>
-                    On March 15, the average temperature went down to 23°F (comparing to 27°F on March 13 and 14).
-                    Together with the snowfall, the electricity load went up a little.
+                    On March 15, the average temperature went down to 22°F (comparing to 28°F on March 13 and 14).
+                </div>
+                <div>
+                    In this case, the <b>Temperature Effect</b> works, and together with the snowfall, the electricity
+                    load went up.
                 </div>
             </div>
         </div>
@@ -539,8 +549,14 @@
 
 <section id="ending">
     <div class="title">Human vs Nature</div>
-    <div class="subtitle">What is Driving Our Electricity Use and How?</div>
-    <div class="subtitle mt">New York, 2017.11 - 2018.10</div>
+    <div class="subtitle mt">
+        While there's no winner in electricity consumption, we should be aware of the change in electricity patterns
+        and try our best to save energy. Moreover, it will help establishing a wiser electricity policy based on these
+        patterns.
+    </div>
+    <div class="subtitle mt">
+        <b>The End.</b>
+    </div>
     <div class="appendix">
         <div>
             Designed & D3 Implemented by

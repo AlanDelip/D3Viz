@@ -67,7 +67,7 @@ export default class QuantitativeScatter {
 			.attr("y", this.margin.top - 5)
 			.attr("text-anchor", "start")
 			.style("font-weight", "bold")
-			.text("Electricity Load (Megawatts)");
+			.text("Electricity Load (Megawatt)");
 
 		let xText = this.svg.append('text')
 			.attr("x", this.width - this.margin.right - 5)
