@@ -2,10 +2,49 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="theme-color" content="#000000">
     <title>Electricity Consumption Story</title>
+    <meta name="keywords" content="zhufengxu project visualization"/>
+    <meta name="description"
+          content="Zhufeng Xu (Alan)'s personal project, sharing projects and posts related to computer science and daily life"/>
+    <meta name="author" content="Zhufeng Xu (Alan)"/>
+    <meta name="robots" content="index,follow"/>
+    <meta name="google" content="index,follow"/>
+    <meta name="googlebot" content="index,follow"/>
+    <meta name="verify" content="index,follow"/>
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"/>
     <link href="https://fonts.googleapis.com/css?family=Lora" rel="stylesheet">
     <link href="index.less" rel="stylesheet">
+    <link rel="shortcut icon" href="//s3-us-west-2.amazonaws.com/alansite/resources/favicon.ico" type="image/x-icon"/>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-130593475-1"></script>
+    <script>
+		window.dataLayer = window.dataLayer || [];
+
+		function gtag() {
+			dataLayer.push(arguments);
+		}
+
+		gtag('js', new Date());
+
+		gtag('config', 'UA-130593475-1');
+    </script>
+    <!-- Hotjar Tracking Code for https://project.alan-zhufengxu.com -->
+    <script>
+		(function (h, o, t, j, a, r) {
+			h.hj = h.hj || function () {
+				(h.hj.q = h.hj.q || []).push(arguments)
+			};
+			h._hjSettings = {hjid: 1120009, hjsv: 6};
+			a = o.getElementsByTagName('head')[0];
+			r = o.createElement('script');
+			r.async = 1;
+			r.src = t + h._hjSettings.hjid + j + h._hjSettings.hjsv;
+			a.appendChild(r);
+		})(window, document, 'https://static.hotjar.com/c/hotjar-', '.js?sv=');
+    </script>
 </head>
 <body>
 <div id="calendar-plot" class="calendar-plot-container"></div>
@@ -13,7 +52,7 @@
 <section id="intro">
     <div class="project-intro">
         <div class="title">Human vs Nature</div>
-        <div class="subtitle">What is Driving Our Electricity Use and How?</div>
+        <div class="subtitle">Which is Driving Our Electricity Use and How?</div>
         <div class="subtitle mt">New York, 2017.11 - 2018.10</div>
         <div class="appendix">
             <div>
@@ -558,6 +597,11 @@
         <b>The End.</b>
     </div>
     <div class="appendix">
+        <div>
+            <a target="_blank" href="https://www.alan-zhufengxu.com/post/8/New-York-Electricity-Consumption-Story">
+                Design Documentation & Discussion
+            </a>
+        </div>
         <div>
             Designed & D3 Implemented by
             <a target="_blank" href="https://www.alan-zhufengxu.com">Alan, Zhufeng Xu</a>

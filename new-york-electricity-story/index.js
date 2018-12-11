@@ -132,77 +132,7 @@ loadData().then(data => {
 
 	/** typical days exploration section **/
 	{
-		// createFixedScene(scrollCtrl, "#one-day-labels", {
-		// 	triggerElement: "#typical-day-exploration-trigger-1",
-		// 	duration: 400
-		// }, {
-		// 	startCB: e => {
-		// 		if (e.scrollDirection === "FORWARD") {
-		// 			d3.select("#temp-load-container .labels")
-		// 				.attr("class", "labels hidden");
-		// 			d3.select("#one-day-labels")
-		// 				.attr("class", "labels");
-		// 		} else {
-		// 			d3.select("#temp-load-container .labels")
-		// 				.attr("class", "labels");
-		// 			d3.select("#one-day-labels")
-		// 				.attr("class", "labels hidden");
-		// 		}
-		// 	},
-		// 	progressCB: e => {
-		// 		let progress = e.progress;
-		// 		d3.selectAll("#one-day-labels .label")
-		// 			.style("opacity", (d, i) => i !== 0 ? 1 - progress : 1)
-		// 			.style("transform", (d, i) => i !== 0 ? "" : `scale(${(progress + 1)})`);
-		// 		d3.select("#one-day-labels .label .text")
-		// 			.style("opacity", 1 - progress);
-		// 		d3.select("#one-day-labels .label .next-text")
-		// 			.style("opacity", progress);
-		// 	}
-		// });
-
 		let linePlot = LinePlot.of("#typical-day-temp-chart");
-
-		// createFixedScene(scrollCtrl, "#typical-day-temp-chart", {
-		// 	triggerElement: "#typical-day-exploration-trigger-2",
-		// 	duration: document.getElementById("typical-scene").offsetHeight - 400
-		// }, {
-		// 	startCB: e => {
-		// 		if (e.scrollDirection === "FORWARD") {
-		// 			// dispatch line
-		// 			linePlot.data(hourlyDataSet["hot-day-1"], "#fdb02d", "hot-day-1").draw();
-		// 		} else {
-		// 			linePlot.removeAll();
-		// 		}
-		// 	}
-		// });
-
-		// createTriggerScene(scrollCtrl, {
-		// 	triggerElement: "#typical-day-exploration-trigger-3"
-		// }, {
-		// 	startCB: e => {
-		// 		if (e.scrollDirection === "FORWARD") {
-		// 			linePlot.highlightPeak();
-		// 		} else {
-		// 			linePlot.resetPeak();
-		// 		}
-		// 	}
-		// });
-		//
-		// createTriggerScene(scrollCtrl, {
-		// 	triggerElement: "#typical-day-exploration-trigger-4"
-		// }, {
-		// 	startCB: e => {
-		// 		if (e.scrollDirection === "FORWARD") {
-		// 			linePlot.data(hourlyDataSet["hot-day-2"], "#fdb02d", "hot-day-2").draw();
-		// 			linePlot.highlightPeak();
-		// 		} else {
-		// 			linePlot.resetPeak();
-		// 			linePlot.remove("hot-day-2");
-		// 			linePlot.highlightPeak();
-		// 		}
-		// 	}
-		// });
 
 		createTriggerScene(scrollCtrl, {
 			triggerElement: "#typical-day-exploration-trigger-4"
