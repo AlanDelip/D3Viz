@@ -4,6 +4,7 @@
 @import "style/relation-exploration";
 @import "style/one-day-exploration";
 @import "style/ending";
+@import "style/mobile";
 
 ::-webkit-scrollbar {
   width: 6px;
@@ -38,4 +39,22 @@ body {
   left: 0;
   background: #666666;
   z-index: -1;
+}
+
+@media (max-width: 1024px) {
+  .pc-display {
+    display: none !important;
+  }
+
+  .mobile-display {
+    display: block !important;
+  }
+}
+
+.mobile-display {
+  display: none;
+}
+
+.pc-display {
+  display: block;
 }

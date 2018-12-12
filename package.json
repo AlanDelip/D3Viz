@@ -23,8 +23,10 @@
     "googleapis": "^27.0.0",
     "gsap": "^2.0.2",
     "intro.js": "^2.9.3",
+    "ismobilejs": "^0.5.1",
     "leaflet": "^1.3.4",
     "leaflet-shades": "^0.1.2",
+    "lodash": "^4.17.11",
     "oboe": "^2.1.4",
     "scrollmagic": "^2.0.6",
     "topojson-client": "^3.0.0"

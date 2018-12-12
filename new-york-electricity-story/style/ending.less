@@ -20,6 +20,10 @@
   .subtitle {
     font-size: 1.5em;
 
+    a {
+      color: white;
+    }
+
     &.mt {
       margin-top: 2em;
     }
@@ -28,13 +32,63 @@
   .appendix {
     position: absolute;
     bottom: 2em;
-    font-size: 1.2em;
+    font-size: .9em;
     text-align: center;
     transform: translateX(-50%);
     left: 50%;
 
     a {
       color: white;
+    }
+  }
+
+  .find-more {
+    margin-top: 2em;
+    font-size: 1.1em;
+
+    a {
+      color: white;
+    }
+  }
+
+  .share-container {
+    display: inline-block;
+    position: relative;
+    cursor: pointer;
+
+    &:hover {
+      .share-btn-container {
+        opacity: 1;
+        transform: translate(0, 0);
+      }
+    }
+
+    .share-icon-wrapper {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      b {
+        margin-right: .5em;
+        text-decoration: underline;
+      }
+    }
+
+    .share-btn-container {
+      position: absolute;
+      top: 1.5em;
+      left: 50%;
+      background: #333333;
+      padding: .5em;
+      opacity: 0;
+      transform: translate(10px, 10px);
+      transition: all .2s ease-in-out;
+
+      .share-item {
+        display: block;
+        color: white;
+        text-decoration: none;
+      }
     }
   }
 }
