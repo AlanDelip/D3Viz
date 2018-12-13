@@ -6,8 +6,10 @@
     "barchart": "parcel barcharts/index.html",
     "map": "parcel maps/index.html --global G",
     "music": "parcel music_viz/index.html",
-    "elect": "parcel new-york-electricity-story/index.html",
-    "build-elect": "parcel build new-york-electricity-story/index.html --public-url ./ -d build/new-york-electricity-story"
+    "elect-dev": "parcel new-york-electricity-story/index.html",
+    "elect-build": "parcel build new-york-electricity-story/index.html --public-url ./ -d build/new-york-electricity-story",
+    "window-dev": "parcel window-viz/index.html",
+    "window-build": "parcel build window-viz/index.html --public-url ./ -d build/window-viz"
   },
   "author": "Alan. Zhufeng Xu",
   "license": "MIT",
@@ -24,6 +26,7 @@
     "gsap": "^2.0.2",
     "intro.js": "^2.9.3",
     "ismobilejs": "^0.5.1",
+    "jquery": "^3.3.1",
     "leaflet": "^1.3.4",
     "leaflet-shades": "^0.1.2",
     "lodash": "^4.17.11",

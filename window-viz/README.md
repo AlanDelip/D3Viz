@@ -1,4 +1,4 @@
-# Window Viz
+# Window Visualization
 Visualization inspired by the light through the windows on Upper West
 110th street, New York.
 
