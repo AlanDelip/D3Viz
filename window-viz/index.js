@@ -52,4 +52,63 @@ const $ = require("jquery");
 	})();
 }
 
+/***********************************TRANSFORMATION***********************************/
+{
+	let fullG = d3.select('#full')
+		.append('g')
+		.attr('stroke', '#a58064')
+		.attr('stroke-width', 2);
 
+	fullG.append('rect')
+		.attr('fill', '#fff141')
+		.attr("x", 5)
+		.attr("y", 5)
+		.attr("width", 28)
+		.attr("height", 24);
+
+	fullG.append('rect')
+		.attr('fill', '#fff141')
+		.attr("x", 5)
+		.attr("y", 30)
+		.attr("width", 28)
+		.attr("height", 24);
+
+	let halfG = d3.select('#half')
+		.append('g')
+		.attr('stroke', '#a58064')
+		.attr('stroke-width', 2);
+
+	halfG.append('rect')
+		.attr('fill', 'transparent')
+		.attr("x", 5)
+		.attr("y", 5)
+		.attr("width", 28)
+		.attr("height", 24);
+
+	halfG.append('rect')
+		.attr('fill', '#fff141')
+		.attr("x", 5)
+		.attr("y", 30)
+		.attr("width", 28)
+		.attr("height", 24);
+
+	let noneG = d3.select('#none')
+		.append('g')
+		.attr('stroke', '#a58064')
+		.attr('stroke-width', 2);
+
+	noneG.append('rect')
+		.attr('fill', 'transparent')
+		.attr("x", 5)
+		.attr("y", 5)
+		.attr("width", 28)
+		.attr("height", 24);
+
+	noneG.append('rect')
+		.attr('fill', 'transparent')
+		.attr("x", 5)
+		.attr("y", 30)
+		.attr("width", 28)
+		.attr("height", 24);
+
+}
