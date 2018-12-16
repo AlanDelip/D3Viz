@@ -74,8 +74,9 @@
     </div>
 </section>
 
-<section class="transformation">
+<section class="transformation mt-l">
     <div class="line"></div>
+    <div class="block orange"></div>
     <div class="title">Transformation</div>
     <div class="content mt-l">
         <img alt="raw-window" src="https://c1.staticflickr.com/5/4875/44488587290_f69930b97c_b.jpg"/>
@@ -118,15 +119,78 @@
                     <div class="ml"><b>F</b>ully completed things</div>
                 </div>
             </div>
-            <div>So, I can't wait to apply these windows to the real-world scenario.</div>
+            <div>I can't wait to apply these windows to the real-world scenario.</div>
         </div>
     </div>
 </section>
 
 <section class="scenario">
     <div class="line"></div>
+    <div class="block blue"></div>
     <div class="title">Scenario</div>
     <div class="content mt-l">
+        <div>The first scenario I think of is the support of features in certain browsers.</div>
+        <div>
+            We have different choices when choosing favourite browsers.
+            However, there're underlying competition in tech field.
+        </div>
+        <div>
+            Standards made by <a href="https://www.w3.org/" target="_blank">W3C</a> are updating frequently.
+            Features coming from the community are of the most practical value. Also, they bring challenges to browsers
+            to update their functionality in time.
+        </div>
+        <div>
+            Features in the browser can be in <b>full support</b>, <b>partial support</b>, or <b>no support</b> state.
+        </div>
+        <div>
+            Consequently, using the data encoding above can be pretty suitable.
+        </div>
+        <div>
+            Here, we're going to check the support status of 4 features, which are
+            <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/transform" target="_blank">transform</a>,
+            <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Flexible_Box_Layout/Basic_Concepts_of_Flexbox"
+               target="_blank">flexbox</a>,
+            <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Grid_Layout" target="_blank">gridbox</a>
+            feature from CSS3, and
+            <a href="https://developer.mozilla.org/en-US/docs/Web/API/ServiceWorker" target="_blank">service worker</a>
+            from Browser API(Javascript).
+        </div>
+        <div>
+            <div>Also, 4 mainstream browsers are selected for testing:</div>
+            <div class="flex-wrap item-center">
+                <div class="flex-wrap flex-column item-center">
+                    <img class="icon"
+                         src="data:image/svg+xml;utf8;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iaXNvLTg4NTktMSI/Pgo8IS0tIEdlbmVyYXRvcjogQWRvYmUgSWxsdXN0cmF0b3IgMTkuMC4wLCBTVkcgRXhwb3J0IFBsdWctSW4gLiBTVkcgVmVyc2lvbjogNi4wMCBCdWlsZCAwKSAgLS0+CjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgdmVyc2lvbj0iMS4xIiBpZD0iTGF5ZXJfMSIgeD0iMHB4IiB5PSIwcHgiIHZpZXdCb3g9IjAgMCAyOTEuMzY0IDI5MS4zNjQiIHN0eWxlPSJlbmFibGUtYmFja2dyb3VuZDpuZXcgMCAwIDI5MS4zNjQgMjkxLjM2NDsiIHhtbDpzcGFjZT0icHJlc2VydmUiIHdpZHRoPSI1MTJweCIgaGVpZ2h0PSI1MTJweCI+CjxnPgoJPHBhdGggc3R5bGU9ImZpbGw6IzI2QTZEMTsiIGQ9Ik0xNDUuNjgzLDkwLjkzN2MzMC4xNywwLDU0LjYyMiwyNC40NzEsNTQuNjIyLDU0LjYyMmMwLDMwLjE3OS0yNC40NTMsNTQuNjIyLTU0LjYyMiw1NC42MjIgICBjLTMwLjE1MiwwLTU0LjYyMi0yNC40NTMtNTQuNjIyLTU0LjYyMkM5MS4wNjEsMTE1LjQwOCwxMTUuNTMyLDkwLjkzNywxNDUuNjgzLDkwLjkzN3oiLz4KCTxwYXRoIHN0eWxlPSJmaWxsOiMzREIzOUU7IiBkPSJNMTQ1LjY4MywyMTguMzk4Yy0zNi44NTIsMC02Ny4yMzEtMjcuMzg0LTcyLjA3NC02Mi45MjVMMjMuNDAyLDY4LjQxNGwtMC4wNTUtMC4xMjdsLTUuNjE3LDguMTExICAgYy0xLjM4NCwyLjU0LTIuNzMxLDUuMTE2LTMuOTY5LDcuNzQ3bC0yLjY4Niw2LjI4MmMtMC44OTIsMi4xNjctMS43NzUsNC4zNjEtMi41NjcsNi42Yy0wLjg5MiwyLjQ4NS0xLjY2Niw0Ljk5OC0yLjQwMyw3LjUyICAgbC0xLjYyLDUuNzk5Yy0wLjY3NCwyLjcwNC0xLjI0Nyw1LjQwOC0xLjc2Niw4LjEzbC0wLjk4Myw1Ljc0NGMtMC40MDEsMi42NjctMC43MSw1LjMxNy0wLjk0Nyw3Ljk2NmwtMC40NzMsNi4zNDUgICBjLTAuMTE4LDIuNDIyLTAuMTY0LDQuODM0LTAuMTY0LDcuMjU2czAuMDM2LDQuODQzLDAuMTY0LDcuMjU2bDAuNDczLDYuMzQ1YzAuMjQ2LDIuNjQ5LDAuNTY0LDUuMzE3LDAuOTQ3LDcuOTY2bDAuOTgzLDUuNzQ0ICAgYzAuNTI4LDIuNzIyLDEuMDkyLDUuNDI2LDEuNzY2LDguMTNsMS42Miw1Ljc5OWMwLjc0NywyLjUwNCwxLjUxMSw1LjAzNCwyLjQwMyw3LjUyYzAuNzkyLDIuMjIxLDEuNjg0LDQuNDA2LDIuNTY3LDYuNiAgIGMwLjg3NCwyLjA5NCwxLjcxMSw0LjE5NywyLjY4Niw2LjI3MmMxLjIzOCwyLjYzMSwyLjU4NSw1LjE4OSwzLjk3OCw3Ljc1NmwxLjgxMiwzLjU2bDAuODM4LDEuMzAyICAgYzEuNjAyLDIuNzQsMy4zNjgsNS4zNTMsNS4xNTMsNy45NjZsMi44NTksNC4yNTFjMS43MjEsMi4zNDksMy42MDUsNC41ODgsNS40OSw2Ljg0NmwzLjc2OSw0LjUxNSAgIGMxLjYzOSwxLjc5MywzLjM5NiwzLjUwNSw1LjEyNSw1LjIyNmMxLjczLDEuNzM5LDMuNDMyLDMuNTIzLDUuMjM1LDUuMTM0bDQuNTE1LDMuNzg3YzIuMjU4LDEuODY2LDQuNDk3LDMuNzUxLDYuODQ2LDUuNDggICBsNC4yMTUsMi44NzdjMi42MjIsMS43OTMsNS4yNTMsMy41Niw3Ljk2Niw1LjE1M2wxLjI5MywwLjgzOGwzLjU1LDEuODEyYzIuNTQ5LDEuMzg0LDUuMTE2LDIuNzU4LDcuNzQ3LDMuOTg3bDAuNzU2LDAuMzkxICAgbDMuNjg3LDEuNTExYzkuODUsNC4xOTcsMjAuMTM3LDcuMTY1LDMwLjYyNSw5LjEyMmw0MS41NTgtNzIuMDY1QzE1NS45MDcsMjE3Ljg0MywxNTAuODYzLDIxOC4zOTgsMTQ1LjY4MywyMTguMzk4eiIvPgoJPHBhdGggc3R5bGU9ImZpbGw6I0VGQzc1RTsiIGQ9Ik0yOTAuODUxLDEzNS42MzZsLTAuMTkxLTIuNDAzYy0xLjAyOS0xMi4xNjMtNi4wMjctMjkuNzY5LTEwLjE3OC00MS41ODZoLTg1Ljk2NiAgIGMxNC43MDIsMTMuMzE5LDIzLjk5NywzMi41LDIzLjk5Nyw1My45MTJjMCwyMy4xMDUtMTAuNzg4LDQzLjY1Mi0yNy41MzksNTYuOTg5bC01MS4yMDgsODguODE2YzE4LjAwNywwLDQyLjI1LTMuMjUsNTkuNjkzLTEwLjIyMyAgIGwwLjU5Mi0wLjE5MWwwLjkyOS0wLjM5MWM1Ljk0NS0yLjQ2NywxMS44MjYtNS4xNzEsMTcuNTUyLTguNDg1YzUuMTI1LTIuOTUsOS45MjMtNi4yNjMsMTQuNTU3LTkuNzIzbDAuMjY0LTAuMjA5ICAgYzQuNDYxLTMuMzc4LDguNjM5LTYuOTczLDEyLjYyNy0xMC43NjFsMC42MTktMC41MzdsMi4wMTItMi4wNDhjOC44MTItOC44MjIsMTYuMzc4LTE4LjU2MiwyMi41NS0yOS4wNjhsMC43MDEtMS4wMjlsMS4yNjUtMi41NTggICBjMS45ODUtMy42MDUsMy44MjQtNy4yOTIsNS40OTktMTEuMDQzbDIuMTQ4LTUuMDUzYzEuNDItMy41NiwyLjY1OC03LjE2NSwzLjc5Ni0xMC44MTVsMS41MDItNC42OTggICBjMS4zOTMtNS4wNzEsMi41MzEtMTAuMTg3LDMuMzc4LTE1LjM2N2wwLjM1NS0yLjk1YzAuNjI4LTQuNDQzLDEuMDc0LTguOTEzLDEuMzAyLTEzLjQyOGwwLjA4Mi0zLjYxNCAgIEMyOTEuMjYxLDE0NC42NzYsMjkxLjE3LDE0MC4xNTIsMjkwLjg1MSwxMzUuNjM2eiIvPgoJPHBhdGggc3R5bGU9ImZpbGw6I0UyNTc0QzsiIGQ9Ik0yNzEuNzc5LDcyLjczYy0zLjA1LTUuMjgtNi40NjQtMTAuMjA1LTEwLjA1MS0xNC45NTdsLTEuMTc0LTEuNDU3ICAgYy0zLjIyMy00LjE2LTYuNjM3LTguMTExLTEwLjI0Mi0xMS44MjZsLTIuNDQtMi41MDRjLTMuOTYtMy44OTYtOC4wNjYtNy41OTMtMTIuMzcyLTEwLjk3bC0wLjk0Ny0wLjgwMSAgIGMtNC43OTgtMy42OTYtOS44MjMtNy4wMTktMTUuMDAzLTEwLjA2bC0xLjAzOC0wLjY5MmwtMy45NDItMi4wNDhjLTIuMjc2LTEuMjI5LTQuNTQzLTIuNDU4LTYuODgyLTMuNTYgICBjLTIuMjQ5LTEuMDQ3LTQuNTE1LTEuOTc2LTYuNzgyLTIuOTEzbC01LjcwOC0yLjI3NmMtMi43NTgtMC45OTItNS41NDQtMS44My04LjMzOS0yLjY4NmwtNC42NDMtMS4zNDcgICBjLTMuMDQxLTAuNzgzLTYuMTA5LTEuNDAyLTkuMTY3LTEuOTk0bC00LjMzMy0wLjg1NmMtMi45ODYtMC40ODItNS45NzItMC43ODMtOC45NjctMS4wNjVsLTQuOTA3LTAuNTAxICAgYy0yLjU2Ny0wLjE2NC01LjEyNS0wLjE0Ni03LjcxMS0wLjE4MkwxNDAuODEzLDBsLTQuOTE2LDAuMzU1Yy0xMC44NywwLjcyOC0yMS43NCwyLjY2Ny0zMi40MTgsNS44OTlsLTIuMjEyLDAuNjAxICAgYy0yLjcwNCwwLjg3NC01LjM3MSwxLjkzOS04LjA0OCwyLjk4NmwtNS4xMzQsMi4wM2MtMi4yMDMsMC45MzgtNC4zNzksMi4wMzktNi41NjQsMy4xMjNjLTIuMTEyLDEuMDM4LTQuMjMzLDIuMDg1LTYuMzA5LDMuMjQxICAgbC0yLjM2NywxLjIxMWwtMy40OTYsMi4yNThjLTIuMDY3LDEuMjc1LTQuMTE1LDIuNTc2LTYuMTI3LDMuOTZjLTEuOTY2LDEuMzc1LTMuOTA1LDIuNzc3LTUuNzk5LDQuMjE1bC01LjAwNywzLjk5NyAgIGMtMi4wNjcsMS43My00LjA3OCwzLjQ4Ny02LjAzNiw1LjMwN2wtMy43MTQsMy42MjNjLTIuMTU4LDIuMTY3LTQuMjcsNC4zNy02LjI2Myw2LjY0NmwtMS4zNTYsMS42MzlsNDEuNDMxLDcxLjg3NCAgIGM5LjUxMy0yOS4xNDEsMzYuODg4LTUwLjIzNCw2OS4yMTYtNTAuMjM0QzE0NS42OTIsNzIuNzMsMjcxLjc3OSw3Mi43MywyNzEuNzc5LDcyLjczeiIvPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+Cjwvc3ZnPgo="/>
+                    <b style="font-size: .8em">Chrome</b>
+                </div>
+                <div class="flex-wrap flex-column item-center ml">
+                    <img class="icon"
+                         src="data:image/svg+xml;utf8;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iaXNvLTg4NTktMSI/Pgo8IS0tIEdlbmVyYXRvcjogQWRvYmUgSWxsdXN0cmF0b3IgMTkuMC4wLCBTVkcgRXhwb3J0IFBsdWctSW4gLiBTVkcgVmVyc2lvbjogNi4wMCBCdWlsZCAwKSAgLS0+CjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgdmVyc2lvbj0iMS4xIiBpZD0iTGF5ZXJfMSIgeD0iMHB4IiB5PSIwcHgiIHZpZXdCb3g9IjAgMCAyOTEuMzIgMjkxLjMyIiBzdHlsZT0iZW5hYmxlLWJhY2tncm91bmQ6bmV3IDAgMCAyOTEuMzIgMjkxLjMyOyIgeG1sOnNwYWNlPSJwcmVzZXJ2ZSIgd2lkdGg9IjUxMnB4IiBoZWlnaHQ9IjUxMnB4Ij4KPGc+Cgk8Zz4KCQk8cGF0aCBzdHlsZT0iZmlsbDojMjZBNkQxOyIgZD0iTTE0NS42NiwwQzY1LjU0NywwLDAsNjUuNTQ3LDAsMTQ1LjY2czY1LjU0NywxNDUuNjYsMTQ1LjY2LDE0NS42NnMxNDUuNjYtNjUuNTQ3LDE0NS42Ni0xNDUuNjYgICAgUzIyNS43NzIsMCwxNDUuNjYsMHogTTE0NS42NiwyNjQuMDA4Yy02NS41NDcsMC0xMTguMzQ4LTUyLjgwMi0xMTguMzQ4LTExOC4zNDhTODAuMTEzLDI3LjMxMSwxNDUuNjYsMjcuMzExICAgIFMyNjQuMDA4LDgwLjExMywyNjQuMDA4LDE0NS42NlMyMTEuMjA2LDI2NC4wMDgsMTQ1LjY2LDI2NC4wMDh6Ii8+CgkJPHBhdGggc3R5bGU9ImZpbGw6I0UyNTc0QzsiIGQ9Ik0yMjEuMjIsNzAuMDk5bC01Ni40NDMsOTQuNjc5bC0zOC4yMzYtMzguMjM2QzEyNi41NDIsMTI2LjU0MiwyMjEuMjIsNzAuMDk5LDIyMS4yMiw3MC4wOTl6Ii8+CgkJPHBhdGggc3R5bGU9ImZpbGw6I0U0RTdFNzsiIGQ9Ik03MC4wOTksMjIxLjIybDk0LjY3OS01Ni40NDNsLTM4LjIzNi0zOC4yMzZDMTI2LjU0MiwxMjYuNTQyLDcwLjA5OSwyMjEuMjIsNzAuMDk5LDIyMS4yMnoiLz4KCTwvZz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8L3N2Zz4K"/>
+                    <b style="font-size: .8em">Safari</b>
+                </div>
+                <div class="flex-wrap flex-column item-center ml">
+                    <img class="icon"
+                         src="data:image/svg+xml;utf8;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iaXNvLTg4NTktMSI/Pgo8IS0tIEdlbmVyYXRvcjogQWRvYmUgSWxsdXN0cmF0b3IgMTkuMC4wLCBTVkcgRXhwb3J0IFBsdWctSW4gLiBTVkcgVmVyc2lvbjogNi4wMCBCdWlsZCAwKSAgLS0+CjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgdmVyc2lvbj0iMS4xIiBpZD0iTGF5ZXJfMSIgeD0iMHB4IiB5PSIwcHgiIHZpZXdCb3g9IjAgMCAyOTEuNjc4IDI5MS42NzgiIHN0eWxlPSJlbmFibGUtYmFja2dyb3VuZDpuZXcgMCAwIDI5MS42NzggMjkxLjY3ODsiIHhtbDpzcGFjZT0icHJlc2VydmUiIHdpZHRoPSI1MTJweCIgaGVpZ2h0PSI1MTJweCI+CjxnPgoJPGc+CgkJPHBhdGggc3R5bGU9ImZpbGw6IzIzOTRCQzsiIGQ9Ik0xNDUuNjYsNC4yNzdjNzUuNTYxLDAsMTM2LjU1Niw2MC45OTUsMTM2LjU1NiwxMzYuNTU2UzIyMS4yMiwyNzcuMzg5LDE0NS42NiwyNzcuMzg5ICAgIFM5LjEwNCwyMTYuMzk0LDkuMTA0LDE0MC44MzNTNzAuMDk5LDQuMjc3LDE0NS42Niw0LjI3N3oiLz4KCQk8cGF0aCBzdHlsZT0iZmlsbDojRUM4ODQwOyIgZD0iTTE2OS4zMjksMjg0LjY3MWM2OS4xODgtMTEuODM1LDEyMS45OS03MS4wMDksMTIxLjk5LTE0My44MzlsLTAuOTEsMS44MjEgICAgYzEuODIxLTEzLjY1NiwxLjgyMS0yNi40MDEtMC45MS0zNi40MTVjLTAuOTEsOC4xOTMtMS44MjEsMTIuNzQ1LTMuNjQyLDE0LjU2NmMwLTAuOTEsMC05LjEwNC0yLjczMS0yMC4wMjggICAgYy0wLjkxLTguMTkzLTIuNzMxLTE2LjM4Ny01LjQ2Mi0yMy42N2MwLjkxLDMuNjQxLDAuOTEsNi4zNzMsMC45MSw5LjEwNGMtMTAuOTI0LTI4LjIyMi0zNi40MTUtNjMuNzI2LTEwMS4wNTEtNjIuODE2ICAgIGMwLDAsMjIuNzU5LDIuNzMxLDMyLjc3MywxOC4yMDdjMCwwLTEwLjkyNC0yLjczMS0xOS4xMTgsMS44MjFjMTAuMDE0LDMuNjQxLDE5LjExOCw4LjE5MywyNi40MDEsMTIuNzQ1aDAuOTEgICAgYzEuODIxLDAuOTEsMy42NDEsMi43MzEsNS40NjIsMy42NDFjMTMuNjU2LDEwLjAxNCwyNi40MDEsMjMuNjcsMjUuNDksNDAuOTY3Yy0zLjY0MS01LjQ2Mi03LjI4My05LjEwNC0xMi43NDUtMTAuMDE0ICAgIGM2LjM3MywyNC41OCw2LjM3Myw0NC42MDgsMS44MjEsNjAuMDg1Yy0zLjY0MS0xMC45MjQtNi4zNzMtMTYuMzg3LTkuMTA0LTE5LjExOGMzLjY0MSwzMi43NzMtMC45MSw1Ni40NDMtMTUuNDc2LDcxLjkxOSAgICBjMi43MzEtOS4xMDQsMy42NDEtMTcuMjk3LDMuNjQxLTIzLjY3Yy0xNy4yOTcsMjUuNDktMzYuNDE1LDM5LjE0Ni01OC4yNjQsNDAuMDU2Yy04LjE5MywwLTE2LjM4Ny0wLjkxLTI0LjU4LTMuNjQxICAgIGMtMTAuOTI0LTMuNjQxLTIwLjkzOS0xMC4wMTQtMzAuMDQyLTE5LjExOGMxMy42NTYsMC45MSwyNy4zMTEtMC45MSwzOC4yMzYtNy4yODNsMTguMjA3LTExLjgzNWwwLDAgICAgYzIuNzMxLTAuOTEsNC41NTItMC45MSw3LjI4MywwYzQuNTUyLTAuOTEsNi4zNzMtMi43MzEsNC41NTItNy4yODNjLTEuODIxLTIuNzMxLTUuNDYyLTUuNDYyLTEwLjAxNC04LjE5MyAgICBjLTkuMTA0LTQuNTUyLTE5LjExOC0zLjY0MS0yOS4xMzIsMi43MzFjLTEwLjAxNCw1LjQ2Mi0xOS4xMTgsNS40NjItMjguMjIyLTAuOTFjLTUuNDYyLTMuNjQxLTExLjgzNS05LjEwNC0xNy4yOTctMTYuMzg3ICAgIGwtMS44MjEtMy42NDFjLTAuOTEsOC4xOTMsMCwxNy4yOTcsMy42NDEsMzAuMDQybDAsMGwwLDBjLTMuNjQxLTExLjgzNS00LjU1Mi0yMS44NDktMy42NDEtMzAuMDQybDAsMCAgICBjMC02LjM3MywyLjczMS0xMC45MjQsOC4xOTMtMTAuOTI0aC0xLjgyMWgyLjczMWM2LjM3MywwLjkxLDEyLjc0NSwxLjgyMSwyMC45MzksNC41NTJjMC45MS03LjI4MywwLTE1LjQ3Ni01LjQ2Mi0yMy42N2wwLDAgICAgYzcuMjgzLTcuMjgzLDEzLjY1Ni0xMS44MzUsMTkuMTE4LTE0LjU2NmMyLjczMS0wLjkxLDMuNjQxLTMuNjQxLDQuNTUyLTYuMzczbDAsMGwwLDBsMCwwYzEuODIxLTMuNjQxLDAuOTEtNS40NjItMC45MS03LjI4MyAgICBjLTUuNDYyLDAtMTAuMDE0LDAtMTUuNDc2LTAuOTFsMCwwYy0xLjgyMS0wLjkxLTQuNTUyLTIuNzMxLTguMTkzLTUuNDYybC04LjE5My04LjE5M2wtMi43MzEtMS44MjFsMCwwbDAsMGwwLDBsLTAuOTEtMC45MSAgICBsMC45MS0wLjkxYzAuOTEtNi4zNzMsMi43MzEtMTEuODM1LDUuNDYyLTE2LjM4N2wwLjkxLTAuOTFjMi43MzEtNC41NTIsOC4xOTMtOS4xMDQsMTUuNDc2LTE0LjU2NiAgICBjLTE0LjU2NiwxLjgyMS0yNy4zMTEsOC4xOTMtMzkuMTQ2LDE5LjExOGMtOS4xMDQtMi43MzEtMjAuOTM5LTEuODIxLTMzLjY4NCwzLjY0MWwtMS44MjEsMC45MWwwLDBsMS44MjEtMC45MWwwLDAgICAgYy04LjE5My0zLjY0MS0xMy42NTYtMTQuNTY2LTE2LjM4Ny0zMi43NzNDMjAuOTM5LDM2LjE0LDE2LjM4Nyw1NS4yNTgsMTYuMzg3LDgxLjY1OWwtMi43MzEsNC41NTJsLTAuOTEsMC45MWwwLDBsMCwwbDAsMCAgICBjLTEuODIxLDIuNzMxLTMuNjQxLDYuMzczLTYuMzczLDEwLjkyNGMtMy42NDEsNy4yODMtNS40NjIsMTIuNzQ1LTUuNDYyLDE4LjIwN2wwLDBsMCwwdjEuODIxbDAsMGMwLDAuOTEsMCwyLjczMSwwLDMuNjQxICAgIGw4LjE5My02LjM3M2MtMi43MzEsOC4xOTMtNS40NjIsMTYuMzg3LTYuMzczLDI0LjU4djMuNjQxTDAsMTQwLjgzM2MwLDMwLjk1MywxMC4wMTQsNjAuMDg1LDI2LjQwMSw4My43NTRsMC45MSwwLjkxbDAuOTEsMC45MSAgICBjMTEuODM1LDE2LjM4NywyNy4zMTEsMzAuMDQyLDQ1LjUxOSw0MC45NjdjMTIuNzQ1LDcuMjgzLDI2LjQwMSwxMi43NDUsNDAuOTY3LDE2LjM4N2wyLjczMSwwLjkxICAgIGMyLjczMSwwLjkxLDYuMzczLDAuOTEsOS4xMDQsMS44MjFjMi43MzEsMCw0LjU1MiwwLjkxLDcuMjgzLDAuOTFoMi43MzFoNC41NTJoNC41NTJoMy42NDFoNi4zNzNjMy42NDEsMCw3LjI4My0wLjkxLDEwLjkyNC0wLjkxICAgIEMxNjYuNTk4LDI4NC42NzEsMTY5LjMyOSwyODQuNjcxLDE2OS4zMjksMjg0LjY3MXogTTI2MS4yNzcsMTA3LjE0OXYwLjkxVjEwNy4xNDlMMjYxLjI3NywxMDcuMTQ5eiIvPgoJPC9nPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+Cjwvc3ZnPgo="/>
+                    <b style="font-size: .8em">Firefox</b>
+                </div>
+                <div class="flex-wrap flex-column item-center ml">
+                    <img class="icon"
+                         src="data:image/svg+xml;utf8;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iaXNvLTg4NTktMSI/Pgo8IS0tIEdlbmVyYXRvcjogQWRvYmUgSWxsdXN0cmF0b3IgMTkuMC4wLCBTVkcgRXhwb3J0IFBsdWctSW4gLiBTVkcgVmVyc2lvbjogNi4wMCBCdWlsZCAwKSAgLS0+CjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgdmVyc2lvbj0iMS4xIiBpZD0iTGF5ZXJfMSIgeD0iMHB4IiB5PSIwcHgiIHZpZXdCb3g9IjAgMCAyNzIuNjAzIDI3Mi42MDMiIHN0eWxlPSJlbmFibGUtYmFja2dyb3VuZDpuZXcgMCAwIDI3Mi42MDMgMjcyLjYwMzsiIHhtbDpzcGFjZT0icHJlc2VydmUiIHdpZHRoPSI1MTJweCIgaGVpZ2h0PSI1MTJweCI+CjxnPgoJPGc+CgkJPGc+CgkJCTxwYXRoIHN0eWxlPSJmaWxsOiMyNkE2RDE7IiBkPSJNMTA3LjYyMyw2Ny4yMjZjLTEwLjkyNCwxMS44MzUtMTYuMzg3LDI2LjQwMS0xOC4yMDcsNDEuODc3YzMyLjc3MywwLDY0LjYzNiwwLDk2LjQ5OSwwICAgICBjMC0yLjczMSwwLTQuNTUyLDAtNy4yODNjLTAuOTEtMTAuMDE0LTIuNzMxLTIwLjAyOC04LjE5My0yOS4xMzJjLTcuMjgzLTExLjgzNS0xOS4xMTgtMTguMjA3LTMyLjc3My0yMC4wMjggICAgIGMtMjAuMDI4LTMuNjQxLTM5LjE0NiwwLTU3LjM1Myw3LjI4M2MtMjcuMzExLDEwLjAxNC01MC4wNywyNi40MDEtNjguMjc4LDQ4LjI1Yy0yLjczMSwzLjY0MS01LjQ2Miw4LjE5My05LjEwNCwxMi43NDUgICAgIGMwLTIuNzMxLDAtMy42NDEsMC45MS01LjQ2MmMzLjY0MS0yNS40OSwxMi43NDUtNTAuMDcsMzAuMDQyLTcwLjA5OUM2MS4xOTUsMjEuNzA4LDg2LjY4NSw3LjE0MiwxMTcuNjM4LDEuNjggICAgIGMzMC4wNDItNC41NTIsNTguMjY0LDAsODQuNjY1LDE1LjQ3NmMyNC41OCwxMy42NTYsNDAuOTY3LDM0LjU5NCw1MC45ODEsNjAuOTk1YzUuNDYyLDE0LjU2Niw4LjE5MywzMC45NTMsOS4xMDQsNDYuNDI5ICAgICBjMCwxMC4wMTQsMCwyMC4wMjgsMCwzMC4wNDJjMCwwLjkxLDAsMS44MjEsMCwzLjY0MWMtNTcuMzUzLDAtMTEzLjc5NiwwLTE3MS4xNSwwYzAsMTMuNjU2LDQuNTUyLDI2LjQwMSwxMy42NTYsMzYuNDE1ICAgICBjMTAuOTI0LDExLjgzNSwyNS40OSwxNy4yOTcsNDAuMDU2LDIwLjAyOGMzMi43NzMsNC41NTIsNjIuODE2LTAuOTEsOTEuMDM3LTE3LjI5N2MwLjkxLDAsMS44MjEtMC45MSwxLjgyMS0wLjkxczAsMCwwLjkxLDAgICAgIGMwLDAuOTEsMCwxLjgyMSwwLDIuNzMxYzAsMTcuMjk3LDAsMzQuNTk0LDAsNTEuODkxYzAsMS44MjEtMC45MSwyLjczMS0yLjczMSwzLjY0MWMtMjAuMDI4LDEwLjAxNC00MS44NzcsMTYuMzg3LTY0LjYzNiwxNy4yOTcgICAgIGMtMTQuNTY2LDAuOTEtMjkuMTMyLDAuOTEtNDIuNzg3LTEuODIxYy00Mi43ODctOS4xMDQtNzcuMzgyLTQwLjA1Ni04NS41NzUtODQuNjY1Yy05LjEwNC01MC45ODEsMTUuNDc2LTk3LjQxLDYzLjcyNi0xMTguMzQ4ICAgICBDMTA2LjcxMyw2Ny4yMjYsMTA2LjcxMyw2Ny4yMjYsMTA3LjYyMyw2Ny4yMjZ6Ii8+CgkJPC9nPgoJPC9nPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+Cjwvc3ZnPgo="/>
+                    <b style="font-size: .8em">Edge</b>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="case-exploration">
+    <div class="transition"></div>
+    <div class="case-wrapper">
+        <div class="title">Browser Evolution Status</div>
+        <div class="subtitle">With Window Visualization, 12/15/2018</div>
+        <div class="content">
+
+        </div>
     </div>
 </section>
 

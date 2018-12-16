@@ -1,5 +1,6 @@
 const d3 = require("d3");
 const $ = require("jquery");
+const SupportPlot = require("./support-plot");
 
 /***********************************INTRO***********************************/
 {
@@ -110,5 +111,10 @@ const $ = require("jquery");
 		.attr("y", 30)
 		.attr("width", 28)
 		.attr("height", 24);
+
+}
+
+/***********************************CASE***********************************/
+{
 
 }

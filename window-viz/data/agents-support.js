@@ -1,5 +1,4 @@
-const caniuse = require('caniuse-api');
-const agents = {
+export const agents = {
 	"ie": {
 		"browser": "IE",
 		"abbr": "IE",
@@ -1991,7 +1990,8 @@ const agents = {
 		"current_version": "7.12"
 	}
 };
-const support = {
+
+export const support = {
 	"transforms2d": {
 		chrome: {y: 4, x: 35},
 		firefox: {n: 3, y: 3.5, x: 15},
@@ -2017,38 +2017,3 @@ const support = {
 		edge: {a: 15, x: 15, y: 16}
 	}
 };
-
-function processData() {
-	const features = ["transforms2d", "flexbox", "serviceworkers", "css-grid"];
-	let supports = {"transforms2d": {}, "flexbox": {}, "serviceworkers": {}, "css-grid": {}};
-	features.forEach(feature => {
-		try {
-			let support = caniuse.getSupport(feature);
-			supports[feature]["chrome"] = support.chrome;
-			supports[feature]["firefox"] = support.firefox;
-			supports[feature]["safari"] = support.safari;
-			supports[feature]["edge"] = support.edge;
-			console.log(supports);
-
-		} catch (e) {
-			console.log(e, "didn't find the feature")
-		}
-	});
-}
-
-function processReleaseData() {
-	let dates = [];
-	let year = 2015, month = 7;
-	let currentTime = new Date();
-	currentTime.setFullYear(2015, 7);
-	currentTime = currentTime.getTime() / 1000;
-
-
-	// agents["chrome"].forEach(agent => {
-	// 	let versionInfo = agent.version_list;
-	// 	let version = versionInfo.version;
-	// 	let date = versionInfo.release_date;
-	// })
-}
-
-processReleaseData();
