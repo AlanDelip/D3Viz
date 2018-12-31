@@ -4,11 +4,11 @@ readme files inside the project.
 
 Warm welcome from [Alan's Site](https://alan-zhufengxu.com "Alan's Site") or my [Observable homepage](https://beta.observablehq.com/@alandelip "Observable Notebook for d3")!
 
-## Projects
-- [New York Electricity Story](new-york-electricity-story)
-- [Music Viz](music-viz)
+## Related Projects
+- [New York Electricity Story](https://github.com/AlanDelip/new-york-electricity-story)
+- [Window Viz](https://github.com/AlanDelip/window-visualization)
 - [DevOps Viz](devops-viz)
-- [Window Viz](window-viz)
+- [Music Viz](music-viz)
 
 ## D3 Basic Practices
 ### [Bar Chart](barcharts)

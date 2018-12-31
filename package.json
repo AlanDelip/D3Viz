@@ -5,11 +5,7 @@
   "scripts": {
     "barchart": "parcel barcharts/index.html",
     "map": "parcel maps/index.html --global G",
-    "music": "parcel music_viz/index.html",
-    "elect-dev": "parcel new-york-electricity-story/index.html",
-    "elect-build": "parcel build new-york-electricity-story/index.html --public-url ./ -d build/new-york-electricity-story",
-    "window-dev": "parcel window-viz/index.html",
-    "window-build": "parcel build window-viz/index.html --public-url ./ -d build/window-viz"
+    "music": "parcel music_viz/index.html"
   },
   "author": "Alan. Zhufeng Xu",
   "license": "MIT",
